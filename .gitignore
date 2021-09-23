@@ -1,0 +1,9 @@
+# dotnet standard
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
+# others
+.DS_Store
