@@ -4,7 +4,6 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <AssemblyName>de.brickmakers.SecurityEngineering.AspSecurityHeaders</AssemblyName>
         <RootNamespace>de.brickmakers.SecurityEngineering.AspSecurityHeaders</RootNamespace>
-        <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>de.brickmakers.SecurityEngineering.AspSecurityHeaders</PackageId>
         <Title>AspSecurityHeaders</Title>
