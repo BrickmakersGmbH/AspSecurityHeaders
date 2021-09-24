@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
         <AssemblyName>de.brickmakers.SecurityEngineering.AspSecurityHeaders</AssemblyName>
         <RootNamespace>de.brickmakers.SecurityEngineering.AspSecurityHeaders</RootNamespace>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -17,6 +16,14 @@
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <FileVersion>1.0.0</FileVersion>
         <PackageVersion>1.0.0</PackageVersion>
+        <TargetFrameworks>net5.0;netcoreapp3.1;netstandard2.0;netstandard2.1</TargetFrameworks>
+        <LangVersion>default</LangVersion>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+      <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.16.0" />
+    </ItemGroup>
 
 </Project>
