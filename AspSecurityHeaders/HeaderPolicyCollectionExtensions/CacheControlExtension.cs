@@ -1,4 +1,3 @@
-using System;
 using Microsoft.AspNetCore.Builder;
 
 namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyCollectionExtensions
