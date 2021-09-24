@@ -53,7 +53,8 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicies
             var permissionName = permission.Substring(0, equalsIndex);
             var permissionValue = permission.Substring(equalsIndex + 1);
             var featureValues = ExtractPermissionValues(permissionValue)
-                .Select(ConvertToFeatureDirective);
+                .Select(ConvertToFeatureDirective)
+                .ToList();
             return $"{permissionName} {string.Join(" ", featureValues)};";
         }
 
@@ -70,7 +71,11 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicies
 
         private static IEnumerable<string> ExtractPermissionValues(string permissionValue)
         {
-            if (permissionValue.StartsWith("(") && permissionValue.EndsWith(")"))
+            if (permissionValue.Equals("()"))
+            {
+                return new[] { "none" };
+            }
+            else if (permissionValue.StartsWith("(") && permissionValue.EndsWith(")"))
             {
                 return permissionValue.Substring(1, permissionValue.Length - 2).Split(' ');
             }

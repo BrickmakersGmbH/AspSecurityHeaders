@@ -14,6 +14,34 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyColl
         {
             headerPolicyCollection.AddPermissionsPolicy(builder =>
             {
+                builder.AddAccelerometer().None();
+                builder.AddAmbientLightSensor().None();
+                builder.AddCamera().None();
+                builder.AddCustomFeature("clipboard-read").None();
+                builder.AddCustomFeature("clipboard-write").None();
+                builder.AddCustomFeature("display-capture").None();
+                builder.AddCustomFeature("document-domain").None();
+                builder.AddEncryptedMedia().None();
+                builder.AddFederatedLearningOfCohortsCalculation().None();
+                builder.AddGeolocation().None();
+                builder.AddGyroscope().None();
+                builder.AddMagnetometer().None();
+                builder.AddMicrophone().None();
+                builder.AddMidi().None();
+                builder.AddPayment().None();
+                builder.AddCustomFeature("publickey-credentials-get").None();
+                builder.AddCustomFeature("screen-wake-lock").None();
+                builder.AddSpeaker().None();
+                builder.AddUsb().None();
+                builder.AddVR().None();
+                builder.AddCustomFeature("web-share").None();
+                builder.AddCustomFeature("xr-spatial-tracking").None();
+                
+                builder.AddAutoplay().Self();
+                builder.AddFullscreen().Self();
+                builder.AddPictureInPicture().Self();
+                builder.AddSyncXHR().Self();
+                
                 configure(builder);
             });
             

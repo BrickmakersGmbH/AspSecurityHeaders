@@ -14,6 +14,7 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyColl
                 .AddXPermittedCrossDomainPoliciesNone()
                 .AddCacheControlNoStore()
                 .AddBmContentSecurityPolicy(builder => {})
+                .AddBmPermissionPolicy(builder => {})
                 .RemoveServerHeader();
         }
     }
