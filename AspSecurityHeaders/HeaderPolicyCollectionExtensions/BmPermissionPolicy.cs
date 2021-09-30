@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicies;
+using de.brickmakers.SecurityEngineering.AspSecurityHeaders.PermissionPolicyBuilderExtensions;
 using Microsoft.AspNetCore.Builder;
 using NetEscapades.AspNetCore.SecurityHeaders.Headers;
 
@@ -17,10 +18,10 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyColl
                 builder.AddAccelerometer().None();
                 builder.AddAmbientLightSensor().None();
                 builder.AddCamera().None();
-                builder.AddCustomFeature("clipboard-read").None();
-                builder.AddCustomFeature("clipboard-write").None();
-                builder.AddCustomFeature("display-capture").None();
-                builder.AddCustomFeature("document-domain").None();
+                builder.AddClipboardRead().None();
+                builder.AddClipboardWrite().None();
+                builder.AddDisplayCapture().None();
+                builder.AddDocumentDomain().None();
                 builder.AddEncryptedMedia().None();
                 builder.AddFederatedLearningOfCohortsCalculation().None();
                 builder.AddGeolocation().None();
@@ -29,13 +30,13 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyColl
                 builder.AddMicrophone().None();
                 builder.AddMidi().None();
                 builder.AddPayment().None();
-                builder.AddCustomFeature("publickey-credentials-get").None();
-                builder.AddCustomFeature("screen-wake-lock").None();
+                builder.AddPublickeyCredentialsGet().None();
+                builder.AddScreenWakeLock().None();
                 builder.AddSpeaker().None();
                 builder.AddUsb().None();
                 builder.AddVR().None();
-                builder.AddCustomFeature("web-share").None();
-                builder.AddCustomFeature("xr-spatial-tracking").None();
+                builder.AddWebShare().None();
+                builder.AddXrSpatialTracking().None();
                 
                 builder.AddAutoplay().Self();
                 builder.AddFullscreen().Self();

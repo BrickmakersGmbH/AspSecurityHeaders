@@ -6,7 +6,8 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyColl
     public static class BmContentSecurityPolicy
     {
         public static HeaderPolicyCollection AddBmContentSecurityPolicy(
-            this HeaderPolicyCollection headerPolicyCollection, Action<CspBuilder> cspBuilder)
+            this HeaderPolicyCollection headerPolicyCollection, Action<CspBuilder> cspBuilder, 
+            bool allowInsecureRequests = false, bool allowMixedContent = false)
         {
             return headerPolicyCollection.AddContentSecurityPolicy(builder =>
             {
@@ -14,8 +15,14 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyColl
                 builder.AddBaseUri().None();
                 builder.AddFormAction().None();
                 builder.AddFrameAncestors().None();
-                builder.AddUpgradeInsecureRequests();
-                builder.AddBlockAllMixedContent();
+                if (!allowInsecureRequests)
+                {
+                    builder.AddUpgradeInsecureRequests();
+                }
+                if (!allowMixedContent)
+                {
+                    builder.AddBlockAllMixedContent();
+                }
                 cspBuilder(builder);
             });
         }
