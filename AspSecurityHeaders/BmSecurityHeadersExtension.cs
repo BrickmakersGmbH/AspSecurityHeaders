@@ -8,13 +8,17 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders
     {
         public static void UseBmSecurityHeaders(this IApplicationBuilder applicationBuilder)
         {
-            applicationBuilder.UseSecurityHeaders(policy => policy.AddDefaultBmSecurityHeaders());
+            applicationBuilder.UseBmSecurityHeaders(policy => {});
         }
 
         public static void UseBmSecurityHeaders(this IApplicationBuilder applicationBuilder,
-            Action<HeaderPolicyCollection> configure)
+            Action<BmSecurityHeadersConfig> configure)
         {
-            applicationBuilder.UseSecurityHeaders(policy => configure(policy.AddDefaultBmSecurityHeaders()));
+            var policy = new BmSecurityHeadersConfig();
+            policy.AddDefaultBmSecurityHeaders();
+            configure(policy);
+            applicationBuilder.UseSecurityHeaders(policy);
+            applicationBuilder.UseCookiePolicy(policy.CreateCookiePolicy());
         }
     }
 }

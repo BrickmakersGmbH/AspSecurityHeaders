@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -5,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
+using Microsoft.AspNetCore.Http;
 
 namespace AspSecurityHeaders.Test.dotnetcore
 {
@@ -49,6 +51,17 @@ namespace AspSecurityHeaders.Test.dotnetcore
             app.UseRouting();
 
             app.UseAuthorization();
+            
+            app.Use(async (context, next) =>
+            {
+                context.Response.Cookies.Append("TestCookie", "value", new CookieOptions()
+                {
+                    Path = "/",
+                    Expires = DateTimeOffset.UtcNow.AddHours(1),
+                });
+
+                await next();
+            });
 
             app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
         }
