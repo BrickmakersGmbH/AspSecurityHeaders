@@ -1,6 +1,9 @@
 jobs:
   - job: deploy
+    dependsOn:
+      - build
     steps:
+      - checkout: none
       - task: UseDotNet@2
         displayName: Use .NET Core 5.x
         inputs:
