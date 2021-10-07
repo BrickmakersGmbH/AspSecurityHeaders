@@ -1,0 +1,19 @@
+jobs:
+  - job: deploy
+    steps:
+      - task: UseDotNet@2
+        displayName: Use .NET Core 5.x
+        inputs:
+          packageType: runtime
+          version: 5.x
+      - download: current
+        artifact: AspSecurityHeaders-NuGet-Package
+      - task: NuGetAuthenticate@0
+        displayName: Authenticate with dotnet-package-feed
+      - task: NuGetCommand@2
+        displayName: Publish to dotnet-package-feed
+        inputs:
+          command: push
+          publishVstsFeed: SecurityEngineering/dotnet-package-feed
+          publishPackageMetadata: true
+          allowPackageConflicts: false

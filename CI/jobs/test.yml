@@ -4,21 +4,12 @@ jobs:
 
     strategy:
       matrix:
-        linux_3.1:
-          imageName: ubuntu-latest
-          dotnetVersion: 3.1.x
         linux_5:
           imageName: ubuntu-latest
           dotnetVersion: 5.x
-        mac_3.1:
-          imageName: 'macOS-latest'
-          dotnetVersion: 3.1.x
         mac_5:
           imageName: 'macOS-latest'
           dotnetVersion: 5.x
-        windows_3.1:
-          imageName: 'windows-latest'
-          dotnetVersion: 3.1.x
         windows_5:
           imageName: 'windows-latest'
           dotnetVersion: 5.x

@@ -13,3 +13,10 @@ stages:
     jobs:
       - template: jobs/build.yml
       - template: jobs/test.yml
+
+  - stage: deploy_stage
+    displayName: Deploy
+    dependsOn:
+      - build_stage
+    jobs:
+      - template: jobs/deploy.yml
