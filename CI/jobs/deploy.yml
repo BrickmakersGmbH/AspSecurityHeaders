@@ -8,8 +8,9 @@ jobs:
           packageType: runtime
           version: 5.x
       - download: current
-        artifact: AspSecurityHeaders-NuGet-Package
+        artifact: packages
         patterns: '*.nupkg'
+        displayName: Download nupkg artifact
       - task: NuGetAuthenticate@0
         displayName: Authenticate with dotnet-package-feed
       - task: NuGetCommand@2
@@ -17,6 +18,6 @@ jobs:
         inputs:
           command: push
           publishVstsFeed: SecurityEngineering/dotnet-package-feed
-          packagesToPush: AspSecurityHeaders-NuGet-Package/*.nupkg
+          packagesToPush: packages/*.nupkg
           publishPackageMetadata: true
           allowPackageConflicts: false
