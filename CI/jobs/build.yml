@@ -22,7 +22,6 @@ jobs:
         inputs:
           command: pack
           workingDirectory: AspSecurityHeaders
-      - bash: echo test > $(Build.ArtifactStagingDirectory)/test.txt
       - publish: $(Build.ArtifactStagingDirectory)
         artifact: packages
         displayName: Upload nupkg artifact
