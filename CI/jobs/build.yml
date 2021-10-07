@@ -1,0 +1,26 @@
+jobs:
+  - job: build
+    displayName: Build AspSecurityHeaders NuGet Package
+    steps:
+      - task: UseDotNet@2
+        displayName: Use .NET Core 5.x
+        inputs:
+          packageType: sdk
+          version: 5.x
+      - task: DotNetCoreCLI@2
+        displayName: Restore packages
+        inputs:
+          command: restore
+          workingDirectory: AspSecurityHeaders
+      - task: DotNetCoreCLI@2
+        displayName: Build
+        inputs:
+          command: build
+          workingDirectory: AspSecurityHeaders
+      - task: DotNetCoreCLI@2
+        displayName: Create NuGet package
+        inputs:
+          command: pack
+          workingDirectory: AspSecurityHeaders
+      - publish: $(Build.ArtifactStagingDirectory)
+        artifact: AspSecurityHeaders-NuGet-Package

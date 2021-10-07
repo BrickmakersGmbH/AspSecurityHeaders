@@ -1,0 +1,43 @@
+jobs:
+  - job: test
+    displayName: Test AspSecurityHeaders
+
+    strategy:
+      matrix:
+        linux_3.1:
+          imageName: ubuntu-latest
+          dotnetVersion: 3.1.x
+        linux_5:
+          imageName: ubuntu-latest
+          dotnetVersion: 5.x
+        mac_3.1:
+          imageName: 'macOS-latest'
+          dotnetVersion: 3.1.x
+        mac_5:
+          imageName: 'macOS-latest'
+          dotnetVersion: 5.x
+        windows_3.1:
+          imageName: 'windows-latest'
+          dotnetVersion: 3.1.x
+        windows_5:
+          imageName: 'windows-latest'
+          dotnetVersion: 5.x
+
+    pool:
+      name: Azure Pipelines
+      vmImage: $(imageName)
+
+    steps:
+      - task: UseDotNet@2
+        displayName: Use .NET Core $(dotnetVersion)
+        inputs:
+          packageType: sdk
+          version: $(dotnetVersion)
+      - task: DotNetCoreCLI@2
+        displayName: Restore packages
+        inputs:
+          command: restore
+      - task: DotNetCoreCLI@2
+        displayName: Build
+        inputs:
+          command: build
