@@ -15,5 +15,6 @@ jobs:
         inputs:
           command: push
           publishVstsFeed: SecurityEngineering/dotnet-package-feed
+          packagesToPush: AspSecurityHeaders-NuGet-Package/*.nupkg
           publishPackageMetadata: true
           allowPackageConflicts: false
