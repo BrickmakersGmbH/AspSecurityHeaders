@@ -8,6 +8,7 @@ jobs:
           version: 5.x
       - download: current
         artifact: AspSecurityHeaders-NuGet-Package
+        patterns: '**/*.nupkg'
       - task: NuGetAuthenticate@0
         displayName: Authenticate with dotnet-package-feed
       - task: NuGetCommand@2
