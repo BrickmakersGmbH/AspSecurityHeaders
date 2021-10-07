@@ -9,7 +9,6 @@ jobs:
           version: 5.x
       - download: current
         artifact: packages
-        patterns: '*.nupkg'
         displayName: Download nupkg artifact
       - task: NuGetAuthenticate@0
         displayName: Authenticate with dotnet-package-feed
