@@ -1,5 +1,10 @@
 jobs:
   - job: deploy
+    dependsOn:
+      - release
+    condition: and(succeeded(), eq(dependencies.release.outputs['version_check.deploy'], 'true'))
+    variables:
+      version: $[ dependencies.release.outputs['version_check.version'] ]
     steps:
       - checkout: none
       - task: UseDotNet@2

@@ -1,0 +1,25 @@
+jobs:
+  - job: release
+    displayName: Check Deployment required
+    steps:
+      - checkout: self
+        persistCredentials: true
+      - bash: |
+          set -e
+          git fetch --tags
+          CURRENT_VERSION=`git tag | tail -n1`
+          NEW_VERSION=`cat AspSecurityHeaders/AspSecurityHeaders.csproj | grep PackageVersion | cut -f2 -d '>' | cut -f1 -d '<'`
+          if [ "v$NEW_VERSION" == "$CURRENT_VERSION" ]; then
+            echo "##[debug]Version unchanged, skipping deployment..."
+            echo "##vso[task.setvariable variable=deploy;isOutput=true]false"
+          else
+            echo "##[debug]New Version detected: $NEW_VERSION"
+            echo "##vso[task.setvariable variable=deploy;isOutput=true]true"
+            echo "##vso[task.setvariable variable=version;isOutput=true]$NEW_VERSION"
+          fi
+        displayName: Check deployment required
+        name: version_check
+      - bash: |
+          git tag "v$(version)"
+          git push origin "v$(version)"
+        displayName: Create Tag

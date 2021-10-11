@@ -19,4 +19,5 @@ stages:
     dependsOn:
       - build_stage
     jobs:
+      - template: jobs/release.yml
       - template: jobs/deploy.yml
