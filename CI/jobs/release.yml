@@ -23,4 +23,5 @@ jobs:
           git tag "v$(version)"
           git push origin "v$(version)"
         displayName: Create Tag
+        condition: and(succeeded(), eq(variables['version_check.deploy'], 'true'))
         workingDirectory: $(Build.SourcesDirectory)
