@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders;
+using de.brickmakers.SecurityEngineering.AspSecurityHeaders.BmCookiePolicyExtensions;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
 using Microsoft.AspNetCore.Http;
 
@@ -34,7 +35,8 @@ namespace AspSecurityHeaders.Test.dotnetcore
                     builder.AddScriptSrc().Self();
                     builder.AddStyleSrc().Self();
                     builder.AddImgSrc().Self();
-                }));
+                })
+                .SetMinimumSameSitePolicy(SameSiteMode.Lax));
             
             if (env.IsDevelopment())
             {
