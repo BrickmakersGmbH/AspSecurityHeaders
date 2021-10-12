@@ -8,7 +8,7 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyColl
         {
             return headerPolicyCollection
                 .AddDefaultSecurityHeaders()
-                .AddStrictTransportSecurityMaxAgeIncludeSubDomainsAndPreload()
+                .AddStrictTransportSecurityMaxAgeIncludeSubDomains()
                 .AddXssProtectionDisabled()
                 .AddReferrerPolicyNoReferrer()
                 .AddXPermittedCrossDomainPoliciesNone()
