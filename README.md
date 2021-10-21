@@ -54,7 +54,11 @@ different middlewares might end processing early:
 ```.cs
 public void Configure(IApplicationBuilder app)
 {
+    // For "normal" Websites
     app.UseBmSecurityHeaders();
+    
+    // For APIs
+    app.UseBmApiSecurityHeaders();
 
     // ...
 }
@@ -68,7 +72,7 @@ current origin and reduces the minimum cookie same site requirements to be lax i
 ```.cs
 public void Configure(IApplicationBuilder app)
 {
-    app.UseBmSecurityHeaders(collection => collection
+    app.UseBmSecurityHeaders(collection => collection  // Or .UseBmApiSecurityHeaders for APIs
         .AddBmContentSecurityPolicy(builder =>
         {
             builder.AddScriptSrc().Self();
