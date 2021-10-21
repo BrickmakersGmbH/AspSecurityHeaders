@@ -17,5 +17,15 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyColl
                 .AddBmPermissionPolicy(builder => {})
                 .RemoveServerHeader();
         }
+        
+        public static HeaderPolicyCollection AddDefaultBmApiSecurityHeaders(this HeaderPolicyCollection headerPolicyCollection)
+        {
+            return headerPolicyCollection
+                .AddContentTypeOptionsNoSniff()
+                .AddStrictTransportSecurityMaxAgeIncludeSubDomains()
+                .AddXPermittedCrossDomainPoliciesNone()
+                .AddCacheControlNoStore()
+                .RemoveServerHeader();
+        }
     }
 }
