@@ -9,7 +9,7 @@ A small .net core package for ASP.Net Core to automatically configure secure HTT
 
 ## Installation
 First, you need to add the package source to your project. This is described
-here: https://brickmakers.visualstudio.com/SecurityEngineering/_packaging?_a=connect&feed=dotnet-package-feed
+here: https://brickmakers.visualstudio.com/SecurityEngineering/_packaging?_a=connect&feed=security-engineering-dotnet-package-feed
 Alternatively, you can check the guide below on how to add it via Rider.
 
 However, since this package feed is configured to only provide this package, you have to remove the
@@ -19,7 +19,7 @@ However, since this package feed is configured to only provide this package, you
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <packageSources>
-    <add key="dotnet-package-feed" value="https://brickmakers.pkgs.visualstudio.com/SecurityEngineering/_packaging/dotnet-package-feed/nuget/v3/index.json" />
+    <add key="security-engineering-dotnet-package-feed" value="https://brickmakers.pkgs.visualstudio.com/SecurityEngineering/_packaging/security-engineering-dotnet-package-feed/nuget/v3/index.json" />
   </packageSources>
 </configuration>
 ```
@@ -38,7 +38,7 @@ button to add a new package source.
 ![Select Nuget](doc/rider_1.png)
 
 In the dialog, you have to enter a package name and the URL to the package feed. You can enter
-anything you want for the package name, the URL should however be `https://brickmakers.pkgs.visualstudio.com/SecurityEngineering/_packaging/dotnet-package-feed/nuget/v3/index.json`.
+anything you want for the package name, the URL should however be `https://brickmakers.pkgs.visualstudio.com/SecurityEngineering/_packaging/security-engineering-dotnet-package-feed/nuget/v3/index.json`.
 Finally, press OK and Rider will ask you to log into the Azure Dev-Ops portal.
 
 ![Add Package Source](doc/rider_2.png)
@@ -56,7 +56,7 @@ public void Configure(IApplicationBuilder app)
 {
     // For "normal" Websites
     app.UseBmSecurityHeaders();
-    
+
     // For APIs
     app.UseBmApiSecurityHeaders();
 
