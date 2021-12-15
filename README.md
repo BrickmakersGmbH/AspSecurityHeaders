@@ -102,8 +102,10 @@ screen. Next, select `Sources` and click the `+` button to add a new package sou
 
 In the dialog, you have to enter a package name and the URL to the package feed. You should enter
 the following values:
+
 - Name: `security-engineering-dotnet-package-feed`
 - URL: `https://brickmakers.pkgs.visualstudio.com/SecurityEngineering/_packaging/security-engineering-dotnet-package-feed/nuget/v3/index.json`
+
 Finally, press OK and Rider will ask you to log into the Azure Dev-Ops portal.
 
 ![Add Package Source](doc/rider_2.png)
