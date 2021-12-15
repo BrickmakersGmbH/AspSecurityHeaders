@@ -28,6 +28,7 @@ jobs:
         displayName: Restore packages
         inputs:
           command: restore
+          restoreArguments: --locked-mode
       - task: DotNetCoreCLI@2
         displayName: Build
         inputs:

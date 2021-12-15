@@ -19,6 +19,7 @@
         <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
         <LangVersion>default</LangVersion>
         <Nullable>enable</Nullable>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
 
     <ItemGroup>

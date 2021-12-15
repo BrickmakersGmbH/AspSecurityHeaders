@@ -11,6 +11,7 @@ jobs:
         displayName: Restore packages
         inputs:
           command: restore
+          restoreArguments: --locked-mode
           workingDirectory: AspSecurityHeaders
       - task: DotNetCoreCLI@2
         displayName: Build
