@@ -51,6 +51,19 @@ dotnet add package --interactive de.brickmakers.SecurityEngineering.AspSecurityH
 dotnet restore --interactive
 ```
 
+**Important:** In order to prevent attacks against the package feed, you should enable lockfiles for 
+your CS-Project. This can be done by adding `RestorePackagesWithLockFile` with `true` to to csproj file:
+
+```.csproj
+<Project>
+  <PropertyGroup>
+    ...
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
+  ...
+ </Project>
+```
+
 ### Integration into DevOps Pipelines
 The integration into a DevOps Pipeline is fairly easy, as the package feed is available for the whole
 organization BRICKMAKERS, meaning that all out pipelines have implicit access to the feed. All you
@@ -66,9 +79,10 @@ this can be done as follows:
     includeNuGetOrg: true
     feedRestore: SecurityEngineering/security-engineering-dotnet-package-feed
     projects: '**/MyProject.csproj'
+    restoreArguments: --locked-mode  # required if RestorePackagesWithLockFile has been enabled
 ```
 
-When using the package outside of the Brickmakers DevOps Repository, you have to exlicitly
+When using the package outside of the Brickmakers DevOps Repository, you have to explicitly
 authenticate with it. This can be done by running the [NuGetAuthenticate@0](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/package/nuget-authenticate?view=azure-devops)
 task before restoring.
 
@@ -98,17 +112,19 @@ Now you can add `de.brickmakers.SecurityEngineering.AspSecurityHeaders` just lik
 dependency.
 
 ## Usage
-To get started, all you have to to is to register the middlware in the `Configure` method. This
-should happen near the beginning of the method to ensure the headers are added to all responses, as
-different middlewares might end processing early:
+To get started, all you have to to is to register the middleware in the `Configure` method. This
+should happen at the beginning of the method to ensure the headers are added to all responses, as
+different middlewares might end processing early, which would prevent the headers from being set:
 
 ```.cs
 public void Configure(IApplicationBuilder app)
 {
-    // For "normal" Websites
+    // Should be the first steps in the Configure method
+
+    // For "normal" Websites or combinations of Websites and APIs
     app.UseBmSecurityHeaders();
 
-    // For APIs
+    // For pure APIs
     app.UseBmApiSecurityHeaders();
 
     // ...
@@ -116,7 +132,7 @@ public void Configure(IApplicationBuilder app)
 ```
 
 This will add *all* security headers, as well as a strict CSP and cookie policy. To further
-configure it and opt out of certain security contols, you can use the `configure` parameter of the
+configure it and opt out of certain security controls, you can use the `configure` parameter of the
 method. In the following example, scripts, styles and images are allowed to be loaded from the
 current origin and reduces the minimum cookie same site requirements to be lax instead of strict.
 
