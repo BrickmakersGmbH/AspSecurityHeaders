@@ -4,6 +4,7 @@
         <Nullable>enable</Nullable>
         <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
         <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+        <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
     </PropertyGroup>
 
     <ItemGroup>

@@ -59,6 +59,8 @@ your CS-Project. This can be done by adding `RestorePackagesWithLockFile` with `
   <PropertyGroup>
     ...
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!-- You can also add the following to prevent issues with outdated caches -->
+    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
   </PropertyGroup>
   ...
  </Project>
