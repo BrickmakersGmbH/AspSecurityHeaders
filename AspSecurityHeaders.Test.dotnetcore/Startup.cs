@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders.BmCookiePolicyExtensions;
+using de.brickmakers.SecurityEngineering.AspSecurityHeaders.Controllers;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
 using Microsoft.AspNetCore.Http;
 
@@ -23,7 +24,8 @@ namespace AspSecurityHeaders.Test.dotnetcore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            services.AddMvc()
+                .AddSecurityControllers(); // works on AddRazorPages and AddControllers as well
             services.AddSwaggerGen();
         }
 
@@ -40,6 +42,7 @@ namespace AspSecurityHeaders.Test.dotnetcore
                         .Self()
                         .ReportSample();
                     builder.AddImgSrc().Self();
+                    builder.AddReportUri().To("https://localhost:5001/CspReport");
                 })
                 .SetMinimumSameSitePolicy(SameSiteMode.Lax));
             
@@ -72,7 +75,11 @@ namespace AspSecurityHeaders.Test.dotnetcore
                 await next();
             });
 
-            app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapRazorPages();
+            });
         }
     }
 }
