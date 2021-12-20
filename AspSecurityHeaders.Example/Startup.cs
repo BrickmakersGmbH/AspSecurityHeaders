@@ -32,6 +32,13 @@ namespace AspSecurityHeaders.Example
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // create "fake" server header to be removed by security headers
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("Server", "ASP.Net Core");
+                await next();
+            });
+            
             app.UseBmSecurityHeaders(collection => collection
                 .AddBmContentSecurityPolicy(builder =>
                 {

@@ -8,10 +8,10 @@ jobs:
           imageName: ubuntu-latest
           dotnetVersion: 5.x
         mac_5:
-          imageName: 'macOS-latest'
+          imageName: macOS-latest
           dotnetVersion: 5.x
         windows_5:
-          imageName: 'windows-latest'
+          imageName: windows-latest
           dotnetVersion: 5.x
 
     pool:
@@ -33,3 +33,8 @@ jobs:
         displayName: Build
         inputs:
           command: build
+      - task: DotNetCoreCLI@2
+        displayName: Test
+        inputs:
+          command: test
+          workingDirectory: AspSecurityHeaders.Test
