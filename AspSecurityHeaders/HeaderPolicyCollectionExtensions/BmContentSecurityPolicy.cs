@@ -15,6 +15,8 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyColl
                 builder.AddBaseUri().None();
                 builder.AddFormAction().None();
                 builder.AddFrameAncestors().None();
+                builder.AddScriptSrc().ReportSample();
+                builder.AddStyleSrc().ReportSample();
                 if (!allowInsecureRequests)
                 {
                     builder.AddUpgradeInsecureRequests();

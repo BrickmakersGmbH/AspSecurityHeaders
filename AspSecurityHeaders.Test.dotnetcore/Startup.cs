@@ -33,8 +33,12 @@ namespace AspSecurityHeaders.Test.dotnetcore
             app.UseBmSecurityHeaders(collection => collection
                 .AddBmContentSecurityPolicy(builder =>
                 {
-                    builder.AddScriptSrc().Self();
-                    builder.AddStyleSrc().Self();
+                    builder.AddScriptSrc()
+                        .Self()
+                        .ReportSample();
+                    builder.AddStyleSrc()
+                        .Self()
+                        .ReportSample();
                     builder.AddImgSrc().Self();
                 })
                 .SetMinimumSameSitePolicy(SameSiteMode.Lax));
