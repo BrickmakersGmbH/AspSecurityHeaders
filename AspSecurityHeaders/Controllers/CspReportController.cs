@@ -4,26 +4,27 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.Controllers;
-
-[ApiController]
-[Route("[controller]")]
-[AllowAnonymous]
-public class CspReportController : ControllerBase
+namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.Controllers
 {
-    private readonly ILogger<CspReportController> _logger;
-
-    public CspReportController(ILogger<CspReportController> logger)
+    [ApiController]
+    [Route("[controller]")]
+    [AllowAnonymous]
+    public class CspReportController : ControllerBase
     {
-        _logger = logger;
-    }
+        private readonly ILogger<CspReportController> _logger;
 
-    [HttpPost]
-    [RequestSizeLimit(100000)] // 100 kB
-    [Consumes("application/csp-report", "application/json", "text/json")]
-    public IActionResult CspReport([FromBody][Required] CspReportRequest cspReportRequest)
-    {
-        _logger.LogError("{}", cspReportRequest.CspReport);
-        return NoContent();
+        public CspReportController(ILogger<CspReportController> logger)
+        {
+            _logger = logger;
+        }
+
+        [HttpPost]
+        [RequestSizeLimit(100000)] // 100 kB
+        [Consumes("application/csp-report", "application/json", "text/json")]
+        public IActionResult CspReport([FromBody][Required] CspReportRequest cspReportRequest)
+        {
+            _logger.LogError("{}", cspReportRequest.CspReport);
+            return NoContent();
+        }
     }
 }
