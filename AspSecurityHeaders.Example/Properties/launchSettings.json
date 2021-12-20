@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "AspSecurityHeaders.Test.dotnetcore": {
+    "AspSecurityHeaders.Example": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": false,

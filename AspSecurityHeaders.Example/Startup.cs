@@ -10,7 +10,7 @@ using de.brickmakers.SecurityEngineering.AspSecurityHeaders.Controllers;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
 using Microsoft.AspNetCore.Http;
 
-namespace AspSecurityHeaders.Test.dotnetcore
+namespace AspSecurityHeaders.Example
 {
     public class Startup
     {

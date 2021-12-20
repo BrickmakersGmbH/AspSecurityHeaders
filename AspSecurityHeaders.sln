@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspSecurityHeaders", "AspSecurityHeaders\AspSecurityHeaders.csproj", "{E2E95E56-80F3-4F25-A84A-23080D7B8364}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspSecurityHeaders.Test.dotnetcore", "AspSecurityHeaders.Test.dotnetcore\AspSecurityHeaders.Test.dotnetcore.csproj", "{41E17328-2AE9-4BED-A787-99D10CEF025D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspSecurityHeaders.Example", "AspSecurityHeaders.Example\AspSecurityHeaders.Example.csproj", "{41E17328-2AE9-4BED-A787-99D10CEF025D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

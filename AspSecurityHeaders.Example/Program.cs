@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace AspSecurityHeaders.Test.dotnetcore
+namespace AspSecurityHeaders.Example
 {
     public class Program
     {
