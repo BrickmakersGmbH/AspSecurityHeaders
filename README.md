@@ -8,9 +8,11 @@ A small .net core package for ASP.Net Core to automatically configure secure HTT
     - [Known issues](#known-issues)
   - [Setup via Rider](#setup-via-rider)
 - [Usage](#usage)
+  - [Using the Built-In CSP Report Controller](#using-the-built-in-csp-report-controller)
 - [Getting Help](#getting-help)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## Features
 - Secure defaults for HTTP-Headers, CSP, Cookies and more
@@ -149,6 +151,66 @@ public void Configure(IApplicationBuilder app)
             builder.AddScriptSrc().Self();
             builder.AddStyleSrc().Self();
             builder.AddImgSrc().Self();
+        })
+        .SetMinimumSameSitePolicy(SameSiteMode.Lax));
+
+    // ...
+}
+```
+
+### Using the Built-In CSP Report Controller
+The library includes a ready-made API-Controller to automatically report CSP-Violations. It will provide
+an endpoint to be used by the browser to report CSP errors and logs them as Error message.
+If you want to use the controller, there are a few steps that need to be taken.
+
+First, you have to add the controller to the MVC instance inside of the `ConfigureServices` method.
+Typically, the `AddMvc` method is used, but you can also use any other of the MVC initializers, like
+for example `AddControllers` in case of a pure API.
+
+```.cs
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc()
+        .AddSecurityControllers(); // works on AddRazorPages and AddControllers as well
+}
+```
+
+In the case that this is the first controller you add to you project, you also need to ensure that
+controllers are correctly mapped to endpoints. You can do so via the `UseEndpoints` method at the end
+of `Configure`:
+
+```.cs
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    // do your normal setup
+    // ...
+
+    // at the end, UsePoints should already exist
+    app.UseEndpoints(endpoints =>
+    {
+        // this one must be present
+        endpoints.MapControllers();
+        
+        // other mappings, e.g. MapRazorPages, depends on your application
+        // ...
+    });
+}
+```
+
+Finally, you need to actually set the report URI in the CSP. This can be done by adding it inside the
+CSP builder of the `UseBmSecurityHeaders` by adding `AddBmReportController` to the CSP. This 
+automatically sets the report uri to the CSP controller on this server.
+
+```.cs
+public void Configure(IApplicationBuilder app)
+{
+    app.UseBmSecurityHeaders(collection => collection  // Or .UseBmApiSecurityHeaders for APIs
+        .AddBmContentSecurityPolicy(builder =>
+        {
+            // setup your CSP
+            // ...
+            
+            builder.AddBmReportController();
         })
         .SetMinimumSameSitePolicy(SameSiteMode.Lax));
 
