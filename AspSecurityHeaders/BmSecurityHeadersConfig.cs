@@ -9,6 +9,7 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders
     public class BmSecurityHeadersConfig : HeaderPolicyCollection
     {
         internal SameSiteMode MinimumSameSitePolicy = SameSiteMode.Strict;
+        // ReSharper disable once InconsistentNaming
         internal readonly List<Action<AppendCookieContext>> AddActions = new();
         internal readonly List<Action<DeleteCookieContext>> DeleteActions = new();
         internal CookieBuilder? ConsentCookieBuilder = null;
@@ -16,7 +17,7 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders
 
         internal CookiePolicyOptions CreateCookiePolicy()
         {
-            return new CookiePolicyOptions
+            var options = new CookiePolicyOptions
             {
                 Secure = CookieSecurePolicy.Always,
                 HttpOnly = HttpOnlyPolicy.Always,
@@ -27,9 +28,15 @@ namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders
                 OnDeleteCookie = DeleteActions.Count > 0
                     ? context => DeleteActions.ForEach(configure => configure(context))
                     : null,
-                ConsentCookie = ConsentCookieBuilder,
                 CheckConsentNeeded = CheckConsentNeeded,
             };
+            
+            if (ConsentCookieBuilder != null)
+            {
+                options.ConsentCookie = ConsentCookieBuilder;
+            }
+
+            return options;
         }
     }
 }

@@ -1,18 +1,20 @@
 jobs:
   - job: test
     displayName: Test AspSecurityHeaders
+    dependsOn:
+      - build
 
     strategy:
       matrix:
-        linux_5:
+        linux_6:
           imageName: ubuntu-latest
-          dotnetVersion: 5.x
-        mac_5:
+          dotnetVersion: 6.x
+        mac_6:
           imageName: macOS-latest
-          dotnetVersion: 5.x
-        windows_5:
+          dotnetVersion: 6.x
+        windows_6:
           imageName: windows-latest
-          dotnetVersion: 5.x
+          dotnetVersion: 6.x
 
     pool:
       name: Azure Pipelines
