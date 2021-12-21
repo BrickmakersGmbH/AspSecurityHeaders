@@ -19,7 +19,7 @@ jobs:
         displayName: Publish to dotnet-package-feed
         inputs:
           command: push
-          publishVstsFeed: SecurityEngineering/dotnet-package-feed
+          publishVstsFeed: SecurityEngineering/security-engineering-dotnet-package-feed
           packagesToPush: $(Pipeline.Workspace)/packages/*.nupkg
           publishPackageMetadata: true
           allowPackageConflicts: false
