@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders.BmCookiePolicyExtensions;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders.Controllers;
+using de.brickmakers.SecurityEngineering.AspSecurityHeaders.CspBuilderExtensions;
 using de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
 using Microsoft.AspNetCore.Http;
 
@@ -49,7 +50,7 @@ namespace AspSecurityHeaders.Example
                         .Self()
                         .ReportSample();
                     builder.AddImgSrc().Self();
-                    builder.AddReportUri().To("https://localhost:5001/CspReport");
+                    builder.AddBmReportController();
                 })
                 .SetMinimumSameSitePolicy(SameSiteMode.Lax));
             
