@@ -35,3 +35,4 @@ jobs:
           command: test
           workingDirectory: AspSecurityHeaders.Test
           arguments: --no-restore
+          testRunTitle: AspSecurityHeaders.Test_$(imageName)
