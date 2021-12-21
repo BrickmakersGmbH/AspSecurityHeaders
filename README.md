@@ -13,19 +13,20 @@ A small .net core package for ASP.Net Core to automatically configure secure HTT
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-
 ## Features
 - Secure defaults for HTTP-Headers, CSP, Cookies and more
 - Opt-Out mechanism for different security controls
 - Easily configurable via `IApplicationBuilder.UseBmSecurityHeaders()` extension
   - Or use `IApplicationBuilder.UseBmApiSecurityHeaders()` for API-Projects
 - Developed and Maintained by the BRICKMAKERS Security Advisory Team
+  - Based on the widely used [NetEscapades.AspNetCore.SecurityHeaders](https://github.com/andrewlock/NetEscapades.AspNetCore.SecurityHeaders)
 - Easy integration in any project and build pipelines
 
 ## Installation
 First, you need to add the package source to your project. Alternatively, you can check the guides
-below on how to integrate the feed system-wide with Rider, you so don't have to repeat these steps
-for every new project.
+below on how to integrate the feed system-wide with Rider. A per-project setup is the recommended way
+to go, but is a little more error prone. However, a project setup is more secure and easier to maintain,
+especially when working on multiple projects.
 
 ### Setup per Project
 To add the feed to one specific project only, you have to create a `nuget.config` next to the
@@ -53,15 +54,16 @@ dotnet add package --interactive de.brickmakers.SecurityEngineering.AspSecurityH
 dotnet restore --interactive
 ```
 
-**Important:** In order to prevent attacks against the package feed, you should enable lockfiles for 
-your CS-Project. This can be done by adding `RestorePackagesWithLockFile` with `true` to to csproj file:
+**⚠️ Important:** In order to prevent attacks against the package feed, you should enable lockfiles for 
+your CS-Project. This can be done by adding `RestorePackagesWithLockFile` with `true` to to csproj file.
+In addition, `DisableImplicitNuGetFallbackFolder` should also be set, as it prevents conflicts with outdated
+package versions in the nuget cache.
 
 ```.csproj
 <Project>
   <PropertyGroup>
     ...
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <!-- You can also add the following to prevent issues with outdated caches -->
     <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
   </PropertyGroup>
   ...
@@ -70,7 +72,7 @@ your CS-Project. This can be done by adding `RestorePackagesWithLockFile` with `
 
 ### Integration into DevOps Pipelines
 The integration into a DevOps Pipeline is fairly easy, as the package feed is available for the whole
-organization BRICKMAKERS, meaning that all out pipelines have implicit access to the feed. All you
+organization BRICKMAKERS, meaning that all our pipelines have implicit access to the feed. All you
 need to do is to tell the restore command to use the feed. When using the `DotNetCoreCLI@2` Task,
 this can be done as follows:
 
@@ -88,16 +90,26 @@ this can be done as follows:
 
 When using the package outside of the Brickmakers DevOps Repository, you have to explicitly
 authenticate with it. This can be done by running the [NuGetAuthenticate@0](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/package/nuget-authenticate?view=azure-devops)
-task before restoring.
+task prior to restoring.
 
 #### Known issues
 When running the publish task, it will try to restore the package even if it has already been
 restored. This leads to a whole slew of 403 errors in the logs, but the task will give up on
-restoring after about a minute and publish anyways.
+restoring after about a minute and publish anyways. To prevent this, you can add the `--no-restore` argument
+as extra argument to the step:
+
+```.yml
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: build
+    arguments: --no-restore  # Add this to prevent the 403 errors
+```
 
 ### Setup via Rider
 You can add the feed as a global package source via Rider. You only have to do this once and the you
-can use the package in all your dotnet projects.
+can use the package in all your dotnet projects. However, Rider will randomly prompt you to sign in and
+CLI-builds will not always work with this setup. Only use it, if a per project setup is not possible.
 
 First, select the `NuGet`-Tab at the bottom of the
 screen. Next, select `Sources` and click the `+` button to add a new package source.
@@ -125,7 +137,7 @@ different middlewares might end processing early, which would prevent the header
 ```.cs
 public void Configure(IApplicationBuilder app)
 {
-    // Should be the first steps in the Configure method
+    // Should be the first step in the Configure method
 
     // For "normal" Websites or combinations of Websites and APIs
     app.UseBmSecurityHeaders();
@@ -133,6 +145,7 @@ public void Configure(IApplicationBuilder app)
     // For pure APIs
     app.UseBmApiSecurityHeaders();
 
+    // continue as usual with configuring the application
     // ...
 }
 ```
@@ -140,7 +153,7 @@ public void Configure(IApplicationBuilder app)
 This will add *all* security headers, as well as a strict CSP and cookie policy. To further
 configure it and opt out of certain security controls, you can use the `configure` parameter of the
 method. In the following example, scripts, styles and images are allowed to be loaded from the
-current origin and reduces the minimum cookie same site requirements to be lax instead of strict.
+current origin and the minimum cookie same site requirements are reduced to be lax instead of strict.
 
 ```.cs
 public void Configure(IApplicationBuilder app)
@@ -160,7 +173,7 @@ public void Configure(IApplicationBuilder app)
 
 ### Using the Built-In CSP Report Controller
 The library includes a ready-made API-Controller to automatically report CSP-Violations. It will provide
-an endpoint to be used by the browser to report CSP errors and logs them as Error message.
+an endpoint to be used by the browser to report CSP errors and log them as error message.
 If you want to use the controller, there are a few steps that need to be taken.
 
 First, you have to add the controller to the MVC instance inside of the `ConfigureServices` method.
@@ -171,11 +184,12 @@ for example `AddControllers` in case of a pure API.
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc()
-        .AddSecurityControllers(); // works on AddRazorPages and AddControllers as well
+        .AddSecurityControllers();
+        // works on .AddRazorPages() and .AddControllers() as well
 }
 ```
 
-In the case that this is the first controller you add to you project, you also need to ensure that
+In the case that this is the first controller you add to your project, you also need to ensure that
 controllers are correctly mapped to endpoints. You can do so via the `UseEndpoints` method at the end
 of `Configure`:
 
@@ -185,7 +199,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     // do your normal setup
     // ...
 
-    // at the end, UsePoints should already exist
+    // at the end, UseEndpoints should already exist
     app.UseEndpoints(endpoints =>
     {
         // this one must be present
