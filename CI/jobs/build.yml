@@ -2,11 +2,7 @@ jobs:
   - job: build
     displayName: Build AspSecurityHeaders NuGet Package
     steps:
-      - task: UseDotNet@2
-        displayName: Use .NET Core 6.x
-        inputs:
-          packageType: sdk
-          version: 6.x
+      - template: ../steps/setup_sdk.yml
       - task: DotNetCoreCLI@2
         displayName: Restore packages
         inputs:
@@ -17,11 +13,13 @@ jobs:
         displayName: Build
         inputs:
           command: build
+          arguments: --no-restore
           workingDirectory: AspSecurityHeaders
       - task: DotNetCoreCLI@2
         displayName: Create NuGet package
         inputs:
           command: pack
+          arguments: --no-restore
           workingDirectory: AspSecurityHeaders
       - publish: $(Build.ArtifactStagingDirectory)
         artifact: packages

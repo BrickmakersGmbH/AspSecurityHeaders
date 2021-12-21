@@ -6,44 +6,19 @@ jobs:
 
     strategy:
       matrix:
-        linux_6:
+        linux:
           imageName: ubuntu-latest
-          dotnetVersion: 6.x
-        mac_6:
+        mac:
           imageName: macOS-latest
-          dotnetVersion: 6.x
-        windows_6:
+        windows:
           imageName: windows-latest
-          dotnetVersion: 6.x
-        linux_5:
-          imageName: ubuntu-latest
-          dotnetVersion: 5.x
-        mac_5:
-          imageName: macOS-latest
-          dotnetVersion: 5.x
-        windows_5:
-          imageName: windows-latest
-          dotnetVersion: 5.x
-        linux_3.1:
-          imageName: ubuntu-latest
-          dotnetVersion: 3.1.x
-        mac_3.1:
-          imageName: macOS-latest
-          dotnetVersion: 3.1.x
-        windows_3.1:
-          imageName: windows-latest
-          dotnetVersion: 3.1.x
 
     pool:
       name: Azure Pipelines
       vmImage: $(imageName)
 
     steps:
-      - task: UseDotNet@2
-        displayName: Use .NET Core $(dotnetVersion)
-        inputs:
-          packageType: sdk
-          version: $(dotnetVersion)
+      - template: ../steps/setup_sdk.yml
       - task: DotNetCoreCLI@2
         displayName: Restore packages
         inputs:
@@ -53,8 +28,10 @@ jobs:
         displayName: Build
         inputs:
           command: build
+          arguments: --no-restore
       - task: DotNetCoreCLI@2
         displayName: Test
         inputs:
           command: test
           workingDirectory: AspSecurityHeaders.Test
+          arguments: --no-restore
