@@ -1,24 +1,24 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
+using de.brickmakers.SecurityEngineering.AspSecurityHeaders.Controllers.Models;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace AspSecurityHeaders.Test
 {
     public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Example.Startup>>
     {
         private readonly WebApplicationFactory<Example.Startup> _factory;
-        private readonly ITestOutputHelper _output;
 
-        public SecurityHeadersTests(WebApplicationFactory<Example.Startup> factory, ITestOutputHelper output)
+        public SecurityHeadersTests(WebApplicationFactory<Example.Startup> factory)
         {
             _factory = factory;
-            _output = output;
         }
 
         [Fact]
@@ -125,11 +125,40 @@ namespace AspSecurityHeaders.Test
             csp[cspName].Should().BeEquivalentTo(cspValues);
         }
 
+        [Fact]
+        public async Task ShouldSetCorrectCookieDefaults()
+        {
+            var response = await GetIndex();
+
+            response.Headers.Should().ContainKey("Set-Cookie");
+            var cookies = response.Headers.GetValues("Set-Cookie").ToList();
+            cookies.Should().HaveCount(1);
+            var cookie = ParseCookie(cookies.First());
+
+            cookie.Should().ContainKey("secure");
+            cookie.Should().ContainKey("httponly");
+            cookie.Should().Contain(new KeyValuePair<string, string>("samesite", "lax"));
+        }
+
+        [Fact]
+        public async Task ShouldReturnNoContentForValidCspReport()
+        {
+            using var client = _factory.CreateClient();
+
+            var response = await client.PostAsync("/CspReport", JsonContent.Create(
+                new CspReportRequest
+                {
+                    CspReport = new CspReport(),
+                }, 
+                new MediaTypeHeaderValue("application/csp-report")));
+
+            response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        }
+
         private async Task<HttpResponseMessage> GetIndex()
         {
             using var client = _factory.CreateClient();
             var response = await client.GetAsync("/");
-            _output.WriteLine(response.Headers.ToString());
             return response;
         }
 
@@ -208,6 +237,28 @@ namespace AspSecurityHeaders.Test
                 .Select(cspEntry => cspEntry.Trim())
                 .Where(cspEntry => cspEntry.Length > 0)
                 .Select(ParseCsp)
+            );
+        }
+
+        private static KeyValuePair<string, string> ParseCookieValue(string cookieValue)
+        {
+            var equalsIndex = cookieValue.IndexOf('=');
+            if (equalsIndex == -1)
+            {
+                return new KeyValuePair<string, string>(cookieValue, "");
+            }
+            
+            var name = cookieValue[..equalsIndex];
+            var value = cookieValue[(equalsIndex + 1)..];
+            return new KeyValuePair<string, string>(name, value);
+        }
+
+        private static IReadOnlyDictionary<string, string> ParseCookie(string cookie)
+        {
+            return new Dictionary<string, string>(cookie
+                .Split(';')
+                .Select(value => value.Trim())
+                .Select(ParseCookieValue)
             );
         }
     }
