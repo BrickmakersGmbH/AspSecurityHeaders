@@ -1,0 +1,34 @@
+﻿name: CI-Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: |
+            3.1.x
+            5.0.x
+            6.0.x
+      - uses: actions/checkout@v2
+      - name: Restore packages
+        run: dotnet restore
+        working-directory: AspSecurityHeaders
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+        working-directory: AspSecurityHeaders
+      - name: Create NuGet package
+        run: dotnet pack --no-restore --no-build --configuration Release
+        working-directory: AspSecurityHeaders
+      - uses: actions/upload-artifact@v2
+        with:
+          name: AspSecurityHeaders.nupkg
+          path: AspSecurityHeaders/bin/Release/*.nupkg
+          if-no-files-found: error
