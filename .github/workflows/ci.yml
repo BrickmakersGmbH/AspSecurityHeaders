@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    name: Build NuGet package
     runs-on: ubuntu-latest
     steps:
       - name: Setup .NET
@@ -20,7 +21,7 @@ jobs:
             6.0.x
       - uses: actions/checkout@v2
       - name: Restore packages
-        run: dotnet restore
+        run: dotnet restore --locked-mode
         working-directory: AspSecurityHeaders
       - name: Build
         run: dotnet build --no-restore --configuration Release
@@ -33,3 +34,32 @@ jobs:
           name: AspSecurityHeaders.nupkg
           path: AspSecurityHeaders/bin/Release/*.nupkg
           if-no-files-found: error
+
+  test:
+    name: Run Tests
+    strategy:
+      fail-fast: false
+      matrix: 
+        platform:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: |
+            3.1.x
+            5.0.x
+            6.0.x
+      - uses: actions/checkout@v2
+      - name: Restore packages
+        run: dotnet restore --locked-mode
+        working-directory: AspSecurityHeaders.Test
+      - name: Build
+        run: dotnet build --no-restore
+        working-directory: AspSecurityHeaders.Test
+      - name: Run tests
+        run: dotnet test --no-restore --no-build
+        working-directory: AspSecurityHeaders.Test
