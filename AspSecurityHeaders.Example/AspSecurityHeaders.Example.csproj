@@ -16,11 +16,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj" />
+        <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
     </ItemGroup>
 
 </Project>
