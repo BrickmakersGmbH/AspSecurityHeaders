@@ -89,6 +89,7 @@ jobs:
         run: |
           set -ex
           package_version=$(xmlstarlet sel -t -v "//PackageVersion" AspSecurityHeaders/AspSecurityHeaders.csproj)
+          git fetch --tags
           tag_exists=$(git tag -l "v$package_version")
           if [[ -z "$tag_exists" ]]; then
             echo Release does not exist yet - creating release
