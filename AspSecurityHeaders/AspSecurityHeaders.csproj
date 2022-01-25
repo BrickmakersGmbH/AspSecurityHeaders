@@ -23,7 +23,7 @@
     <PropertyGroup Label="NuGet-Packaging">
         <PackageId>Brickmakers.AspSecurityHeaders</PackageId>
         <PackageVersion>1.2.1</PackageVersion>
-        <Description>A small .net core package for ASP.Net Core to automatically configure secure HTTP-Headers.</Description>
+        <Description>A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.</Description>
         <Authors>BRICKMAKERS Security Engineering Team</Authors>
         <PackageProjectUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -36,7 +36,7 @@
         <Title>AspSecurityHeaders by BRICKMAKERS</Title>
     </PropertyGroup>
 
-    <ItemGroup>
+    <ItemGroup Label="Dependencies">
         <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.2.8"/>
         <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0"/>
         <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.16.1"/>
