@@ -34,6 +34,7 @@
         <RepositoryType>GIT</RepositoryType>
         <RepositoryUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders.git</RepositoryUrl>
         <Title>AspSecurityHeaders by BRICKMAKERS</Title>
+        <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/../CHANGELOG.md"))</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup Label="Dependencies">
