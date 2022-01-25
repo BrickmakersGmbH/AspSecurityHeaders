@@ -1533,19 +1533,19 @@
           "xunit.extensibility.core": "[2.4.1]"
         }
       },
-      "aspsecurityheaders.example": {
-        "type": "Project",
-        "dependencies": {
-          "Swashbuckle.AspNetCore": "6.2.3",
-          "de.brickmakers.SecurityEngineering.AspSecurityHeaders": "1.1.0"
-        }
-      },
-      "de.brickmakers.SecurityEngineering.AspSecurityHeaders": {
+      "Brickmakers.AspSecurityHeaders": {
         "type": "Project",
         "dependencies": {
           "Microsoft.AspNetCore.CookiePolicy": "2.2.8",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "NetEscapades.AspNetCore.SecurityHeaders": "0.16.1"
+        }
+      },
+      "Brickmakers.AspSecurityHeaders.Example": {
+        "type": "Project",
+        "dependencies": {
+          "Brickmakers.AspSecurityHeaders": "1.2.1",
+          "Swashbuckle.AspNetCore": "6.2.3"
         }
       }
     },
@@ -3078,19 +3078,19 @@
           "xunit.extensibility.core": "[2.4.1]"
         }
       },
-      "aspsecurityheaders.example": {
-        "type": "Project",
-        "dependencies": {
-          "Swashbuckle.AspNetCore": "6.2.3",
-          "de.brickmakers.SecurityEngineering.AspSecurityHeaders": "1.1.0"
-        }
-      },
-      "de.brickmakers.SecurityEngineering.AspSecurityHeaders": {
+      "Brickmakers.AspSecurityHeaders": {
         "type": "Project",
         "dependencies": {
           "Microsoft.AspNetCore.CookiePolicy": "2.2.8",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "NetEscapades.AspNetCore.SecurityHeaders": "0.16.1"
+        }
+      },
+      "Brickmakers.AspSecurityHeaders.Example": {
+        "type": "Project",
+        "dependencies": {
+          "Brickmakers.AspSecurityHeaders": "1.2.1",
+          "Swashbuckle.AspNetCore": "6.2.3"
         }
       }
     },
@@ -4623,19 +4623,19 @@
           "xunit.extensibility.core": "[2.4.1]"
         }
       },
-      "aspsecurityheaders.example": {
-        "type": "Project",
-        "dependencies": {
-          "Swashbuckle.AspNetCore": "6.2.3",
-          "de.brickmakers.SecurityEngineering.AspSecurityHeaders": "1.1.0"
-        }
-      },
-      "de.brickmakers.SecurityEngineering.AspSecurityHeaders": {
+      "Brickmakers.AspSecurityHeaders": {
         "type": "Project",
         "dependencies": {
           "Microsoft.AspNetCore.CookiePolicy": "2.2.8",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "NetEscapades.AspNetCore.SecurityHeaders": "0.16.1"
+        }
+      },
+      "Brickmakers.AspSecurityHeaders.Example": {
+        "type": "Project",
+        "dependencies": {
+          "Brickmakers.AspSecurityHeaders": "1.2.1",
+          "Swashbuckle.AspNetCore": "6.2.3"
         }
       }
     }

@@ -1,11 +1,11 @@
 using System;
 using System.Linq;
-using de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicies;
-using de.brickmakers.SecurityEngineering.AspSecurityHeaders.PermissionPolicyBuilderExtensions;
+using Brickmakers.AspSecurityHeaders.HeaderPolicies;
+using Brickmakers.AspSecurityHeaders.PermissionPolicyBuilderExtensions;
 using Microsoft.AspNetCore.Builder;
 using NetEscapades.AspNetCore.SecurityHeaders.Headers;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyCollectionExtensions
+namespace Brickmakers.AspSecurityHeaders.HeaderPolicyCollectionExtensions
 {
     public static class BmPermissionPolicy
     {

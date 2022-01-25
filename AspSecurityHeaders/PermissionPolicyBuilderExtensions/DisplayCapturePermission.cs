@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using NetEscapades.AspNetCore.SecurityHeaders.Headers.PermissionsPolicy;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.PermissionPolicyBuilderExtensions
+namespace Brickmakers.AspSecurityHeaders.PermissionPolicyBuilderExtensions
 {
     public static class DisplayCapturePermission
     {

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using NetEscapades.AspNetCore.SecurityHeaders.Headers.ContentSecurityPolicy;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.CspBuilderExtensions
+namespace Brickmakers.AspSecurityHeaders.CspBuilderExtensions
 {
     public static class CspBuilderReportExtensions
     {

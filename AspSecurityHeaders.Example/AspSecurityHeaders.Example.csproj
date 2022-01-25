@@ -7,6 +7,12 @@
         <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
         <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
         <OpenApiGenerateDocumentsOnBuild>false</OpenApiGenerateDocumentsOnBuild>
+        <AssemblyName>Brickmakers.AspSecurityHeaders.Example</AssemblyName>
+        <RootNamespace>Brickmakers.AspSecurityHeaders.Example</RootNamespace>
+        <PackageId>Brickmakers.AspSecurityHeaders.Example</PackageId>
+        <Authors>Brickmakers.AspSecurityHeaders.Example</Authors>
+        <Company>Brickmakers.AspSecurityHeaders.Example</Company>
+        <Product>Brickmakers.AspSecurityHeaders.Example</Product>
     </PropertyGroup>
 
     <ItemGroup>

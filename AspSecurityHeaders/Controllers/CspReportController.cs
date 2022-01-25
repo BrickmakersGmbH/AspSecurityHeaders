@@ -1,10 +1,10 @@
 using System.ComponentModel.DataAnnotations;
-using de.brickmakers.SecurityEngineering.AspSecurityHeaders.Controllers.Models;
+using Brickmakers.AspSecurityHeaders.Controllers.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.Controllers
+namespace Brickmakers.AspSecurityHeaders.Controllers
 {
     [ApiController]
     [Route("[controller]")]

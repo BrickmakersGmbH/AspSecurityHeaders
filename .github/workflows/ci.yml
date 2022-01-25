@@ -32,6 +32,8 @@ jobs:
             6.0.x
       - name: Checkout Code
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - name: Restore packages
         run: dotnet restore --locked-mode
         working-directory: AspSecurityHeaders.Test
@@ -57,6 +59,8 @@ jobs:
             6.0.x
       - name: Checkout Code
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - name: Restore packages
         run: dotnet restore --locked-mode
         working-directory: AspSecurityHeaders
@@ -84,10 +88,12 @@ jobs:
         run: sudo apt-get install xmlstarlet
       - name: Checkout Code
         uses: actions/checkout@v2
+        with:
+          persist-credentials: true
       - id: version        
         name: Check if a release should be created
         run: |
-          set -ex
+          set -e
           package_version=$(xmlstarlet sel -t -v "//PackageVersion" AspSecurityHeaders/AspSecurityHeaders.csproj)
           git fetch --tags
           tag_exists=$(git tag -l "v$package_version")

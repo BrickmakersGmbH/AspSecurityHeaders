@@ -1,26 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <AssemblyName>de.brickmakers.SecurityEngineering.AspSecurityHeaders</AssemblyName>
-        <RootNamespace>de.brickmakers.SecurityEngineering.AspSecurityHeaders</RootNamespace>
+        <AssemblyName>Brickmakers.AspSecurityHeaders</AssemblyName>
+        <RootNamespace>Brickmakers.AspSecurityHeaders</RootNamespace>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageId>de.brickmakers.SecurityEngineering.AspSecurityHeaders</PackageId>
+        <PackageId>Brickmakers.AspSecurityHeaders</PackageId>
         <Title>AspSecurityHeaders</Title>
         <Authors>BRICKMAKERS Security Engineering Team</Authors>
         <Copyright>Brickmakers GmbH</Copyright>
-        <PackageProjectUrl>https://www.notion.so/brickmakers/Security-Headers-4d62b417ba34410087d54bf1e91c3c59</PackageProjectUrl>
-        <RepositoryUrl>https://brickmakers.visualstudio.com/DefaultCollection/SecurityEngineering/_git/AspSecurityHeaders</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders.git</RepositoryUrl>
         <RepositoryType>GIT</RepositoryType>
         <Company>Brickmakers GmbH</Company>
-        <Product>de.brickmakers.SecurityEngineering.AspSecurityHeaders</Product>
-        <AssemblyVersion>1.2.0</AssemblyVersion>
-        <FileVersion>1.2.0</FileVersion>
-        <PackageVersion>1.2.0</PackageVersion>
+        <Product>Brickmakers.AspSecurityHeaders</Product>
+        <AssemblyVersion>1.2.1</AssemblyVersion>
+        <FileVersion>1.2.1</FileVersion>
+        <PackageVersion>1.2.1</PackageVersion>
         <TargetFrameworks>net5.0;net6.0;netcoreapp3.1</TargetFrameworks>
         <LangVersion>default</LangVersion>
         <Nullable>enable</Nullable>
         <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
         <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+        <Description>A small .net core package for ASP.Net Core to automatically configure secure HTTP-Headers.</Description>
+        <PackageLicenseUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders/LICENSE</PackageLicenseUrl>
     </PropertyGroup>
 
     <ItemGroup>

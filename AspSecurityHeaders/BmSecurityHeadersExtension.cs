@@ -1,8 +1,8 @@
 ﻿using System;
-using de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
+using Brickmakers.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
 using Microsoft.AspNetCore.Builder;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders
+namespace Brickmakers.AspSecurityHeaders
 {
     public static class BmSecurityHeadersExtension
     {

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Http;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders
+namespace Brickmakers.AspSecurityHeaders
 {
     public class BmSecurityHeadersConfig : HeaderPolicyCollection
     {

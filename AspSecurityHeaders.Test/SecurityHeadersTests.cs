@@ -5,18 +5,19 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using de.brickmakers.SecurityEngineering.AspSecurityHeaders.Controllers.Models;
+using Brickmakers.AspSecurityHeaders.Controllers.Models;
+using Brickmakers.AspSecurityHeaders.Example;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
 
-namespace AspSecurityHeaders.Test
+namespace Brickmakers.AspSecurityHeaders.Test
 {
-    public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Example.Startup>>
+    public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>>
     {
-        private readonly WebApplicationFactory<Example.Startup> _factory;
+        private readonly WebApplicationFactory<Startup> _factory;
 
-        public SecurityHeadersTests(WebApplicationFactory<Example.Startup> factory)
+        public SecurityHeadersTests(WebApplicationFactory<Startup> factory)
         {
             _factory = factory;
         }

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Http;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.BmCookiePolicyExtensions
+namespace Brickmakers.AspSecurityHeaders.BmCookiePolicyExtensions
 {
     public static class BmCookiePolicyExtensions
     {

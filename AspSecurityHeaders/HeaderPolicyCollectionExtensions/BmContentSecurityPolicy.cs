@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Builder;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicyCollectionExtensions
+namespace Brickmakers.AspSecurityHeaders.HeaderPolicyCollectionExtensions
 {
     public static class BmContentSecurityPolicy
     {

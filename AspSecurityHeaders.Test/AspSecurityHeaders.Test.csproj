@@ -7,6 +7,12 @@
         <LangVersion>default</LangVersion>
         <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
         <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+        <AssemblyName>Brickmakers.AspSecurityHeaders.Test</AssemblyName>
+        <RootNamespace>Brickmakers.AspSecurityHeaders.Test</RootNamespace>
+        <PackageId>Brickmakers.AspSecurityHeaders.Test</PackageId>
+        <Authors>Brickmakers.AspSecurityHeaders.Test</Authors>
+        <Company>Brickmakers.AspSecurityHeaders.Test</Company>
+        <Product>Brickmakers.AspSecurityHeaders.Test</Product>
     </PropertyGroup>
 
     <ItemGroup>

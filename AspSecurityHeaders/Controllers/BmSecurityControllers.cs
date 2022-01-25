@@ -1,7 +1,7 @@
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.Controllers
+namespace Brickmakers.AspSecurityHeaders.Controllers
 {
     public static class BmSecurityControllers
     {

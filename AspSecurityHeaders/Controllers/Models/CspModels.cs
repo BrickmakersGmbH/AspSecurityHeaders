@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.Controllers.Models
+namespace Brickmakers.AspSecurityHeaders.Controllers.Models
 {
     public class CspReportRequest
     {

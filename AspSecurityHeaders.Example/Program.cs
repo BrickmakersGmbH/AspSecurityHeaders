@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace AspSecurityHeaders.Example
+namespace Brickmakers.AspSecurityHeaders.Example
 {
     public class Program
     {

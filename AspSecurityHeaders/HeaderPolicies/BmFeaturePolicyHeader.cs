@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using NetEscapades.AspNetCore.SecurityHeaders.Headers;
 using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
 
-namespace de.brickmakers.SecurityEngineering.AspSecurityHeaders.HeaderPolicies
+namespace Brickmakers.AspSecurityHeaders.HeaderPolicies
 {
     internal class BmFeaturePolicyHeader : IHeaderPolicy
     {
