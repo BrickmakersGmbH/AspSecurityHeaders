@@ -16,18 +16,18 @@
         <Company>BRICKMAKERS GmbH</Company>
         <Product>Brickmakers.AspSecurityHeaders</Product>
         <AssemblyName>Brickmakers.AspSecurityHeaders</AssemblyName>
-        <AssemblyVersion>1.2.1</AssemblyVersion>
-        <FileVersion>1.2.1</FileVersion>
+        <AssemblyVersion>1.2.2</AssemblyVersion>
+        <FileVersion>1.2.2</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Label="NuGet-Packaging">
         <PackageId>Brickmakers.AspSecurityHeaders</PackageId>
-        <PackageVersion>1.2.1</PackageVersion>
+        <PackageVersion>1.2.2</PackageVersion>
         <Description>A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.</Description>
         <Authors>BRICKMAKERS Security Engineering Team</Authors>
         <PackageProjectUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <!--PackageIcon> TODO </PackageIcon-->
+        <PackageIcon>AspSecurityHeaders.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <Copyright>2022 BRICKMAKERS GmbH</Copyright>
         <PackageTags>Brickmakers ASP.NET dotnetcore dotnet HTTPS CSP HSTS Security HTTP-Headers Security-Headers</PackageTags>
@@ -47,6 +47,7 @@
         <None Include="..\README.md" Pack="true" PackagePath="\"/>
         <None Include="..\CHANGELOG.md" Pack="true" PackagePath="\"/>
         <None Include="..\LICENSE.txt" Pack="true" PackagePath="\"/>
+        <None Include="..\AspSecurityHeaders.png" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>
