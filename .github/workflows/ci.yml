@@ -83,6 +83,8 @@ jobs:
     needs: 
       - test
       - build
+    outputs: 
+      publish: ${{ steps.version.outputs.update }}
     steps:
       - name: Install xmlstarlet
         run: sudo apt-get install xmlstarlet
@@ -122,3 +124,22 @@ jobs:
           tag_name: v${{ steps.version.outputs.version }}
           name: AspSecurityHeaders Version ${{ steps.version.outputs.version }}
           body_path: ${{ steps.release_content.outputs.body_path }}
+          
+  publish:
+    name: Upload package to NuGet.org
+    runs-on: ubuntu-latest
+    needs: 
+      - release
+    if: needs.release.outputs.publish == 'true'
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+      - name: Download NuGet package
+        uses: actions/download-artifact@v2
+        with:
+          name: AspSecurityHeaders.nupkg
+          path: artifacts
+      - name: Upload to NuGet.org
+        run: dotnet nuget push artifacts/*.nupkg --api-key '${{ secrets.NUGET_API_KEY }}'
