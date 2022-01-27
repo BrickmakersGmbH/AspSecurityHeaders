@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/github/license/BrickmakersGmbH/AspSecurityHeaders)](https://github.com/BrickmakersGmbH/AspSecurityHeaders/blob/main/LICENSE.txt)
 [![CI-Pipeline](https://github.com/BrickmakersGmbH/AspSecurityHeaders/actions/workflows/ci.yml/badge.svg)](https://github.com/BrickmakersGmbH/AspSecurityHeaders/actions/workflows/ci.yml)
 [![Nuget Version](https://img.shields.io/nuget/v/Brickmakers.AspSecurityHeaders)](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders)
-[![Nuget Downloads](https://img.shields.io/nuget/dt/!%5BNuget%5D(https://img.shields.io/nuget/v/Brickmakers.AspSecurityHeaders))](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders)
+[![Nuget Downloads](https://img.shields.io/nuget/dt/Brickmakers.AspSecurityHeaders)](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders)
 
 A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.
 
