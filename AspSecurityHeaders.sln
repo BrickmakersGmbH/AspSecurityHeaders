@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspSecurityHeaders.Example"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspSecurityHeaders.Test", "AspSecurityHeaders.Test\AspSecurityHeaders.Test.csproj", "{99A233CC-27F0-4A2D-833A-CDE3F7AC9DEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspSecurityHeaders.Tool", "AspSecurityHeaders.Tool\AspSecurityHeaders.Tool.csproj", "{BDF8FD2B-2742-4E94-9C4F-978946742B7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{99A233CC-27F0-4A2D-833A-CDE3F7AC9DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99A233CC-27F0-4A2D-833A-CDE3F7AC9DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99A233CC-27F0-4A2D-833A-CDE3F7AC9DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDF8FD2B-2742-4E94-9C4F-978946742B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF8FD2B-2742-4E94-9C4F-978946742B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF8FD2B-2742-4E94-9C4F-978946742B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF8FD2B-2742-4E94-9C4F-978946742B7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
