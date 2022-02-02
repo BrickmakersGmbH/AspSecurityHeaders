@@ -21,6 +21,9 @@ jobs:
           - net6.0
           - net5.0
           - netcoreapp3.1
+        project:
+          - AspSecurityHeaders.Test
+          - AspSecurityHeaders.Generators.Test
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Setup .NET
@@ -36,18 +39,24 @@ jobs:
           persist-credentials: false
       - name: Restore packages
         run: dotnet restore --locked-mode
-        working-directory: AspSecurityHeaders.Test
+        working-directory: ${{ matrix.project }}
       - name: Build
         run: dotnet build --no-restore --framework ${{ matrix.framework }}
-        working-directory: AspSecurityHeaders.Test
+        working-directory: ${{ matrix.project }}
       - name: Run tests
         run: dotnet test --no-restore --no-build --framework ${{ matrix.framework }}
-        working-directory: AspSecurityHeaders.Test
+        working-directory: ${{ matrix.project }}
 
   build:
-    name: Build NuGet package
+    name: Build NuGet packages
     needs:
       - test
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - AspSecurityHeaders
+          - AspSecurityHeaders.Generators
     runs-on: ubuntu-latest
     steps:
       - name: Setup .NET
@@ -63,18 +72,18 @@ jobs:
           persist-credentials: false
       - name: Restore packages
         run: dotnet restore --locked-mode
-        working-directory: AspSecurityHeaders
+        working-directory: ${{ matrix.project }}
       - name: Build
         run: dotnet build --no-restore --configuration Release
-        working-directory: AspSecurityHeaders
+        working-directory: ${{ matrix.project }}
       - name: Create NuGet package
         run: dotnet pack --no-restore --no-build --configuration Release
-        working-directory: AspSecurityHeaders
+        working-directory: ${{ matrix.project }}
       - name: Upload NuGet package as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: AspSecurityHeaders.nupkg
-          path: AspSecurityHeaders/bin/Release/*.nupkg
+          name: Brickmakers.${{ matrix.project }}.nupkg
+          path: ${{ matrix.project }}/bin/Release/*.nupkg
           if-no-files-found: error
 
   release:
@@ -140,7 +149,6 @@ jobs:
       - name: Download NuGet package
         uses: actions/download-artifact@v2
         with:
-          name: AspSecurityHeaders.nupkg
           path: artifacts
       - name: Upload to NuGet.org
-        run: dotnet nuget push artifacts/*.nupkg --source 'https://api.nuget.org/v3/index.json' --api-key '${{ secrets.NUGET_API_KEY }}'
+        run: dotnet nuget push artifacts/**/*.nupkg --source 'https://api.nuget.org/v3/index.json' --api-key '${{ secrets.NUGET_API_KEY }}'
