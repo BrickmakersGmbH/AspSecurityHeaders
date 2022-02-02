@@ -26,13 +26,22 @@ markdown-toc</a></i></small>
     - Based on the widely
       used [NetEscapades.AspNetCore.SecurityHeaders](https://github.com/andrewlock/NetEscapades.AspNetCore.SecurityHeaders)
 - Easy integration in any project and build pipelines
+- Provides additional generator package to create config files with security headers for:
+    - IIS `web.config` files
 
 ## Installation
 
-This package is available on [NuGet.org](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders/), you can simply
-add it to your C#-Project like any other dependency.
+This package is available on NuGet.org, you can simply add it to your C#-Project like any other dependency.
+
+- Main Package: [Brickmakers.AspSecurityHeaders](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders/)
+- Generators
+  Package: [Brickmakers.AspSecurityHeaders.Generators](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders.Generators/)
 
 ## Usage
+
+### AspSecurityHeaders
+
+For the standard features of the Security Headers you only need to install `Brickmakers.AspSecurityHeaders`.
 
 To get started, all you have to to is to register the middleware in the `Configure` method. This should happen **at the
 beginning** of the method to ensure the headers are added to all responses, as different middlewares might end
@@ -75,7 +84,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-### Using the Built-In CSP Report Controller
+#### Using the Built-In CSP Report Controller
 
 The library includes a ready-made API-Controller to automatically report CSP-Violations. It will provide an endpoint to
 be used by the browser to report CSP errors and log them as error message. If you want to use the controller, there are
@@ -139,6 +148,37 @@ public void Configure(IApplicationBuilder app)
 In case you also have additional projects that should also report to this controller, or in case you separate API and
 web project, the controller will always be accessible via `https://<host>/CspReport`. You can use it as any other CSP
 reporting endpoint.
+
+### Generators
+
+To use the generators, you have to install the `Brickmakers.AspSecurityHeaders.Generators` package. The you can use the
+various writers to generate your configuration.
+
+#### IIS `web.config`
+
+To generate a web.config file with security headers, you can use the `IISWebConfigWriter` class:
+
+```.cs
+await IISWebConfigWriter.Create() // or .CreateApi()
+    .SetBmSecurityHeadersConfig(config => config
+        .AddBmContentSecurityPolicy(builder =>
+        {
+            builder.AddScriptSrc().Self();
+            builder.AddStyleSrc().Self();
+            builder.AddImgSrc().Self();
+        }))
+    .EnforceHttps(true)
+    .Run("web.config");
+```
+
+With the `SetBmSecurityHeadersConfig`, you can configure your security headers in exactly the same way as with the
+standard security headers package. In addition to that, there are also some extra configuration options that are only
+available with web.config files. These are:
+
+- XML Writer configuration for controlling how the generated XML is formatted
+- Advanced removal of server identifying headers
+- Enforce HTTPS
+- Flags to control if the generated headers should be for HTTP / TLS
 
 ## Attributions & Background
 
