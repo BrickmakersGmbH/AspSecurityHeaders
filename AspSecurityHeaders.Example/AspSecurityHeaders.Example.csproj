@@ -1,18 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <Nullable>enable</Nullable>
-        <TargetFrameworks>net5.0;net6.0;netcoreapp3.1</TargetFrameworks>
+        <RootNamespace>Brickmakers.AspSecurityHeaders.Example</RootNamespace>
+        <TargetFrameworks>net6.0;net5.0;netcoreapp3.1</TargetFrameworks>
         <LangVersion>default</LangVersion>
+        <IsPackable>false</IsPackable>
+        <Nullable>enable</Nullable>
+        <WarningsAsErrors>Nullable</WarningsAsErrors>
         <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
         <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
         <OpenApiGenerateDocumentsOnBuild>false</OpenApiGenerateDocumentsOnBuild>
-        <AssemblyName>Brickmakers.AspSecurityHeaders.Example</AssemblyName>
-        <RootNamespace>Brickmakers.AspSecurityHeaders.Example</RootNamespace>
-        <PackageId>Brickmakers.AspSecurityHeaders.Example</PackageId>
-        <Authors>Brickmakers.AspSecurityHeaders.Example</Authors>
-        <Company>Brickmakers.AspSecurityHeaders.Example</Company>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Company>BRICKMAKERS GmbH</Company>
         <Product>Brickmakers.AspSecurityHeaders.Example</Product>
+        <AssemblyName>Brickmakers.AspSecurityHeaders.Example</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
