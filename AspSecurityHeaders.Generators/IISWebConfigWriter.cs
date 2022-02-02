@@ -77,25 +77,29 @@ public class IISWebConfigWriter
 
     public async Task Run(string path)
     {
-        await using var writer = new IISWebConfigWriterImpl(XmlWriter.Create(path, _settings.XmlWriterSettings), _settings);
+        await using var writer =
+            new IISWebConfigWriterImpl(XmlWriter.Create(path, _settings.XmlWriterSettings), _settings);
         await writer.Run();
     }
 
     public async Task Run(Stream stream)
     {
-        await using var writer = new IISWebConfigWriterImpl(XmlWriter.Create(stream, _settings.XmlWriterSettings), _settings);
+        await using var writer =
+            new IISWebConfigWriterImpl(XmlWriter.Create(stream, _settings.XmlWriterSettings), _settings);
         await writer.Run();
     }
 
     public async Task Run(TextWriter textWriter)
     {
-        await using var writer = new IISWebConfigWriterImpl(XmlWriter.Create(textWriter, _settings.XmlWriterSettings), _settings);
+        await using var writer =
+            new IISWebConfigWriterImpl(XmlWriter.Create(textWriter, _settings.XmlWriterSettings), _settings);
         await writer.Run();
     }
 
     public async Task Run(StringBuilder stringBuilder)
     {
-        await using var writer = new IISWebConfigWriterImpl(XmlWriter.Create(stringBuilder, _settings.XmlWriterSettings), _settings);
+        await using var writer =
+            new IISWebConfigWriterImpl(XmlWriter.Create(stringBuilder, _settings.XmlWriterSettings), _settings);
         await writer.Run();
     }
 }

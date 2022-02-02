@@ -1,4 +1,3 @@
-using System;
 using Microsoft.AspNetCore.Builder;
 
 namespace Brickmakers.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
@@ -17,8 +16,16 @@ public static class BmContentSecurityPolicy
             builder.AddFrameAncestors().None();
             builder.AddScriptSrc().ReportSample();
             builder.AddStyleSrc().ReportSample();
-            if (!allowInsecureRequests) builder.AddUpgradeInsecureRequests();
-            if (!allowMixedContent) builder.AddBlockAllMixedContent();
+            if (!allowInsecureRequests)
+            {
+                builder.AddUpgradeInsecureRequests();
+            }
+
+            if (!allowMixedContent)
+            {
+                builder.AddBlockAllMixedContent();
+            }
+
             cspBuilder(builder);
         });
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using Brickmakers.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
+﻿using Brickmakers.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
 using Microsoft.AspNetCore.Builder;
 
 namespace Brickmakers.AspSecurityHeaders;

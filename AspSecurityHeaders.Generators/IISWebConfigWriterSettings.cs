@@ -10,16 +10,16 @@ internal class IISWebConfigWriterSettings
         Indent = true,
         NewLineHandling = NewLineHandling.Entitize,
         CloseOutput = true,
-        Async = true,
+        Async = true
     };
-    
+
     internal BmSecurityHeadersConfig BmSecurityHeadersConfig { get; set; } = new();
-    
+
     internal bool RemoveServerHeaders { get; set; } = true;
-    
+
     internal bool EnforceHttps { get; set; } = true;
-    
+
     internal bool WriteTlsHeaders { get; set; } = true;
-    
+
     internal bool WriteHttpHeaders { get; set; } = true;
 }

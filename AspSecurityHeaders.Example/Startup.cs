@@ -54,9 +54,13 @@ public class Startup
             .SetMinimumSameSitePolicy(SameSiteMode.Lax));
 
         if (env.IsDevelopment())
+        {
             app.UseDeveloperExceptionPage();
+        }
         else
+        {
             app.UseExceptionHandler("/Error");
+        }
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();

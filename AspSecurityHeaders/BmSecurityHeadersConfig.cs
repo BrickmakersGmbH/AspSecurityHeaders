@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +29,10 @@ public class BmSecurityHeadersConfig : HeaderPolicyCollection
             CheckConsentNeeded = CheckConsentNeeded
         };
 
-        if (ConsentCookieBuilder != null) options.ConsentCookie = ConsentCookieBuilder;
+        if (ConsentCookieBuilder != null)
+        {
+            options.ConsentCookie = ConsentCookieBuilder;
+        }
 
         return options;
     }

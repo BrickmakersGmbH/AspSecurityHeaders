@@ -1,5 +1,3 @@
-using System;
-using System.Linq;
 using Brickmakers.AspSecurityHeaders.HeaderPolicies;
 using Brickmakers.AspSecurityHeaders.PermissionPolicyBuilderExtensions;
 using Microsoft.AspNetCore.Builder;

@@ -8,12 +8,12 @@ internal static class XmlWriterExtensions
     {
         return writer.WriteStartElementAsync(null, name, null);
     }
-    
+
     internal static Task WriteAttributeAsync(this XmlWriter writer, string name, string value)
     {
         return writer.WriteAttributeStringAsync(null, name, null, value);
     }
-    
+
     internal static Task WriteAttributeAsync(this XmlWriter writer, string name, bool value)
     {
         return writer.WriteAttributeStringAsync(null, name, null, value.ToString().ToLower());

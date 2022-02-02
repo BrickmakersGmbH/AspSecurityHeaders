@@ -168,6 +168,7 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
         var parenthesisCount = 0;
         var begin = 0;
         for (var index = 0; index < permissions.Length; ++index)
+        {
             switch (permissions[index])
             {
                 case '(':
@@ -186,6 +187,7 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
 
                     break;
             }
+        }
 
         yield return permissions[begin..].Trim();
     }
@@ -243,7 +245,10 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
     private static KeyValuePair<string, string> ParseCookieValue(string cookieValue)
     {
         var equalsIndex = cookieValue.IndexOf('=');
-        if (equalsIndex == -1) return new KeyValuePair<string, string>(cookieValue, "");
+        if (equalsIndex == -1)
+        {
+            return new KeyValuePair<string, string>(cookieValue, "");
+        }
 
         var name = cookieValue[..equalsIndex];
         var value = cookieValue[(equalsIndex + 1)..];

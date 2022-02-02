@@ -1,4 +1,3 @@
-using System;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.CookiePolicy;
@@ -27,7 +26,10 @@ public static class BmCookiePolicyExtensions
     {
         return headerPolicyCollection.AddCookieFilter(context =>
         {
-            if (cookieMatcher.IsMatch(context.CookieName)) configure(context.CookieOptions);
+            if (cookieMatcher.IsMatch(context.CookieName))
+            {
+                configure(context.CookieOptions);
+            }
         });
     }
 
@@ -65,7 +67,10 @@ public static class BmCookiePolicyExtensions
 
     private static BmSecurityHeadersConfig AsBmConfig(this HeaderPolicyCollection headerPolicyCollection)
     {
-        if (headerPolicyCollection is BmSecurityHeadersConfig bmConfig) return bmConfig;
+        if (headerPolicyCollection is BmSecurityHeadersConfig bmConfig)
+        {
+            return bmConfig;
+        }
 
         throw new ArgumentException("this is not a BmSecurityHeadersConfig");
     }

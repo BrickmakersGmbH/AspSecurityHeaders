@@ -24,15 +24,15 @@ public class IISWebConfigWriterTests
   </system.webServer>
 </configuration>");
     }
-    
+
     [Fact]
     public async Task GeneratesCustomFormattedXmlIfXmlWriterSettingsAreModified()
     {
         var stringBuilder = new StringBuilder();
 
         await CreateDisabledWriter()
-          .SetXmlWriterSettings(settings => settings.OmitXmlDeclaration = true)
-          .Run(stringBuilder);
+            .SetXmlWriterSettings(settings => settings.OmitXmlDeclaration = true)
+            .Run(stringBuilder);
 
         stringBuilder.ToString().Should().Be(@"<configuration>
   <system.webServer>
@@ -184,12 +184,18 @@ public class IISWebConfigWriterTests
 </configuration>");
     }
 
-    private static IISWebConfigWriter CreateSecurityHeadersOnlyWriter() => IISWebConfigWriter.Create()
-        .RemoveServerHeaders(false)
-        .EnforceHttps(false);
+    private static IISWebConfigWriter CreateSecurityHeadersOnlyWriter()
+    {
+        return IISWebConfigWriter.Create()
+            .RemoveServerHeaders(false)
+            .EnforceHttps(false);
+    }
 
-    private static IISWebConfigWriter CreateDisabledWriter() => CreateSecurityHeadersOnlyWriter()
-        .SetBmSecurityHeadersConfig(new BmSecurityHeadersConfig())
-        .WriteHttpHeaders(false)
-        .WriteTlsHeaders(false);
+    private static IISWebConfigWriter CreateDisabledWriter()
+    {
+        return CreateSecurityHeadersOnlyWriter()
+            .SetBmSecurityHeadersConfig(new BmSecurityHeadersConfig())
+            .WriteHttpHeaders(false)
+            .WriteTlsHeaders(false);
+    }
 }

@@ -15,21 +15,12 @@ internal class IISWebConfigWriterImpl : IDisposable, IAsyncDisposable
         _writer = writer;
         _settings = settings;
     }
-    
-    internal async Task Run()
-    {
-        await _writer.WriteStartDocumentAsync();
-        await _writer.WriteStartElementAsync("configuration");
-        
-        if (_settings.RemoveServerHeaders)
-        {
-            await WriteSystemWeb();
-        }
 
-        await WriteSystemWebServer();
-        
-        await _writer.WriteEndElementAsync();
-        await _writer.FlushAsync();
+    public ValueTask DisposeAsync()
+    {
+        GC.SuppressFinalize(this);
+        _writer.Dispose();
+        return new ValueTask();
     }
 
     public void Dispose()
@@ -38,11 +29,20 @@ internal class IISWebConfigWriterImpl : IDisposable, IAsyncDisposable
         _writer.Dispose();
     }
 
-    public ValueTask DisposeAsync()
+    internal async Task Run()
     {
-        GC.SuppressFinalize(this);
-        _writer.Dispose();
-        return new ValueTask();
+        await _writer.WriteStartDocumentAsync();
+        await _writer.WriteStartElementAsync("configuration");
+
+        if (_settings.RemoveServerHeaders)
+        {
+            await WriteSystemWeb();
+        }
+
+        await WriteSystemWebServer();
+
+        await _writer.WriteEndElementAsync();
+        await _writer.FlushAsync();
     }
 
     private async Task WriteSystemWeb()
@@ -69,7 +69,7 @@ internal class IISWebConfigWriterImpl : IDisposable, IAsyncDisposable
         }
 
         await WriteHttpProtocol();
-        
+
         await _writer.WriteEndElementAsync();
     }
 
@@ -77,7 +77,7 @@ internal class IISWebConfigWriterImpl : IDisposable, IAsyncDisposable
     {
         await _writer.WriteStartElementAsync("security");
         await _writer.WriteStartElementAsync("requestFiltering");
-        await _writer.WriteAttributeAsync("removeServerHeader",  true);
+        await _writer.WriteAttributeAsync("removeServerHeader", true);
         await _writer.WriteEndElementAsync();
         await _writer.WriteEndElementAsync();
     }
@@ -87,27 +87,27 @@ internal class IISWebConfigWriterImpl : IDisposable, IAsyncDisposable
         await _writer.WriteStartElementAsync("rewrite");
         await _writer.WriteStartElementAsync("rules");
         await _writer.WriteStartElementAsync("rule");
-        await _writer.WriteAttributeAsync("name",  "Enforce HTTPS");
-        await _writer.WriteAttributeAsync("enabled",  true);
+        await _writer.WriteAttributeAsync("name", "Enforce HTTPS");
+        await _writer.WriteAttributeAsync("enabled", true);
 
         await _writer.WriteStartElementAsync("match");
-        await _writer.WriteAttributeAsync("url",  "(.*)");
-        await _writer.WriteAttributeAsync("ignoreCase",  false);
+        await _writer.WriteAttributeAsync("url", "(.*)");
+        await _writer.WriteAttributeAsync("ignoreCase", false);
         await _writer.WriteEndElementAsync();
 
         await _writer.WriteStartElementAsync("conditions");
         await _writer.WriteStartElementAsync("add");
-        await _writer.WriteAttributeAsync("input",  "{HTTPS}");
-        await _writer.WriteAttributeAsync("pattern",  "off");
+        await _writer.WriteAttributeAsync("input", "{HTTPS}");
+        await _writer.WriteAttributeAsync("pattern", "off");
         await _writer.WriteEndElementAsync();
         await _writer.WriteEndElementAsync();
 
         await _writer.WriteStartElementAsync("action");
-        await _writer.WriteAttributeAsync("type",  "Redirect");
-        await _writer.WriteAttributeAsync("url",  "https://{HTTP_HOST}/{R:1}");
-        await _writer.WriteAttributeAsync("appendQueryString",  false);
+        await _writer.WriteAttributeAsync("type", "Redirect");
+        await _writer.WriteAttributeAsync("url", "https://{HTTP_HOST}/{R:1}");
+        await _writer.WriteAttributeAsync("appendQueryString", false);
         await _writer.WriteEndElementAsync();
-        
+
         await _writer.WriteEndElementAsync();
         await _writer.WriteEndElementAsync();
         await _writer.WriteEndElementAsync();
@@ -124,7 +124,7 @@ internal class IISWebConfigWriterImpl : IDisposable, IAsyncDisposable
         {
             await WriteRemoveXPoweredBy();
         }
-        
+
         await _writer.WriteEndElementAsync();
         await _writer.WriteEndElementAsync();
     }
@@ -148,7 +148,7 @@ internal class IISWebConfigWriterImpl : IDisposable, IAsyncDisposable
         {
             policy.Apply(fakeContext, headersResult);
         }
-        
+
         foreach (var (name, value) in headersResult.SetHeaders)
         {
             await _writer.WriteStartElementAsync("add");
@@ -156,7 +156,7 @@ internal class IISWebConfigWriterImpl : IDisposable, IAsyncDisposable
             await _writer.WriteAttributeAsync("value", value);
             await _writer.WriteEndElementAsync();
         }
-        
+
         foreach (var name in headersResult.RemoveHeaders)
         {
             await _writer.WriteStartElementAsync("remove");
