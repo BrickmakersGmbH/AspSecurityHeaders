@@ -1,58 +1,32 @@
-﻿using System.Text;
-using System.Xml;
-using Brickmakers.AspSecurityHeaders;
+﻿using System.Xml;
 using Microsoft.AspNetCore.Http;
 using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
 
-namespace AspSecurityHeaders.Tool;
+namespace Brickmakers.AspSecurityHeaders.Generators;
 
 // ReSharper disable once InconsistentNaming
-public class IISWebConfigWriter : IDisposable, IAsyncDisposable
+internal class IISWebConfigWriterImpl : IDisposable, IAsyncDisposable
 {
-    private const string XmlTrue = "true";
-    private const string XmlFalse = "true";
-    
-    private static readonly XmlWriterSettings DefaultSettings = new()
-    {
-        Indent = true,
-        NewLineHandling = NewLineHandling.Entitize,
-        CloseOutput = true,
-        Async = true,
-    };
-    
+    private readonly IISWebConfigWriterSettings _settings;
     private readonly XmlWriter _writer;
 
-    public IISWebConfigWriter(string path, XmlWriterSettings? xmlWriterSettings = null)
+    internal IISWebConfigWriterImpl(XmlWriter writer, IISWebConfigWriterSettings settings)
     {
-        _writer = XmlWriter.Create(path, xmlWriterSettings ?? DefaultSettings);
-    }
-
-    public IISWebConfigWriter(TextWriter textWriter, XmlWriterSettings? xmlWriterSettings = null)
-    {
-        _writer = XmlWriter.Create(textWriter, xmlWriterSettings ?? DefaultSettings);
-    }
-
-    public IISWebConfigWriter(Stream stream, XmlWriterSettings? xmlWriterSettings = null)
-    {
-        _writer = XmlWriter.Create(stream, xmlWriterSettings ?? DefaultSettings);
-    }
-
-    public IISWebConfigWriter(StringBuilder stringBuilder, XmlWriterSettings? xmlWriterSettings = null)
-    {
-        _writer = XmlWriter.Create(stringBuilder, xmlWriterSettings ?? DefaultSettings);
+        _writer = writer;
+        _settings = settings;
     }
     
-    public async Task WriteWebConfig(BmSecurityHeadersConfig config, bool removeServerHeaders = true, bool enforceHttps = true)
+    internal async Task Run()
     {
         await _writer.WriteStartDocumentAsync();
         await _writer.WriteStartElementAsync("configuration");
         
-        if (removeServerHeaders)
+        if (_settings.RemoveServerHeaders)
         {
             await WriteSystemWeb();
         }
 
-        await WriteSystemWebServer(config, removeServerHeaders, enforceHttps);
+        await WriteSystemWebServer();
         
         await _writer.WriteEndElementAsync();
         await _writer.FlushAsync();
@@ -67,7 +41,8 @@ public class IISWebConfigWriter : IDisposable, IAsyncDisposable
     public ValueTask DisposeAsync()
     {
         GC.SuppressFinalize(this);
-        return _writer.DisposeAsync();
+        _writer.Dispose();
+        return new ValueTask();
     }
 
     private async Task WriteSystemWeb()
@@ -79,21 +54,21 @@ public class IISWebConfigWriter : IDisposable, IAsyncDisposable
         await _writer.WriteEndElementAsync();
     }
 
-    private async Task WriteSystemWebServer(BmSecurityHeadersConfig config, bool removeServerHeaders, bool enforceHttps)
+    private async Task WriteSystemWebServer()
     {
         await _writer.WriteStartElementAsync("system.webServer");
 
-        if (removeServerHeaders)
+        if (_settings.RemoveServerHeaders)
         {
             await WriteSecurity();
         }
 
-        if (enforceHttps)
+        if (_settings.EnforceHttps)
         {
             await WriteRewrite();
         }
 
-        await WriteHttpProtocol(config, removeServerHeaders);
+        await WriteHttpProtocol();
         
         await _writer.WriteEndElementAsync();
     }
@@ -138,14 +113,14 @@ public class IISWebConfigWriter : IDisposable, IAsyncDisposable
         await _writer.WriteEndElementAsync();
     }
 
-    private async Task WriteHttpProtocol(BmSecurityHeadersConfig config, bool removeServerHeaders)
+    private async Task WriteHttpProtocol()
     {
         await _writer.WriteStartElementAsync("httpProtocol");
         await _writer.WriteStartElementAsync("customHeaders");
 
-        await WriteSecurityHeaders(config);
+        await WriteSecurityHeaders();
 
-        if (removeServerHeaders)
+        if (_settings.RemoveServerHeaders)
         {
             await WriteRemoveXPoweredBy();
         }
@@ -161,13 +136,15 @@ public class IISWebConfigWriter : IDisposable, IAsyncDisposable
         await _writer.WriteEndElementAsync();
     }
 
-    private async Task WriteSecurityHeaders(BmSecurityHeadersConfig config)
+    private async Task WriteSecurityHeaders()
     {
+        // ReSharper disable once UseObjectOrCollectionInitializer
         var fakeContext = new DefaultHttpContext();
-        fakeContext.Request.IsHttps = true;
+        fakeContext.Request.IsHttps = _settings.WriteTlsHeaders;
+        fakeContext.Response.ContentType = _settings.WriteHttpHeaders ? "text/html" : "invalid";
         var headersResult = new CustomHeadersResult();
 
-        foreach (var policy in config.Values)
+        foreach (var policy in _settings.BmSecurityHeadersConfig.Values)
         {
             policy.Apply(fakeContext, headersResult);
         }

@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup Label="Build Configuration">
+        <RootNamespace>Brickmakers.AspSecurityHeaders.Generators</RootNamespace>
+        <TargetFrameworks>net6.0;net5.0;netcoreapp3.1</TargetFrameworks>
+        <LangVersion>default</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <WarningsAsErrors>Nullable</WarningsAsErrors>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+        <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup Label="Assembly Information">
+        <Company>BRICKMAKERS GmbH</Company>
+        <Product>Brickmakers.AspSecurityHeaders.Generators</Product>
+        <AssemblyName>Brickmakers.AspSecurityHeaders.Generators</AssemblyName>
+        <AssemblyVersion>1.2.2</AssemblyVersion>
+        <FileVersion>1.2.2</FileVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Label="NuGet-Packaging">
+        <PackageId>Brickmakers.AspSecurityHeaders.Generators</PackageId>
+        <PackageVersion>1.2.2</PackageVersion>
+        <Description>A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.</Description>
+        <Authors>BRICKMAKERS Security Engineering Team</Authors>
+        <PackageProjectUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>AspSecurityHeaders.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Copyright>2022 BRICKMAKERS GmbH</Copyright>
+        <PackageTags>Brickmakers ASP.NET dotnetcore dotnet HTTPS CSP HSTS Security HTTP-Headers Security-Headers</PackageTags>
+        <RepositoryType>GIT</RepositoryType>
+        <RepositoryUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders.git</RepositoryUrl>
+        <Title>AspSecurityHeaders by BRICKMAKERS</Title>
+        <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/../CHANGELOG.md"))</PackageReleaseNotes>
+    </PropertyGroup>
+
+    <ItemGroup Label="NuGet Files">
+        <None Include="..\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\CHANGELOG.md" Pack="true" PackagePath="\"/>
+        <None Include="..\LICENSE.txt" Pack="true" PackagePath="\"/>
+        <None Include="..\AspSecurityHeaders.png" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj"/>
+    </ItemGroup>
+
+</Project>

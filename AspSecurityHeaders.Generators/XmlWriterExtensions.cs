@@ -1,6 +1,6 @@
 ﻿using System.Xml;
 
-namespace AspSecurityHeaders.Tool;
+namespace Brickmakers.AspSecurityHeaders.Generators;
 
 internal static class XmlWriterExtensions
 {
