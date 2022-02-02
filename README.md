@@ -2,16 +2,22 @@
 
 [![License](https://img.shields.io/github/license/BrickmakersGmbH/AspSecurityHeaders)](https://github.com/BrickmakersGmbH/AspSecurityHeaders/blob/main/LICENSE.txt)
 [![CI-Pipeline](https://github.com/BrickmakersGmbH/AspSecurityHeaders/actions/workflows/ci.yml/badge.svg)](https://github.com/BrickmakersGmbH/AspSecurityHeaders/actions/workflows/ci.yml)
-[![Nuget Version](https://img.shields.io/nuget/v/Brickmakers.AspSecurityHeaders)](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders)
-[![Nuget Downloads](https://img.shields.io/nuget/dt/Brickmakers.AspSecurityHeaders)](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders)
+[![Brickmakers.AspSecurityHeaders Nuget Version](https://img.shields.io/nuget/v/Brickmakers.AspSecurityHeaders?label=Brickmakers.AspSecurityHeaders)](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders)
+[![Brickmakers.AspSecurityHeaders.Generators Nuget Version](https://img.shields.io/nuget/v/Brickmakers.AspSecurityHeaders.Generators?label=Brickmakers.AspSecurityHeaders.Generators)](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders.Generators)
 
 A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.
 
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-    * [Using the Built-In CSP Report Controller](#using-the-built-in-csp-report-controller)
+    * [AspSecurityHeaders](#aspsecurityheaders)
+        + [Using the Built-In CSP Report Controller](#using-the-built-in-csp-report-controller)
+    * [Generators](#generators)
+        + [IIS `web.config`](#iis--webconfig-)
 - [Attributions & Background](#attributions---background)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with
+markdown-toc</a></i></small>
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with
 markdown-toc</a></i></small>
