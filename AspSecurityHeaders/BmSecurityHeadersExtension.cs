@@ -3,14 +3,38 @@ using Microsoft.AspNetCore.Builder;
 
 namespace Brickmakers.AspSecurityHeaders;
 
+/// <summary>
+///     Extensions to <see cref="IApplicationBuilder" /> to add the security headers middleware and configure it.
+/// </summary>
 public static class BmSecurityHeadersExtension
 {
-    public static void UseBmSecurityHeaders(this IApplicationBuilder applicationBuilder)
+    /// <summary>
+    ///     Adds the security headers middleware with the default configuration.
+    /// </summary>
+    /// <param name="applicationBuilder">A <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+    /// <returns>The applicationBuilder that was passed as this.</returns>
+    /// <remarks>
+    ///     This method is deprecated. Use
+    ///     <see
+    ///         cref="UseBmSecurityHeaders(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Action{Brickmakers.AspSecurityHeaders.BmSecurityHeadersConfig})" />
+    ///     instead.
+    /// </remarks>
+    [Obsolete("Unconfigured security headers are not usable. Use the configure overload instead")]
+    public static IApplicationBuilder UseBmSecurityHeaders(this IApplicationBuilder applicationBuilder)
     {
-        applicationBuilder.UseBmSecurityHeaders(policy => { });
+        return applicationBuilder.UseBmSecurityHeaders(policy => { });
     }
 
-    public static void UseBmSecurityHeaders(this IApplicationBuilder applicationBuilder,
+    /// <summary>
+    ///     Adds the security headers middleware with the default configuration and allows you to further configure them.
+    /// </summary>
+    /// <param name="applicationBuilder">A <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+    /// <param name="configure">
+    ///     A callback that gets passed a <see cref="BmSecurityHeadersConfig" /> that can be used to
+    ///     configure the security headers middleware.
+    /// </param>
+    /// <returns>The applicationBuilder that was passed as this.</returns>
+    public static IApplicationBuilder UseBmSecurityHeaders(this IApplicationBuilder applicationBuilder,
         Action<BmSecurityHeadersConfig> configure)
     {
         var policy = new BmSecurityHeadersConfig();
@@ -18,14 +42,37 @@ public static class BmSecurityHeadersExtension
         configure(policy);
         applicationBuilder.UseSecurityHeaders(policy);
         applicationBuilder.UseCookiePolicy(policy.CreateCookiePolicy());
+        return applicationBuilder;
     }
 
-    public static void UseBmApiSecurityHeaders(this IApplicationBuilder applicationBuilder)
+    /// <summary>
+    ///     Adds the security headers middleware with the default configuration for REST-APIs.
+    /// </summary>
+    /// <param name="applicationBuilder">A <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+    /// <returns>The applicationBuilder that was passed as this.</returns>
+    /// <remarks>
+    ///     This method is deprecated. Use
+    ///     <see
+    ///         cref="UseBmApiSecurityHeaders(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Action{Brickmakers.AspSecurityHeaders.BmSecurityHeadersConfig})" />
+    ///     instead.
+    /// </remarks>
+    [Obsolete("Unconfigured security headers are not usable. Use the configure overload instead")]
+    public static IApplicationBuilder UseBmApiSecurityHeaders(this IApplicationBuilder applicationBuilder)
     {
-        applicationBuilder.UseBmApiSecurityHeaders(policy => { });
+        return applicationBuilder.UseBmApiSecurityHeaders(policy => { });
     }
 
-    public static void UseBmApiSecurityHeaders(this IApplicationBuilder applicationBuilder,
+    /// <summary>
+    ///     Adds the security headers middleware with the default configuration for REST-APIs and allows you to further
+    ///     configure them.
+    /// </summary>
+    /// <param name="applicationBuilder">A <see cref="IApplicationBuilder" /> to add the middleware to.</param>
+    /// <param name="configure">
+    ///     A callback that gets passed a <see cref="BmSecurityHeadersConfig" /> that can be used to
+    ///     configure the security headers middleware.
+    /// </param>
+    /// <returns>The applicationBuilder that was passed as this.</returns>
+    public static IApplicationBuilder UseBmApiSecurityHeaders(this IApplicationBuilder applicationBuilder,
         Action<BmSecurityHeadersConfig> configure)
     {
         var policy = new BmSecurityHeadersConfig();
@@ -33,5 +80,6 @@ public static class BmSecurityHeadersExtension
         configure(policy);
         applicationBuilder.UseSecurityHeaders(policy);
         applicationBuilder.UseCookiePolicy(policy.CreateCookiePolicy());
+        return applicationBuilder;
     }
 }

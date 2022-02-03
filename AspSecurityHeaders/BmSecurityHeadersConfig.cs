@@ -4,6 +4,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace Brickmakers.AspSecurityHeaders;
 
+/// <summary>
+///     An extension of the <see cref="HeaderPolicyCollection" /> that adds support for configuring cookie policies.
+/// </summary>
+/// <seealso cref="BmSecurityHeadersExtension.UseBmSecurityHeaders(Microsoft.AspNetCore.Builder.IApplicationBuilder)">IApplicationBuilder.UseBmSecurityHeaders()</seealso>
+/// <seealso cref="BmSecurityHeadersExtension.UseBmApiSecurityHeaders(Microsoft.AspNetCore.Builder.IApplicationBuilder)">IApplicationBuilder.UseBmApiSecurityHeaders()</seealso>
 public class BmSecurityHeadersConfig : HeaderPolicyCollection
 {
     // ReSharper disable once InconsistentNaming
