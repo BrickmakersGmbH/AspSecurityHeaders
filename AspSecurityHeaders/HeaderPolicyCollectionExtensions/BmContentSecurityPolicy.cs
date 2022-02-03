@@ -46,8 +46,8 @@ public static class BmContentSecurityPolicy
             builder.AddBaseUri().None();
             builder.AddFormAction().None();
             builder.AddFrameAncestors().None();
-            builder.AddScriptSrc().None().ReportSample();
-            builder.AddStyleSrc().None().ReportSample();
+            builder.AddScriptSrc().ReportSample();
+            builder.AddStyleSrc().ReportSample();
             if (!allowInsecureRequests)
             {
                 builder.AddUpgradeInsecureRequests();
