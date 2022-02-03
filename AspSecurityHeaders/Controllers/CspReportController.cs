@@ -19,6 +19,10 @@ public class CspReportController : ControllerBase
 {
     private readonly ILogger<CspReportController> _logger;
 
+    /// <summary>
+    ///     Default constructor.
+    /// </summary>
+    /// <param name="logger">The logger to be used to log CSP reports to.</param>
     public CspReportController(ILogger<CspReportController> logger)
     {
         _logger = logger;

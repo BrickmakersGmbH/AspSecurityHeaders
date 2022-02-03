@@ -23,30 +23,57 @@ public class CspReportRequest
 /// </summary>
 public class CspReport
 {
+    /// <summary>
+    ///     The <c>document-uri</c> report field.
+    /// </summary>
     [JsonPropertyName("document-uri")]
     public string? DocumentUri { get; set; }
 
+    /// <summary>
+    ///     The <c>referrer</c> report field.
+    /// </summary>
     [JsonPropertyName("referrer")]
     public string? Referrer { get; set; }
 
+    /// <summary>
+    ///     The <c>violated-directive</c> report field.
+    /// </summary>
     [JsonPropertyName("violated-directive")]
     public string? ViolatedDirective { get; set; }
 
+    /// <summary>
+    ///     The <c>effective-directive</c> report field.
+    /// </summary>
     [JsonPropertyName("effective-directive")]
     public string? EffectiveDirective { get; set; }
 
+    /// <summary>
+    ///     The <c>original-policy</c> report field.
+    /// </summary>
     [JsonPropertyName("original-policy")]
     public string? OriginalPolicy { get; set; }
 
+    /// <summary>
+    ///     The <c>blocked-uri</c> report field.
+    /// </summary>
     [JsonPropertyName("blocked-uri")]
     public string? BlockedUri { get; set; }
 
+    /// <summary>
+    ///     The <c>status-code</c> report field.
+    /// </summary>
     [JsonPropertyName("status-code")]
     public int? StatusCode { get; set; }
 
+    /// <summary>
+    ///     The <c>disposition</c> report field.
+    /// </summary>
     [JsonPropertyName("disposition")]
     public string? Disposition { get; set; }
 
+    /// <summary>
+    ///     The <c>script-sample</c> report field.
+    /// </summary>
     [JsonPropertyName("script-sample")]
     public string? ScriptSample { get; set; }
 
