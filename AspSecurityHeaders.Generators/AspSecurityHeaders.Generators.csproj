@@ -35,6 +35,8 @@
         <RepositoryUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders.git</RepositoryUrl>
         <Title>AspSecurityHeaders by BRICKMAKERS</Title>
         <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/../CHANGELOG.md"))</PackageReleaseNotes>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
 
     <ItemGroup Label="NuGet Files">

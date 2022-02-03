@@ -82,8 +82,8 @@ jobs:
       - name: Upload NuGet package as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Brickmakers.${{ matrix.project }}.nupkg
-          path: ${{ matrix.project }}/bin/Release/*.nupkg
+          name: Brickmakers.${{ matrix.project }}
+          path: ${{ matrix.project }}/bin/Release/*.?nupkg
           if-no-files-found: error
 
   release:
