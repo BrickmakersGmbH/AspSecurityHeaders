@@ -83,7 +83,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Brickmakers.${{ matrix.project }}
-          path: ${{ matrix.project }}/bin/Release/*.?nupkg
+          path: |
+            ${{ matrix.project }}/bin/Release/*.nupkg
+            ${{ matrix.project }}/bin/Release/*.snupkg
           if-no-files-found: error
 
   release:
