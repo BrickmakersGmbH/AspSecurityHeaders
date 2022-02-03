@@ -135,7 +135,7 @@ public class IISWebConfigWriterTests
         var stringBuilder = new StringBuilder();
 
         await CreateSecurityHeadersOnlyWriter()
-            .WriteTlsHeaders(false)
+            .WriteHttpsHeaders(false)
             .Run(stringBuilder);
 
         stringBuilder.ToString().Should().Be(@"<?xml version=""1.0"" encoding=""utf-16""?>
@@ -165,7 +165,7 @@ public class IISWebConfigWriterTests
         var stringBuilder = new StringBuilder();
 
         await CreateSecurityHeadersOnlyWriter()
-            .WriteHttpHeaders(false)
+            .WriteHtmlHeaders(false)
             .Run(stringBuilder);
 
         stringBuilder.ToString().Should().Be(@"<?xml version=""1.0"" encoding=""utf-16""?>
@@ -195,7 +195,7 @@ public class IISWebConfigWriterTests
     {
         return CreateSecurityHeadersOnlyWriter()
             .SetBmSecurityHeadersConfig(new BmSecurityHeadersConfig())
-            .WriteHttpHeaders(false)
-            .WriteTlsHeaders(false);
+            .WriteHtmlHeaders(false)
+            .WriteHttpsHeaders(false);
     }
 }

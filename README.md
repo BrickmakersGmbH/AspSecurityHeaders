@@ -173,7 +173,7 @@ await IISWebConfigWriter.Create() // or .CreateApi()
             builder.AddStyleSrc().Self();
             builder.AddImgSrc().Self();
         }))
-    .EnforceHttps(true)
+    .EnforceHttps(false)
     .Run("web.config");
 ```
 

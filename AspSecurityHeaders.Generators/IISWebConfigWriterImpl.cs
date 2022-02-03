@@ -140,8 +140,8 @@ internal class IISWebConfigWriterImpl : IDisposable, IAsyncDisposable
     {
         // ReSharper disable once UseObjectOrCollectionInitializer
         var fakeContext = new DefaultHttpContext();
-        fakeContext.Request.IsHttps = _settings.WriteTlsHeaders;
-        fakeContext.Response.ContentType = _settings.WriteHttpHeaders ? "text/html" : "invalid";
+        fakeContext.Request.IsHttps = _settings.WriteHttpsHeaders;
+        fakeContext.Response.ContentType = _settings.WriteHtmlHeaders ? "text/html" : "invalid";
         var headersResult = new CustomHeadersResult();
 
         foreach (var policy in _settings.BmSecurityHeadersConfig.Values)

@@ -19,7 +19,7 @@ internal class IISWebConfigWriterSettings
 
     internal bool EnforceHttps { get; set; } = true;
 
-    internal bool WriteTlsHeaders { get; set; } = true;
+    internal bool WriteHttpsHeaders { get; set; } = true;
 
-    internal bool WriteHttpHeaders { get; set; } = true;
+    internal bool WriteHtmlHeaders { get; set; } = true;
 }
