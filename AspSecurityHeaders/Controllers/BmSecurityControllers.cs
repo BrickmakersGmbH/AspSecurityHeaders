@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,24 +9,15 @@ namespace Brickmakers.AspSecurityHeaders.Controllers;
 public static class BmSecurityControllers
 {
     /// <summary>
-    ///     Adds all currently available security controllers to the application. Currently, those are:
-    ///     <ul>
-    ///         <li>
-    ///             <see cref="CspReportController" />
-    ///         </li>
-    ///     </ul>
+    ///     Registers the "application/csp-report" content type with the application. This is required for the
+    ///     <see cref="CspReportControllerBase" />, as otherwise your application will not be able to process reports as sent
+    ///     by the browser.
     /// </summary>
-    /// <param name="mvcBuilder">The <see cref="IMvcBuilder" /> to add the controllers to.</param>
+    /// <param name="mvcBuilder">The <see cref="IMvcBuilder" /> to add media type to.</param>
     /// <returns>The mvcBuilder that was passed as this.</returns>
-    /// <remarks>
-    ///     This only adds the controllers to the MVC context. In order for the to actually be available,
-    ///     <see cref="ControllerEndpointRouteBuilderExtensions.MapControllers">IEndpointRouteBuilder.MapControllers()</see>
-    ///     must also be called in your StartUp (See README for more details).
-    /// </remarks>
-    public static IMvcBuilder AddSecurityControllers(this IMvcBuilder mvcBuilder)
+    public static IMvcBuilder AddCspMediaType(this IMvcBuilder mvcBuilder)
     {
         return mvcBuilder
-            .AddApplicationPart(typeof(BmSecurityControllers).Assembly)
             .AddMvcOptions(options =>
             {
                 var jsonInputFormatter = options.InputFormatters

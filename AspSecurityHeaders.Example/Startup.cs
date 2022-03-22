@@ -1,7 +1,6 @@
 using System;
 using Brickmakers.AspSecurityHeaders.BmCookiePolicyExtensions;
 using Brickmakers.AspSecurityHeaders.Controllers;
-using Brickmakers.AspSecurityHeaders.CspBuilderExtensions;
 using Brickmakers.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,7 +24,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddMvc()
-            .AddSecurityControllers(); // works on AddRazorPages and AddControllers as well
+            .AddCspMediaType(); // works on AddRazorPages and AddControllers as well
         services.AddSwaggerGen();
     }
 
@@ -49,7 +48,7 @@ public class Startup
                     .Self()
                     .ReportSample();
                 builder.AddImgSrc().Self();
-                builder.AddBmReportController();
+                builder.AddReportUri().To("/CspReport");
             })
             .SetMinimumSameSitePolicy(SameSiteMode.Lax));
 

@@ -70,7 +70,7 @@ internal class BmFeaturePolicyHeader : IHeaderPolicy
     {
         if (permissionValue.Equals("()"))
         {
-            return new[] { "none" };
+            return new[] {"none"};
         }
 
         if (permissionValue.StartsWith("(") && permissionValue.EndsWith(")"))
@@ -78,7 +78,7 @@ internal class BmFeaturePolicyHeader : IHeaderPolicy
             return permissionValue.Substring(1, permissionValue.Length - 2).Split(' ');
         }
 
-        return new[] { permissionValue };
+        return new[] {permissionValue};
     }
 
     private static string ConvertToFeatureDirective(string directive)

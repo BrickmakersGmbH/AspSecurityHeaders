@@ -7,6 +7,9 @@
 
 A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.
 
+## Table of Contents
+
+- [BREAKING CHANGES in version 2.0.0](#breaking-changes-in-version-200)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -16,11 +19,14 @@ A small package for ASP.Net (Core) to automatically configure secure HTTP-Header
         + [IIS `web.config`](#iis--webconfig-)
 - [Attributions & Background](#attributions---background)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with
-markdown-toc</a></i></small>
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with
-markdown-toc</a></i></small>
+## BREAKING CHANGES in version 2.0.0
+
+Due to problems with the built in CSP report controller, it had refactored. For now, the controller is **not** added
+automatically anymore. Instead, an abstract base class has been added that you can extend to create you own csp report
+controller easily. See [Using the Built-In CSP Report Controller](#using-the-built-in-csp-report-controller) on how to
+add the new controller to your project. Besides of that, there are no other breaking changes.
 
 ## Features
 
@@ -53,7 +59,7 @@ To get started, all you have to to is to register the middleware in the `Configu
 beginning** of the method to ensure the headers are added to all responses, as different middlewares might end
 processing early, which would prevent the headers from being set:
 
-```.cs
+```cs
 public void Configure(IApplicationBuilder app)
 {
     // ! Should be the first step in the Configure method
@@ -74,7 +80,7 @@ certain security controls, you can use the `configure` parameter of the method. 
 styles and images are allowed to be loaded from the current origin and the minimum cookie same site requirements are
 reduced to be lax instead of strict.
 
-```.cs
+```cs
 public void Configure(IApplicationBuilder app)
 {
     app.UseBmSecurityHeaders(collection => collection  // Or .UseBmApiSecurityHeaders for APIs
@@ -96,15 +102,32 @@ The library includes a ready-made API-Controller to automatically report CSP-Vio
 be used by the browser to report CSP errors and log them as error message. If you want to use the controller, there are
 a few steps that need to be taken.
 
-First, you have to add the controller to the MVC instance inside of the `ConfigureServices` method. Typically,
-the `AddMvc` method is used, but you can also use any other of the MVC initializers, like for example `AddControllers`
-in case of a pure API.
+First, you have to add the controller to your controllers by extending the `CspReportControllerBase`:
 
-```.cs
+```cs
+[ApiController]
+[Route("[controller]")]
+[AllowAnonymous]
+public class CspReportController : CspReportControllerBase
+{
+    protected override Task HandleCspReport(CspReport cspReport)
+    {
+        // Implement logging or other handling here
+        return Task.CompletedTask;
+    }
+}
+```
+
+Next, you have to add the controller to the MVC instance inside of the `ConfigureServices` method. Typically,
+the `AddMvc` method is used, but you can also use any other of the MVC initializers, like for example `AddControllers`
+in case of a pure API. In addition to registering controllers, you also need to add the CSP-Report content type. You can
+simply use the `AddCspMediaType` method for that:
+
+```cs
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc()
-        .AddSecurityControllers();
+        .AddCspMediaType();
         // works on .AddRazorPages() and .AddControllers() as well
 }
 ```
@@ -112,7 +135,7 @@ public void ConfigureServices(IServiceCollection services)
 In the case that this is the first controller you add to your project, you also need to ensure that controllers are
 correctly mapped to endpoints. You can do so via the `UseEndpoints` method at the end of `Configure`:
 
-```.cs
+```cs
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     // do your normal setup
@@ -131,10 +154,10 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 ```
 
 Finally, you need to actually set the report URI in the CSP. This can be done by adding it inside the CSP builder of
-the `UseBmSecurityHeaders` by adding `AddBmReportController` to the CSP. This automatically sets the report uri to the
-CSP controller on this server.
+the `UseBmSecurityHeaders` by adding `AddReportUri` to the CSP. There you should set the path to the previously defined
+CSP controller. In this example, the controller path was defined as `CspReport`.
 
-```.cs
+```cs
 public void Configure(IApplicationBuilder app)
 {
     app.UseBmSecurityHeaders(collection => collection  // Or .UseBmApiSecurityHeaders for APIs
@@ -143,7 +166,7 @@ public void Configure(IApplicationBuilder app)
             // setup your CSP
             // ...
             
-            builder.AddBmReportController();
+            builder.AddReportUri().To("/CspReport");
         })
         .SetMinimumSameSitePolicy(SameSiteMode.Lax));
 
@@ -164,7 +187,7 @@ various writers to generate your configuration.
 
 To generate a web.config file with security headers, you can use the `IISWebConfigWriter` class:
 
-```.cs
+```cs
 await IISWebConfigWriter.Create() // or .CreateApi()
     .SetBmSecurityHeadersConfig(config => config
         .AddBmContentSecurityPolicy(builder =>
