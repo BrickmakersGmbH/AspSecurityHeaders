@@ -25,9 +25,9 @@
       },
       "NetEscapades.AspNetCore.SecurityHeaders": {
         "type": "Direct",
-        "requested": "[0.16.1, )",
-        "resolved": "0.16.1",
-        "contentHash": "q5SE+8pj7fUtH0zBx39te3LncFU6wN3ODPgHqBidRELuCfAghJ6ksSu3c0JjYfxwtXaaiDwhrcSrFpFAqdoplQ=="
+        "requested": "[0.17.0, )",
+        "resolved": "0.17.0",
+        "contentHash": "9SFMbdtndDQM1XLQQvh1Jjz6cqIvXENivF6okzQfiQokkFgvHlrPw99X0GLZMX2v9BbG1hsWAG8M101GFYedNQ=="
       },
       "Microsoft.AspNetCore.Http": {
         "type": "Transitive",
@@ -151,9 +151,9 @@
       },
       "NetEscapades.AspNetCore.SecurityHeaders": {
         "type": "Direct",
-        "requested": "[0.16.1, )",
-        "resolved": "0.16.1",
-        "contentHash": "q5SE+8pj7fUtH0zBx39te3LncFU6wN3ODPgHqBidRELuCfAghJ6ksSu3c0JjYfxwtXaaiDwhrcSrFpFAqdoplQ=="
+        "requested": "[0.17.0, )",
+        "resolved": "0.17.0",
+        "contentHash": "9SFMbdtndDQM1XLQQvh1Jjz6cqIvXENivF6okzQfiQokkFgvHlrPw99X0GLZMX2v9BbG1hsWAG8M101GFYedNQ=="
       },
       "Microsoft.AspNetCore.Http": {
         "type": "Transitive",
@@ -277,9 +277,9 @@
       },
       "NetEscapades.AspNetCore.SecurityHeaders": {
         "type": "Direct",
-        "requested": "[0.16.1, )",
-        "resolved": "0.16.1",
-        "contentHash": "q5SE+8pj7fUtH0zBx39te3LncFU6wN3ODPgHqBidRELuCfAghJ6ksSu3c0JjYfxwtXaaiDwhrcSrFpFAqdoplQ=="
+        "requested": "[0.17.0, )",
+        "resolved": "0.17.0",
+        "contentHash": "9SFMbdtndDQM1XLQQvh1Jjz6cqIvXENivF6okzQfiQokkFgvHlrPw99X0GLZMX2v9BbG1hsWAG8M101GFYedNQ=="
       },
       "Microsoft.AspNetCore.Http": {
         "type": "Transitive",
