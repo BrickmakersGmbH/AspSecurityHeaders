@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 namespace Brickmakers.AspSecurityHeaders.Controllers.Models;
 
 /// <summary>
-///     A Request sent to the <see cref="CspReportController" /> containing a CSP report.
+///     A Request sent to your <see cref="CspReportControllerBase" /> implementation containing a CSP report.
 /// </summary>
 public class CspReportRequest
 {
