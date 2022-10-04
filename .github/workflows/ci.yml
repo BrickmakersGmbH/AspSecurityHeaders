@@ -22,7 +22,6 @@ jobs:
           - windows-latest
         framework:
           - net6.0
-          - net5.0
           - netcoreapp3.1
     runs-on: ${{ matrix.platform }}
     steps:
@@ -31,7 +30,6 @@ jobs:
         with:
           dotnet-version: |
             3.1.x
-            5.0.x
             6.0.x
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -64,7 +62,6 @@ jobs:
         with:
           dotnet-version: |
             3.1.x
-            5.0.x
             6.0.x
       - name: Checkout Code
         uses: actions/checkout@v2
