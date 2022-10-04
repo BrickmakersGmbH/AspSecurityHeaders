@@ -13,13 +13,6 @@ public static class BmSecurityHeadersExtension
     /// </summary>
     /// <param name="applicationBuilder">A <see cref="IApplicationBuilder" /> to add the middleware to.</param>
     /// <returns>The applicationBuilder that was passed as this.</returns>
-    /// <remarks>
-    ///     This method is deprecated. Use
-    ///     <see
-    ///         cref="UseBmSecurityHeaders(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Action{Brickmakers.AspSecurityHeaders.BmSecurityHeadersConfig})" />
-    ///     instead.
-    /// </remarks>
-    [Obsolete("Unconfigured security headers are not usable. Use the configure overload instead")]
     public static IApplicationBuilder UseBmSecurityHeaders(this IApplicationBuilder applicationBuilder)
     {
         return applicationBuilder.UseBmSecurityHeaders(policy => { });
@@ -50,13 +43,6 @@ public static class BmSecurityHeadersExtension
     /// </summary>
     /// <param name="applicationBuilder">A <see cref="IApplicationBuilder" /> to add the middleware to.</param>
     /// <returns>The applicationBuilder that was passed as this.</returns>
-    /// <remarks>
-    ///     This method is deprecated. Use
-    ///     <see
-    ///         cref="UseBmApiSecurityHeaders(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Action{Brickmakers.AspSecurityHeaders.BmSecurityHeadersConfig})" />
-    ///     instead.
-    /// </remarks>
-    [Obsolete("Unconfigured security headers are not usable. Use the configure overload instead")]
     public static IApplicationBuilder UseBmApiSecurityHeaders(this IApplicationBuilder applicationBuilder)
     {
         return applicationBuilder.UseBmApiSecurityHeaders(policy => { });
