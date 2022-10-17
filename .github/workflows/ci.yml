@@ -26,7 +26,7 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: |
             3.1.x
@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: |
             3.1.x
@@ -142,7 +142,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && needs.release.outputs.publish == 'true'
     steps:
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 6.0.x
       - name: Download NuGet package
