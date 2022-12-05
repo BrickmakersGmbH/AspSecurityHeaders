@@ -31,6 +31,9 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
     }
 
     [Theory]
+    [InlineData("Cross-Origin-Embedder-Policy", "require-corp")]
+    [InlineData("Cross-Origin-Opener-Policy", "same-site")]
+    [InlineData("Cross-Origin-Resource-Policy", "same-site")]
     [InlineData("X-Frame-Options", "DENY")]
     [InlineData("X-XSS-Protection", "0")]
     [InlineData("X-Content-Type-Options", "nosniff")]
@@ -50,6 +53,7 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
     {
         var response = await GetIndex();
         response.Headers.Should().NotContainKey("Server");
+        response.Headers.Should().NotContainKey("X-Powered-By");
     }
 
     [Theory]

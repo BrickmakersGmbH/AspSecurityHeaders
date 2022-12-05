@@ -12,6 +12,9 @@ public static class DefaultBmSecurityHeaders
     ///     Adds all default security headers for HTTP-Websites. These headers are:
     ///     <code>
     ///         Strict-Transport-Security: max-age=31536000; includeSubDomains
+    ///         Cross-Origin-Embedder-Policy: require-corp
+    ///         Cross-Origin-Opener-Policy: same-origin
+    ///         Cross-Origin-Resource-Policy: same-origin
     ///         X-Frame-Options: DENY
     ///         X-Content-Type-Options: nosniff
     ///         X-Permitted-Cross-Domain-Policies: none
@@ -22,6 +25,7 @@ public static class DefaultBmSecurityHeaders
     ///         Permissions-Policy: ...
     ///         Feature-Policy: ...
     ///         &lt;removes&gt; Server
+    ///         &lt;removes&gt; X-Powered-By
     ///     </code>
     /// </summary>
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the headers to.</param>
@@ -34,10 +38,14 @@ public static class DefaultBmSecurityHeaders
             .AddXssProtectionDisabled()
             .AddReferrerPolicyNoReferrer()
             .AddXPermittedCrossDomainPoliciesNone()
+            .AddCrossOriginEmbedderPolicy(builder => builder.RequireCorp())
+            .AddCrossOriginOpenerPolicy(builder => builder.SameOrigin())
+            .AddCrossOriginResourcePolicy(builder => builder.SameOrigin())
             .AddCacheControlNoStore()
             .AddBmContentSecurityPolicy(builder => { })
             .AddBmPermissionPolicy(builder => { })
-            .RemoveServerHeader();
+            .RemoveServerHeader()
+            .RemoveCustomHeader("X-Powered-By");
     }
 
     /// <summary>
