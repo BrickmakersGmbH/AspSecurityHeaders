@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2022-12-XX
+### Added
+- Enabled strict site isolation by enabling the COEP, COOP and CORP headers
+  - Read https://web.dev/why-coop-coep/ for mor details, on why they are needed and what they do
+  - Should you encounter problems, you can use overwrite their usage to only report errors via the `AddCrossOriginXXXPolicy` methods
+- The `X-Powered-By` header now gets automatically removed as well
+
 ## [2.0.0] - 2022-03-22
 
 This release contains breaking changes. See README for more details.
