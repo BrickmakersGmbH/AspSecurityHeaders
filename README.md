@@ -9,7 +9,7 @@ A small package for ASP.Net (Core) to automatically configure secure HTTP-Header
 
 ## Table of Contents
 
-- [BREAKING CHANGES in version 2.0.0](#breaking-changes-in-version-200)
+- [IMPORTANT CHANGES in version 2.1.0](#important-changes-in-version-210)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -21,12 +21,9 @@ A small package for ASP.Net (Core) to automatically configure secure HTTP-Header
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-## BREAKING CHANGES in version 2.0.0
+## IMPORTANT CHANGES in version 2.1.0
 
-Due to problems with the built in CSP report controller, it had refactored. For now, the controller is **not** added
-automatically anymore. Instead, an abstract base class has been added that you can extend to create you own csp report
-controller easily. See [Using the Built-In CSP Report Controller](#using-the-built-in-csp-report-controller) on how to
-add the new controller to your project. Besides of that, there are no other breaking changes.
+In 2.1.0, support for strict site isolation has been added and enabled. Check the release notes for more details.
 
 ## Features
 
