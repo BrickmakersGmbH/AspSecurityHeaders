@@ -31,21 +31,21 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
     }
 
     [Theory]
-    [InlineData("Cross-Origin-Embedder-Policy", "require-corp")]
-    [InlineData("Cross-Origin-Opener-Policy", "same-site")]
-    [InlineData("Cross-Origin-Resource-Policy", "same-site")]
     [InlineData("X-Frame-Options", "DENY")]
     [InlineData("X-XSS-Protection", "0")]
     [InlineData("X-Content-Type-Options", "nosniff")]
     [InlineData("Referrer-Policy", "no-referrer")]
     [InlineData("X-Permitted-Cross-Domain-Policies", "none")]
+    [InlineData("Cross-Origin-Embedder-Policy", "require-corp")]
+    [InlineData("Cross-Origin-Opener-Policy", "same-origin")]
+    [InlineData("Cross-Origin-Resource-Policy", "same-origin")]
     [InlineData("Cache-Control", "no-store")]
     public async Task ShouldContainStaticSecurityHeaders(string headerName, string headerValue)
     {
         var response = await GetIndex();
         response.Headers.Should().ContainKey(headerName);
         var headerValues = response.Headers.GetValues(headerName);
-        headerValues.Should().ContainSingle(headerValue);
+        headerValues.Should().OnlyContain(v => v == headerValue);
     }
 
     [Fact]
