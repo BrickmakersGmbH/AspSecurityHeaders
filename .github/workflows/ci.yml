@@ -22,6 +22,10 @@ jobs:
         framework:
           - net6.0
           - netcoreapp3.1
+        
+        exclude:
+          - project: AspSecurityHeaders.OrchardModule.Test
+            framework: netcoreapp3.1
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Setup .NET
