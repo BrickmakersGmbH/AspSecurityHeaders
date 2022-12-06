@@ -55,6 +55,7 @@ jobs:
         project:
           - AspSecurityHeaders
           - AspSecurityHeaders.Generators
+          - AspSecurityHeaders.OrchardModule
     runs-on: ubuntu-latest
     steps:
       - name: Setup .NET

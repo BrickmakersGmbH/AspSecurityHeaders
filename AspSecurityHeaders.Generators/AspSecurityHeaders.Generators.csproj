@@ -46,7 +46,7 @@
         <None Include="..\AspSecurityHeaders.png" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
-    <ItemGroup>
+    <ItemGroup Label="Project References">
         <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj"/>
     </ItemGroup>
 
