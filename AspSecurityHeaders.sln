@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspSecurityHeaders.Generato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspSecurityHeaders.OrchardModule", "AspSecurityHeaders.OrchardModule\AspSecurityHeaders.OrchardModule.csproj", "{C07DC068-07BC-4D44-938E-DB48A784940B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspSecurityHeaders.OrchardModule.Example", "AspSecurityHeaders.OrchardModule.Example\AspSecurityHeaders.OrchardModule.Example.csproj", "{48C596CD-73F3-45C4-8BD6-E54CB4FFA69A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{C07DC068-07BC-4D44-938E-DB48A784940B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C07DC068-07BC-4D44-938E-DB48A784940B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C07DC068-07BC-4D44-938E-DB48A784940B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48C596CD-73F3-45C4-8BD6-E54CB4FFA69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48C596CD-73F3-45C4-8BD6-E54CB4FFA69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48C596CD-73F3-45C4-8BD6-E54CB4FFA69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48C596CD-73F3-45C4-8BD6-E54CB4FFA69A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
