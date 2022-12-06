@@ -1,32 +1,22 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace Brickmakers.AspSecurityHeaders.OrchardModule.Example;
 
-builder.Services
-    .AddOrchardCore()
-    .AddMvc()
-    // // Orchard Specific Pipeline
-    // .ConfigureServices( services => {
-
-    // })
-    // .Configure( (app, routes, services) => {
-
-    // })
-    ;
-
-var app = builder.Build();
-
-if (!app.Environment.IsDevelopment())
+public class Program
 {
-    app.UseExceptionHandler("/Error");
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args)
+    {
+        return Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseKestrel(options => options.AddServerHeader = false);
+                webBuilder.UseStartup<Startup>();
+            });
+    }
 }
-
-app.UseHttpsRedirection();
-
-app.UseStaticFiles();
-
-app.UseOrchardCore();
-
-app.Run();

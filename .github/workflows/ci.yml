@@ -14,6 +14,7 @@ jobs:
         project:
           - AspSecurityHeaders.Test
           - AspSecurityHeaders.Generators.Test
+          - AspSecurityHeaders.OrchardModule.Test
         platform:
           - ubuntu-latest
           - macos-latest
