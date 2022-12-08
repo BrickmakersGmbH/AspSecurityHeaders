@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/github/license/BrickmakersGmbH/AspSecurityHeaders)](https://github.com/BrickmakersGmbH/AspSecurityHeaders/blob/main/LICENSE.txt)
 [![CI-Pipeline](https://github.com/BrickmakersGmbH/AspSecurityHeaders/actions/workflows/ci.yml/badge.svg)](https://github.com/BrickmakersGmbH/AspSecurityHeaders/actions/workflows/ci.yml)
 [![Brickmakers.AspSecurityHeaders Nuget Version](https://img.shields.io/nuget/v/Brickmakers.AspSecurityHeaders?label=Brickmakers.AspSecurityHeaders)](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders)
+[![Brickmakers.AspSecurityHeaders.OrchardModule Nuget Version](https://img.shields.io/nuget/v/Brickmakers.AspSecurityHeaders.OrchardModule?label=Brickmakers.AspSecurityHeaders.OrchardModule)](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders.OrchardModule)
 [![Brickmakers.AspSecurityHeaders.Generators Nuget Version](https://img.shields.io/nuget/v/Brickmakers.AspSecurityHeaders.Generators?label=Brickmakers.AspSecurityHeaders.Generators)](https://www.nuget.org/packages/Brickmakers.AspSecurityHeaders.Generators)
 
 A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.
@@ -15,11 +16,14 @@ A small package for ASP.Net (Core) to automatically configure secure HTTP-Header
 - [Usage](#usage)
     * [AspSecurityHeaders](#aspsecurityheaders)
         + [Using the Built-In CSP Report Controller](#using-the-built-in-csp-report-controller)
+    * [Orchard Module](#orchard-module)
+        + [Support for Login with Azure AD](#support-for-login-with-azure-ad)
     * [Generators](#generators)
-        + [IIS `web.config`](#iis--webconfig-)
-- [Attributions & Background](#attributions---background)
+        + [IIS web.config](#iis-webconfig)
+- [Attributions and Background](#attributions-and-background)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with
+markdown-toc</a></i></small>
 
 ## IMPORTANT CHANGES in version 2.1.0
 
@@ -175,12 +179,67 @@ In case you also have additional projects that should also report to this contro
 web project, the controller will always be accessible via `https://<host>/CspReport`. You can use it as any other CSP
 reporting endpoint.
 
+### Orchard Module
+
+If you are working with [Orchard Core](https://orchardcore.net/), then instead of using the Security Headers package
+directly, you should instead use the `Brickmakers.AspSecurityHeaders.OrchardModule` package, which itself is an orchard
+module that automatically configures the security headers for you. To use it, follow the standard Steps to add an
+Orchard module as dependency:
+
+1. Add the NuGet package reference
+2. Update your `Manifest.cs` and add `Brickmakers.AspSecurityHeaders.OrchardModule` as dependency
+3. Enable MVC in your application `Startup.cs`: `services.AddOrchardCore().AddMvc();`
+4. For existing installations: Enter the "Features" Admin Menu and manually enable the module
+
+With the, the module is automatically loaded and activated. It will:
+
+1. Enable all standard security headers, including a customized CSP
+2. Register the CSP report controller under `/CspReport`
+
+To customize the security headers, you can basically follow the standard instructions of the normal Security headers
+package, with 2 exceptions: Use `UseOrchardBmSecurityHeaders` and `AddOrchardBmContentSecurityPolicy` instead of their "
+normal" counterparts:
+
+```cs
+public void Configure(IApplicationBuilder app)
+{
+    // ! Should be the first step in the Configure method
+
+    // Only needed if customization is required
+    app.UseOrchardBmSecurityHeaders(config => config
+        .AddOrchardBmContentSecurityPolicy(/* ... */) // csp config
+        // ... other configuration, just like with the normal security headers
+    );
+}
+```
+
+> **Note:** Orchard core is not the most security aware framework. The default CSP that is required to make it work
+> includes `unsafe-inline` `unsafe-eval` and some files hosted on jsdelivr.net. Be aware that for a security sensitve
+> application, it should be carefully evaluated if orchard core is the right choice, or whether critical components
+> should
+> be provided in a pure ASP.net application that allows for tighter security controls and a better CSP.
+
+#### Support for Login with Azure AD
+
+If you want to allow a login with Azure AD in your orchard application, special cookie policy rules need to be added to
+that azure can pass the authentication result back to the orchard application. You can either manually configure the
+rules via `AddCookieOption` or use a helper method that does that for your:
+
+```cs
+public void Configure(IApplicationBuilder app)
+{
+    app.UseOrchardBmSecurityHeaders(config => config
+        .AddAzureLoginCookieWhitelist()
+    );
+}
+```
+
 ### Generators
 
 To use the generators, you have to install the `Brickmakers.AspSecurityHeaders.Generators` package. The you can use the
 various writers to generate your configuration.
 
-#### IIS `web.config`
+#### IIS web.config
 
 To generate a web.config file with security headers, you can use the `IISWebConfigWriter` class:
 
@@ -206,7 +265,7 @@ available with web.config files. These are:
 - Enforce HTTPS
 - Flags to control if the generated headers should be for HTTP / TLS
 
-## Attributions & Background
+## Attributions and Background
 
 This project is heavily based
 on [NetEscapades.AspNetCore.SecurityHeaders](https://github.com/andrewlock/NetEscapades.AspNetCore.SecurityHeaders),

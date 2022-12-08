@@ -7,8 +7,12 @@ using OrchardCore.Modules;
 
 namespace Brickmakers.AspSecurityHeaders.OrchardModule;
 
+/// <summary>
+///     The Startup class of the orchard module
+/// </summary>
 public class Startup : StartupBase
 {
+    /// <inheritdoc />
     public override void ConfigureServices(IServiceCollection services)
     {
         services.PostConfigure<MvcOptions>(options =>
@@ -20,9 +24,10 @@ public class Startup : StartupBase
         });
     }
 
+    /// <inheritdoc />
     public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes,
         IServiceProvider serviceProvider)
     {
-        builder.UseOrchardBmSecurityHeaders();
+        builder.UseOrchardBmSecurityHeaders(config => { });
     }
 }
