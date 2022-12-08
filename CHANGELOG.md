@@ -5,11 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.1.0] - 2022-12-XX
+## [2.2.0] - 2022-12-08
+
 ### Added
+
+- New orchard core MVC module that enables the security headers for any orchard project
+    - Includes adjusted CSP that works out of the box for a standard orchard project
+    - Automatically adds the CSP report controller
+    - Customized `UseOrchardBmSecurityHeaders` method to configure the headers for orchard projects
+    - Includes `AddAzureLoginCookieWhitelist` that automatically configures the cookie policy for an Azure AD login
+
+## [2.1.0] - 2022-12-05
+
+### Added
+
 - Enabled strict site isolation by enabling the COEP, COOP and CORP headers
-  - Read https://web.dev/why-coop-coep/ for mor details, on why they are needed and what they do
-  - Should you encounter problems, you can use overwrite their usage to only report errors via the `AddCrossOriginXXXPolicy` methods
+    - Read https://web.dev/why-coop-coep/ for mor details, on why they are needed and what they do
+    - Should you encounter problems, you can use overwrite their usage to only report errors via
+      the `AddCrossOriginXXXPolicy` methods
 - The `X-Powered-By` header now gets automatically removed as well
 
 ## [2.0.0] - 2022-03-22

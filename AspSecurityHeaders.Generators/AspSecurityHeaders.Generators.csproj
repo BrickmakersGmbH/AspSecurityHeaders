@@ -16,13 +16,13 @@
         <Company>BRICKMAKERS GmbH</Company>
         <Product>Brickmakers.AspSecurityHeaders.Generators</Product>
         <AssemblyName>Brickmakers.AspSecurityHeaders.Generators</AssemblyName>
-        <AssemblyVersion>2.1.0</AssemblyVersion>
-        <FileVersion>2.1.0</FileVersion>
+        <AssemblyVersion>2.2.0</AssemblyVersion>
+        <FileVersion>2.2.0</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Label="NuGet-Packaging">
         <PackageId>Brickmakers.AspSecurityHeaders.Generators</PackageId>
-        <PackageVersion>2.1.0</PackageVersion>
+        <PackageVersion>2.2.0</PackageVersion>
         <Description>A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.</Description>
         <Authors>BRICKMAKERS Security Engineering Team</Authors>
         <PackageProjectUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders</PackageProjectUrl>
