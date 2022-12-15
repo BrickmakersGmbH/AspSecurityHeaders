@@ -219,17 +219,21 @@ public void Configure(IApplicationBuilder app)
 > should
 > be provided in a pure ASP.net application that allows for tighter security controls and a better CSP.
 
-#### Support for Login with Azure AD
+#### Support for Login with Microsoft/Azure AD
 
-If you want to allow a login with Azure AD in your orchard application, special cookie policy rules need to be added to
-that azure can pass the authentication result back to the orchard application. You can either manually configure the
-rules via `AddCookieOption` or use a helper method that does that for your:
+If you want to allow a login with Microsoft in your orchard application, special cookie policy rules need to be added so
+that azure can pass the authentication result back to the orchard application. Additionally, some CSP rules need to be
+adjusted, as otherwise your page cannot redirect to microsoft. You can either manually configure the rules via the
+`AddCookieOption` and the CSP builder, or use the helper methods that do that for you:
 
 ```cs
 public void Configure(IApplicationBuilder app)
 {
     app.UseOrchardBmSecurityHeaders(config => config
-        .AddAzureLoginCookieWhitelist()
+        .AddMicrosoftLoginCookieWhitelist()
+        .AddOrchardBmContentSecurityPolicy(cspBuilder => {
+            cspBuilder.AddFormAction().Self().MicrosoftLogin();
+        })
     );
 }
 ```

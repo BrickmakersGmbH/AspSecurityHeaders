@@ -3,6 +3,7 @@ using Brickmakers.AspSecurityHeaders.BmCookiePolicyExtensions;
 using Brickmakers.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using NetEscapades.AspNetCore.SecurityHeaders.Headers.ContentSecurityPolicy;
 
 namespace Brickmakers.AspSecurityHeaders.OrchardModule;
 
@@ -50,8 +51,11 @@ public static class OrchardSecurityHeaders
     /// </summary>
     /// <param name="headerPolicyCollection">to add the rules to.</param>
     /// <returns>The headerPolicyCollection that was passed to this.</returns>
-    /// <remarks>Unless you actually use the azure login, you do not need to enable this.</remarks>
-    public static HeaderPolicyCollection AddAzureLoginCookieWhitelist(
+    /// <remarks>
+    ///     Unless you actually use the azure login, you do not need to enable this. Should be used in conjunction with
+    ///     <see cref="MicrosoftLogin" />.
+    /// </remarks>
+    public static HeaderPolicyCollection AddMicrosoftLoginCookieWhitelist(
         this HeaderPolicyCollection headerPolicyCollection)
     {
         return headerPolicyCollection
@@ -59,6 +63,21 @@ public static class OrchardSecurityHeaders
                 options => options.SameSite = SameSiteMode.None)
             .AddCookieOption(new Regex(@"^\.AspNetCore\.Correlation\..+$"),
                 options => options.SameSite = SameSiteMode.None);
+    }
+
+    /// <summary>
+    ///     [OBSOLETE] Adds special cookie policy rules to enable the login to the Azure AD.<br />
+    ///     This will ensure that special Azure login cookies are allowed to have SameSite=None, as the default cookie policy
+    ///     for orchard projects (SameSize=Lax) would otherwise prevent them from being returned from the azure login.
+    /// </summary>
+    /// <param name="headerPolicyCollection">to add the rules to.</param>
+    /// <returns>The headerPolicyCollection that was passed to this.</returns>
+    /// <remarks>Obsolete. Has been renamed to AddMicrosoftLoginCookieWhitelist.</remarks>
+    [Obsolete("Use AddMicrosoftLoginCookieWhitelist instead")]
+    public static HeaderPolicyCollection AddAzureLoginCookieWhitelist(
+        this HeaderPolicyCollection headerPolicyCollection)
+    {
+        return headerPolicyCollection.AddMicrosoftLoginCookieWhitelist();
     }
 
 
@@ -135,5 +154,19 @@ public static class OrchardSecurityHeaders
             },
             allowInsecureRequests,
             allowMixedContent);
+    }
+
+    /// <summary>
+    ///     Adds https://login.microsoftonline.com as allowed form-action.
+    /// </summary>
+    /// <param name="formActionBuilder">to add the URL to.</param>
+    /// <returns>The formActionBuilder that was passed to this.</returns>
+    /// <remarks>
+    ///     Unless you actually use the azure login, you do not need to enable this. Should be used in conjunction with
+    ///     <see cref="AddAzureLoginCookieWhitelist" />.
+    /// </remarks>
+    public static FormActionDirectiveBuilder MicrosoftLogin(this FormActionDirectiveBuilder formActionBuilder)
+    {
+        return formActionBuilder.From("https://login.microsoftonline.com");
     }
 }
