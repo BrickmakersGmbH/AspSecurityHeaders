@@ -1,5 +1,7 @@
 ﻿using System.Xml;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using NetEscapades.AspNetCore.SecurityHeaders.Headers;
 using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
 
 namespace Brickmakers.AspSecurityHeaders.Generators;
@@ -146,7 +148,14 @@ internal class IISWebConfigWriterImpl : IDisposable, IAsyncDisposable
 
         foreach (var policy in _settings.BmSecurityHeadersConfig.Values)
         {
-            policy.Apply(fakeContext, headersResult);
+            if (policy is DocumentHeaderPolicyBase documentPolicy)
+            {
+                documentPolicy.Apply(fakeContext, headersResult, new HeaderPolicyCollection());
+            }
+            else
+            {
+                policy.Apply(fakeContext, headersResult);
+            }
         }
 
         foreach (var (name, value) in headersResult.SetHeaders)

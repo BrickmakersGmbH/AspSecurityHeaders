@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using NetEscapades.AspNetCore.SecurityHeaders.Headers;
 using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
@@ -6,9 +7,9 @@ namespace Brickmakers.AspSecurityHeaders.HeaderPolicies;
 
 internal class BmFeaturePolicyHeader : IHeaderPolicy
 {
-    private readonly IHeaderPolicy _permissionsPolicy;
+    private readonly PermissionsPolicyHeader _permissionsPolicy;
 
-    public BmFeaturePolicyHeader(IHeaderPolicy permissionsPolicy)
+    public BmFeaturePolicyHeader(PermissionsPolicyHeader permissionsPolicy)
     {
         _permissionsPolicy = permissionsPolicy;
     }
@@ -34,7 +35,7 @@ internal class BmFeaturePolicyHeader : IHeaderPolicy
     private string? BuildPermissionsHeader(HttpContext context)
     {
         var permissionsResult = new CustomHeadersResult();
-        _permissionsPolicy.Apply(context, permissionsResult);
+        _permissionsPolicy.Apply(context, permissionsResult, new HeaderPolicyCollection());
         if (!permissionsResult.SetHeaders.ContainsKey(_permissionsPolicy.Header))
         {
             return null;
