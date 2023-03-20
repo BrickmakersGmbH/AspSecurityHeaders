@@ -1126,10 +1126,10 @@
       },
       "System.Net.Http.Json": {
         "type": "Transitive",
-        "resolved": "7.0.0",
-        "contentHash": "K74te5euBJLzosprZji9juSop5mLWRzlpSNqBgZBE7/2AiPbFtM7B5eDB/tnB1jjil3bNNeJYBNfIxobs6uXhQ==",
+        "resolved": "7.0.1",
+        "contentHash": "ni8+BJnndbJI9AXme/qCYXg1s4RpdRJx3gKp5WzcWuLt4l3syuscgk5Becis6x4E7HbQk4z6A7FNXFQD75F+wQ==",
         "dependencies": {
-          "System.Text.Json": "7.0.0"
+          "System.Text.Json": "7.0.2"
         }
       },
       "System.Net.Primitives": {
@@ -1535,8 +1535,8 @@
       },
       "System.Text.Json": {
         "type": "Transitive",
-        "resolved": "7.0.0",
-        "contentHash": "DaGSsVqKsn/ia6RG8frjwmJonfos0srquhw09TlT8KRw5I43E+4gs+/bZj4K0vShJ5H9imCuXupb4RmS+dBy3w==",
+        "resolved": "7.0.2",
+        "contentHash": "/LZf/JrGyilojqwpaywb+sSz8Tew7ij4K/Sk+UW8AKfAK7KRhR6mKpKtTm06cYA7bCpGTWfYksIW+mVsdxPegQ==",
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0",
           "System.Text.Encodings.Web": "7.0.0"
@@ -1715,7 +1715,7 @@
           "FluentAssertions": "[6.10.0, )",
           "Microsoft.AspNetCore.Mvc.Testing": "[3.1.32, )",
           "Microsoft.NET.Test.Sdk": "[17.5.0, )",
-          "System.Net.Http.Json": "[7.0.0, )",
+          "System.Net.Http.Json": "[7.0.1, )",
           "xunit": "[2.4.2, )"
         }
       }
