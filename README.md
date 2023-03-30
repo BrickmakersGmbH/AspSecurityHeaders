@@ -219,6 +219,26 @@ public void Configure(IApplicationBuilder app)
 > should
 > be provided in a pure ASP.net application that allows for tighter security controls and a better CSP.
 
+#### Overwriting the Orchard CSP
+When customizing the Orchard CSP, it is important to know that adding custom directives will *overwrite* the existing once, *not add* them. For example, if you want to allow scripts to be loaded from `https://example.com`, you cannot simply use `AddScriptSrc().From("https://example.com")`, as that would break the existing orchard CSP rules for scripts. Instead, you need to copy the existing rules found in [OrchardSecurityHeaders.cs](https://github.com/BrickmakersGmbH/AspSecurityHeaders/blob/main/AspSecurityHeaders.OrchardModule/OrchardSecurityHeaders.cs#L131) and add you custom directives after that:
+
+```cs
+public void Configure(IApplicationBuilder app)
+{
+    app.UseOrchardBmSecurityHeaders(config => config
+        .AddOrchardBmContentSecurityPolicy(builder => 
+        {
+            builder.AddScriptSrc()
+                .Self()
+                .UnsafeInline()
+                .UnsafeEval()
+                .From("https://example.com")
+                .ReportSample();
+        })
+    );
+}
+```
+
 #### Support for Login with Microsoft/Azure AD
 
 If you want to allow a login with Microsoft in your orchard application, special cookie policy rules need to be added so
