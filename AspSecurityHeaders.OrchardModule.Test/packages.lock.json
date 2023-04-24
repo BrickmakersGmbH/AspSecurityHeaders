@@ -10,9 +10,9 @@
       },
       "FluentAssertions": {
         "type": "Direct",
-        "requested": "[6.10.0, )",
-        "resolved": "6.10.0",
-        "contentHash": "Da3YsiRDnOHKBfxutjnupL1rOX0K/jnG6crn5AgwukeqZ/yi+HNCOFshic01ke0ztZFWzpfQMXH8fO9aAbG0Gw==",
+        "requested": "[6.11.0, )",
+        "resolved": "6.11.0",
+        "contentHash": "aBaagwdNtVKkug1F3imGXUlmoBd8ZUZX8oQ5niThaJhF79SpESe1Gzq7OFuZkQdKD5Pa4Mone+jrbas873AT4g==",
         "dependencies": {
           "System.Configuration.ConfigurationManager": "4.4.0"
         }
@@ -1712,7 +1712,7 @@
         "dependencies": {
           "Brickmakers.AspSecurityHeaders": "[2.2.1, )",
           "Brickmakers.AspSecurityHeaders.Example": "[1.0.0, )",
-          "FluentAssertions": "[6.10.0, )",
+          "FluentAssertions": "[6.11.0, )",
           "Microsoft.AspNetCore.Mvc.Testing": "[3.1.32, )",
           "Microsoft.NET.Test.Sdk": "[17.5.0, )",
           "System.Net.Http.Json": "[7.0.1, )",
