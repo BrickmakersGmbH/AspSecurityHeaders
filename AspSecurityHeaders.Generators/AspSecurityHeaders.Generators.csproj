@@ -2,7 +2,7 @@
 
     <PropertyGroup Label="Build Configuration">
         <RootNamespace>Brickmakers.AspSecurityHeaders.Generators</RootNamespace>
-        <TargetFrameworks>net6.0;netcoreapp3.1</TargetFrameworks>
+        <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
         <LangVersion>default</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
@@ -40,14 +40,14 @@
     </PropertyGroup>
 
     <ItemGroup Label="NuGet Files">
-        <None Include="..\README.md" Pack="true" PackagePath="\"/>
-        <None Include="..\CHANGELOG.md" Pack="true" PackagePath="\"/>
-        <None Include="..\LICENSE.txt" Pack="true" PackagePath="\"/>
-        <None Include="..\AspSecurityHeaders.png" Pack="true" PackagePath="\"/>
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
+        <None Include="..\CHANGELOG.md" Pack="true" PackagePath="\" />
+        <None Include="..\LICENSE.txt" Pack="true" PackagePath="\" />
+        <None Include="..\AspSecurityHeaders.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup Label="Project References">
-        <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj"/>
+        <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj" />
     </ItemGroup>
 
 </Project>

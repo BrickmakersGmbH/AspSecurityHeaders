@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <RootNamespace>Brickmakers.AspSecurityHeaders.Generators.Test</RootNamespace>
-        <TargetFrameworks>net6.0;netcoreapp3.1</TargetFrameworks>
+        <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
         <LangVersion>default</LangVersion>
         <IsPackable>false</IsPackable>
         <Nullable>enable</Nullable>

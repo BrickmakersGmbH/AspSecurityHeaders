@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <RootNamespace>Brickmakers.AspSecurityHeaders.OrchardModule.Example</RootNamespace>
-        <TargetFramework>net6.0</TargetFramework>
         <LangVersion>default</LangVersion>
         <IsPackable>false</IsPackable>
         <Nullable>enable</Nullable>
@@ -11,6 +10,7 @@
         <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
         <OpenApiGenerateDocumentsOnBuild>false</OpenApiGenerateDocumentsOnBuild>
         <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+        <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup>

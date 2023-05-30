@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <RootNamespace>Brickmakers.AspSecurityHeaders.OrchardModule</RootNamespace>
-        <TargetFramework>net6.0</TargetFramework>
         <LangVersion>default</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
@@ -11,6 +10,7 @@
         <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+        <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup Label="Assembly Information">
@@ -41,22 +41,22 @@
     </PropertyGroup>
 
     <ItemGroup Label="NuGet Files">
-        <None Include="..\README.md" Pack="true" PackagePath="\"/>
-        <None Include="..\CHANGELOG.md" Pack="true" PackagePath="\"/>
-        <None Include="..\LICENSE.txt" Pack="true" PackagePath="\"/>
-        <None Include="..\AspSecurityHeaders.png" Pack="true" PackagePath="\"/>
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
+        <None Include="..\CHANGELOG.md" Pack="true" PackagePath="\" />
+        <None Include="..\LICENSE.txt" Pack="true" PackagePath="\" />
+        <None Include="..\AspSecurityHeaders.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup Label="Frameworks">
-        <FrameworkReference Include="Microsoft.AspNetCore.App"/>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
     <ItemGroup Label="Dependencies">
-        <PackageReference Include="OrchardCore.Module.Targets" Version="1.6.0"/>
+        <PackageReference Include="OrchardCore.Module.Targets" Version="1.6.0" />
     </ItemGroup>
 
     <ItemGroup Label="Project References">
-        <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj"/>
+        <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj" />
     </ItemGroup>
 
 </Project>
