@@ -60,4 +60,16 @@ public static class CacheControlExtension
     {
         return headerPolicyCollection.AddCustomHeader(Header, cacheControl);
     }
+
+    /// <summary>
+    ///     Removes any configuration for the <c>Cache-Control</c> header, include the default values.
+    ///     This may be needed in case cache control should be configured by some other mechanism.
+    /// </summary>
+    /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to remove the configuration from.</param>
+    /// <returns>The headerPolicyCollection that was passed as this.</returns>
+    public static HeaderPolicyCollection UnconfigureCacheControl(this HeaderPolicyCollection headerPolicyCollection)
+    {
+        headerPolicyCollection.Remove(Header);
+        return headerPolicyCollection;
+    }
 }

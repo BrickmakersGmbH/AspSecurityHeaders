@@ -5,15 +5,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.2.1] - 2022-12-15
+## Unreleased
+
+### Added
+
+- Explicit Support for .Net 7.0
+- `UnconfigureCacheControl` method to allow to exclude cache control from being configured with the security headers.
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+- Support for .Net Core 3.1
+
+### Fixed
+
+- Updated dependencies
+
+### Security
+
+## 2.2.1 - 2022-12-15
 
 ### AspSecurityHeaders.OrchardModule
 
 - Improved handling of microsoft logins
-  - Renamed `AddAzureLoginCookieWhitelist` to `AddMicrosoftLoginCookieWhitelist`
-  - Added CSP form action builder extension 
+    - Renamed `AddAzureLoginCookieWhitelist` to `AddMicrosoftLoginCookieWhitelist`
+    - Added CSP form action builder extension
 
-## [2.2.0] - 2022-12-08
+## 2.2.0 - 2022-12-08
 
 ### Added
 
@@ -23,7 +44,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
     - Customized `UseOrchardBmSecurityHeaders` method to configure the headers for orchard projects
     - Includes `AddAzureLoginCookieWhitelist` that automatically configures the cookie policy for an Azure AD login
 
-## [2.1.0] - 2022-12-05
+## 2.1.0 - 2022-12-05
 
 ### Added
 
@@ -33,7 +54,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
       the `AddCrossOriginXXXPolicy` methods
 - The `X-Powered-By` header now gets automatically removed as well
 
-## [2.0.0] - 2022-03-22
+## 2.0.0 - 2022-03-22
 
 This release contains breaking changes. See README for more details.
 
@@ -49,33 +70,33 @@ This release contains breaking changes. See README for more details.
 - Built-In CSP-Controller, as the automatic registration was problematic
     - You can use the `CspReportControllerBase` instead, see README
 
-## [1.3.1] - 2022-02-03
+## 1.3.1 - 2022-02-03
 
 ### Added
 
 - Added XML-Documentation of all public members
 - Added symbols packages
 
-## [1.3.0] - 2022-02-02
+## 1.3.0 - 2022-02-02
 
 ### Added
 
 - Created the new `Brickmakers.AspSecurityHeaders.Generators` package
     - Can generate an IIS `web.config` from the security headers config
 
-## [1.2.2] - 2022-01-26
+## 1.2.2 - 2022-01-26
 
 ### Added
 
 - Added package icon
 
-## [1.2.1] - 2022-01-26
+## 1.2.1 - 2022-01-26
 
 ### Changed
 
 - First public release on GitHub and NuGet.org
 
-## [1.2.0] - 2021-12-21
+## 1.2.0 - 2021-12-21
 
 ### Added
 
@@ -83,34 +104,20 @@ This release contains breaking changes. See README for more details.
 - Integration Tests
 - Support for .Net 6
 
-## [1.1.0] - 2021-10-21
+## 1.1.0 - 2021-10-21
 
 ### Added
 
 - `UseBmApiSecurityHeaders`: Add Configuration method for pure APIs
 
-## [1.0.2] - 2021-10-12
+## 1.0.2 - 2021-10-12
 
 ### Security
 
 - Disable HSTS preload by default
 
-## [1.0.1] - 2021-10-11
+## 1.0.1 - 2021-10-11
 
 ### Added
 
 - Initial Release
-
-## [Unreleased] - 20XX-XX-XX
-
-### Added
-
-### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
