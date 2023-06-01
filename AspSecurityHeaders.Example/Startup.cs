@@ -41,12 +41,8 @@ public class Startup
         app.UseBmSecurityHeaders(collection => collection
             .AddBmContentSecurityPolicy(builder =>
             {
-                builder.AddScriptSrc()
-                    .Self()
-                    .ReportSample();
-                builder.AddStyleSrc()
-                    .Self()
-                    .ReportSample();
+                builder.AddScriptSrc().Self();
+                builder.AddStyleSrc().Self();
                 builder.AddImgSrc().Self();
                 builder.AddReportUri().To("/CspReport");
             })

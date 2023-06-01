@@ -33,9 +33,9 @@ public class OrchardModuleTest : IClassFixture<WebApplicationFactory<Example.Sta
     }
 
     [Theory]
-    [InlineData("default-src", new[] {"'none'"})]
-    [InlineData("base-uri", new[] {"'none'"})]
-    [InlineData("frame-ancestors", new[] {"'none'"})]
+    [InlineData("default-src", new[] { "'none'" })]
+    [InlineData("base-uri", new[] { "'none'" })]
+    [InlineData("frame-ancestors", new[] { "'none'" })]
     [InlineData("script-src", new[]
     {
         "'self'",
@@ -46,21 +46,16 @@ public class OrchardModuleTest : IClassFixture<WebApplicationFactory<Example.Sta
     [InlineData("style-src", new[]
     {
         "'self'",
-        "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/",
         "'unsafe-inline'",
         "'report-sample'"
     })]
-    [InlineData("img-src", new[] {"'self'", "data:"})]
-    [InlineData("font-src", new[]
-    {
-        "'self'",
-        "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/webfonts/"
-    })]
-    [InlineData("form-action", new[] {"'self'"})]
-    [InlineData("connect-src", new[] {"'self'"})]
+    [InlineData("img-src", new[] { "'self'", "data:" })]
+    [InlineData("font-src", new[] { "'self'" })]
+    [InlineData("form-action", new[] { "'self'" })]
+    [InlineData("connect-src", new[] { "'self'" })]
     [InlineData("upgrade-insecure-requests", new string[0])]
     [InlineData("block-all-mixed-content", new string[0])]
-    [InlineData("report-uri", new[] {"/CspReport"})]
+    [InlineData("report-uri", new[] { "/CspReport" })]
     public async Task ShouldContainCspValues(string cspName, string[] cspValues)
     {
         var response = await GetIndex();

@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using Brickmakers.AspSecurityHeaders.BmContentSecurityPolicy;
 using Brickmakers.AspSecurityHeaders.BmCookiePolicyExtensions;
 using Brickmakers.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
 using Microsoft.AspNetCore.Builder;
@@ -12,12 +13,6 @@ namespace Brickmakers.AspSecurityHeaders.OrchardModule;
 /// </summary>
 public static class OrchardSecurityHeaders
 {
-    /// <summary>
-    ///     The default version of the fontawesome package as currently used by Orchard Core 1.5.0.
-    /// </summary>
-    public const string DefaultFontawesomeVersion = "6.2.0";
-
-
     /// <summary>
     ///     Configure the security headers middleware with the default configuration plus your customizations.
     /// </summary>
@@ -105,12 +100,12 @@ public static class OrchardSecurityHeaders
     ///     A configure callback that provides a <see cref="CspBuilder" /> to add directives to. The build is
     ///     already preconfigured with a secure basis of CSP directives.
     /// </param>
-    /// <param name="fontawesomeVersion">
-    ///     If specified, the given fontawesome version is used instead of the
-    ///     <see cref="DefaultFontawesomeVersion" /> to build the CSP.
-    /// </param>
     /// <param name="allowInsecureRequests">If set to true, the <c>upgrade-insecure-requests</c> directive is not set.</param>
     /// <param name="allowMixedContent">If set to true, the <c>block-all-mixed-content</c> directive is not set.</param>
+    /// <param name="reportSamples">
+    ///     If set to true (the default), the <c>'report-sample'</c> will be automatically added to the
+    ///     <c>script-src</c> and <c>style-src</c> directives.
+    /// </param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
     /// <remarks>
     ///     You can easily overwrite any of the default directives by calling <c>builder.AddXXX()</c> again. For example,
@@ -121,31 +116,25 @@ public static class OrchardSecurityHeaders
     /// </remarks>
     public static HeaderPolicyCollection AddOrchardBmContentSecurityPolicy(
         this HeaderPolicyCollection headerPolicyCollection,
-        Action<CspBuilder> cspBuilder,
-        string? fontawesomeVersion = null,
+        Action<BmCspBuilder> cspBuilder,
         bool allowInsecureRequests = false,
-        bool allowMixedContent = false)
+        bool allowMixedContent = false,
+        bool reportSamples = true)
     {
-        var fontawesomeBaseUrl =
-            $"https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{fontawesomeVersion ?? DefaultFontawesomeVersion}";
         return headerPolicyCollection.AddBmContentSecurityPolicy(builder =>
             {
                 builder.AddScriptSrc()
                     .Self()
                     .UnsafeInline()
-                    .UnsafeEval()
-                    .ReportSample();
+                    .UnsafeEval();
                 builder.AddImgSrc()
                     .Self()
                     .Data();
                 builder.AddStyleSrc()
                     .Self()
-                    .From($"{fontawesomeBaseUrl}/css/")
-                    .UnsafeInline()
-                    .ReportSample();
+                    .UnsafeInline();
                 builder.AddFontSrc()
-                    .Self()
-                    .From($"{fontawesomeBaseUrl}/webfonts/");
+                    .Self();
                 builder.AddFormAction().Self();
                 builder.AddConnectSrc().Self();
                 builder.AddReportUri().To("/CspReport");
@@ -153,7 +142,8 @@ public static class OrchardSecurityHeaders
                 cspBuilder(builder);
             },
             allowInsecureRequests,
-            allowMixedContent);
+            allowMixedContent,
+            reportSamples);
     }
 
     /// <summary>

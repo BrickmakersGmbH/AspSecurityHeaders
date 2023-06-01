@@ -1,4 +1,6 @@
+using Brickmakers.AspSecurityHeaders.BmContentSecurityPolicy;
 using Microsoft.AspNetCore.Builder;
+using NetEscapades.AspNetCore.SecurityHeaders.Headers.ContentSecurityPolicy;
 
 namespace Brickmakers.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
 
@@ -28,6 +30,10 @@ public static class BmContentSecurityPolicy
     /// </param>
     /// <param name="allowInsecureRequests">If set to true, the <c>upgrade-insecure-requests</c> directive is not set.</param>
     /// <param name="allowMixedContent">If set to true, the <c>block-all-mixed-content</c> directive is not set.</param>
+    /// <param name="reportSamples">
+    ///     If set to true (the default), the <c>'report-sample'</c> will be automatically added to the
+    ///     <c>script-src</c> and <c>style-src</c> directives.
+    /// </param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
     /// <remarks>
     ///     You can easily overwrite any of the default directives by calling <c>builder.AddXXX()</c> again. For example,
@@ -37,8 +43,8 @@ public static class BmContentSecurityPolicy
     ///     </code>
     /// </remarks>
     public static HeaderPolicyCollection AddBmContentSecurityPolicy(
-        this HeaderPolicyCollection headerPolicyCollection, Action<CspBuilder> cspBuilder,
-        bool allowInsecureRequests = false, bool allowMixedContent = false)
+        this HeaderPolicyCollection headerPolicyCollection, Action<BmCspBuilder> cspBuilder,
+        bool allowInsecureRequests = false, bool allowMixedContent = false, bool reportSamples = true)
     {
         return headerPolicyCollection.AddContentSecurityPolicy(builder =>
         {
@@ -58,7 +64,18 @@ public static class BmContentSecurityPolicy
                 builder.AddBlockAllMixedContent();
             }
 
-            cspBuilder(builder);
+            var bmCspBuilder = new BmCspBuilder(builder);
+            cspBuilder(bmCspBuilder);
+
+            if (reportSamples)
+            {
+                bmCspBuilder
+                    .GetCachedDirective<ScriptSourceDirectiveBuilder>(nameof(BmCspBuilder.AddScriptSrc))
+                    ?.ReportSample();
+                bmCspBuilder
+                    .GetCachedDirective<StyleSourceDirectiveBuilder>(nameof(BmCspBuilder.AddStyleSrc))
+                    ?.ReportSample();
+            }
         });
     }
 }

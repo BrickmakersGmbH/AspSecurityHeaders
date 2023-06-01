@@ -110,16 +110,16 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
     }
 
     [Theory]
-    [InlineData("default-src", new[] {"'none'"})]
-    [InlineData("base-uri", new[] {"'none'"})]
-    [InlineData("form-action", new[] {"'none'"})]
-    [InlineData("frame-ancestors", new[] {"'none'"})]
-    [InlineData("script-src", new[] {"'self'", "'report-sample'"})]
-    [InlineData("style-src", new[] {"'self'", "'report-sample'"})]
-    [InlineData("img-src", new[] {"'self'"})]
+    [InlineData("default-src", new[] { "'none'" })]
+    [InlineData("base-uri", new[] { "'none'" })]
+    [InlineData("form-action", new[] { "'none'" })]
+    [InlineData("frame-ancestors", new[] { "'none'" })]
+    [InlineData("script-src", new[] { "'self'", "'report-sample'" })]
+    [InlineData("style-src", new[] { "'self'", "'report-sample'" })]
+    [InlineData("img-src", new[] { "'self'" })]
     [InlineData("upgrade-insecure-requests", new string[0])]
     [InlineData("block-all-mixed-content", new string[0])]
-    [InlineData("report-uri", new[] {"/CspReport"})]
+    [InlineData("report-uri", new[] { "/CspReport" })]
     public async Task ShouldContainCspValues(string cspName, string[] cspValues)
     {
         var response = await GetIndex();
