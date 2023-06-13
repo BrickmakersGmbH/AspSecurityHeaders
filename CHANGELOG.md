@@ -5,14 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## 2.3.0 - 2023-06-13
 
 ### Added
 
-- Explicit Support for .Net 7.0
-- `UnconfigureCacheControl` method to allow to exclude cache control from being configured with the security headers.
+- Explicit support for .Net 7.0
+- `UnconfigureCacheControl` method to allow to exclude cache control from being configured with the security headers
 
 ### Changed
+
+- Replaced default CSP builder with custom wrapper that allows for directives to be updated
+- Simplified CSP for orchard module
 
 ### Deprecated
 
@@ -25,6 +28,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Updated dependencies
 
 ### Security
+
+- Escape csp report values for logger in orchard module endpoint
 
 ## 2.2.1 - 2022-12-15
 

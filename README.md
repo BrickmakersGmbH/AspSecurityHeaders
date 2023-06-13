@@ -17,12 +17,13 @@ A small package for ASP.Net (Core) to automatically configure secure HTTP-Header
     * [AspSecurityHeaders](#aspsecurityheaders)
         + [Using the Built-In CSP Report Controller](#using-the-built-in-csp-report-controller)
     * [Orchard Module](#orchard-module)
-        + [Support for Login with Azure AD](#support-for-login-with-azure-ad)
+        + [Overwriting the Orchard CSP](#overwriting-the-orchard-csp)
+        + [Support for Login with Microsoft/Azure AD](#support-for-login-with-microsoft-azure-ad)
     * [Generators](#generators)
         + [IIS web.config](#iis-webconfig)
 - [Attributions and Background](#attributions-and-background)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with
+<small><i><a href='https://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with
 markdown-toc</a></i></small>
 
 ## IMPORTANT CHANGES in version 2.1.0
@@ -188,7 +189,7 @@ Orchard module as dependency:
 1. Add the NuGet package reference
 2. Update your `Manifest.cs` and add `Brickmakers.AspSecurityHeaders.OrchardModule` as dependency
 3. Enable MVC in your application `Startup.cs`: `services.AddOrchardCore().AddMvc();`
-4. For existing installations: Enter the "Features" Admin Menu and manually enable the module
+4. For Orchard CMS installations: Enter the "Features" Admin Menu and manually enable the module
 
 With the, the module is automatically loaded and activated. It will:
 
@@ -213,19 +214,16 @@ public void Configure(IApplicationBuilder app)
 ```
 
 > **Note:** Orchard core is not the most security aware framework. The default CSP that is required to make it work
-> includes `unsafe-inline` `unsafe-eval` and some files hosted on jsdelivr.net. Be aware that for a security sensitve
-> application, it should be carefully evaluated if orchard core is the right choice, or whether critical components
-> should
-> be provided in a pure ASP.net application that allows for tighter security controls and a better CSP.
+> includes `unsafe-inline` `unsafe-eval`. Be aware that for a security sensitive application, it should be carefully
+> evaluated if orchard core is the right choice, or whether critical components should be provided in a pure ASP.net
+> application that allows for tighter security controls and a better CSP.
 
 #### Overwriting the Orchard CSP
 
-When customizing the Orchard CSP, it is important to know that adding custom directives will *overwrite* the existing
-once, *not add* them. For example, if you want to allow scripts to be loaded from `https://example.com`, you cannot
-simply use `AddScriptSrc().From("https://example.com")`, as that would break the existing orchard CSP rules for scripts.
-Instead, you need to copy the existing rules found
-in [OrchardSecurityHeaders.cs](https://github.com/BrickmakersGmbH/AspSecurityHeaders/blob/main/AspSecurityHeaders.OrchardModule/OrchardSecurityHeaders.cs#L131)
-and add you custom directives after that:
+When customizing the Orchard CSP, you can simply add new rules to the existing ones. This will not overwrite the
+standard orchard rules anymore. If you need to disable the standard rules, you can use the optional `clear` parameter.
+For example, if a script source should be added but the image sources should be cleared and replaced, it would look
+like the following:
 
 ```cs
 public void Configure(IApplicationBuilder app)
@@ -233,12 +231,11 @@ public void Configure(IApplicationBuilder app)
     app.UseOrchardBmSecurityHeaders(config => config
         .AddOrchardBmContentSecurityPolicy(builder => 
         {
-            builder.AddScriptSrc()
+            builder.AddScriptSrc() // Adds new diretives
+                .From("https://example.com");
+            builder.AddImgSrc(clear: true) // Replaces directives (usually not needed)
                 .Self()
-                .UnsafeInline()
-                .UnsafeEval()
-                .From("https://example.com")
-                .ReportSample();
+                .From("https://example.com");
         })
     );
 }
@@ -257,7 +254,8 @@ public void Configure(IApplicationBuilder app)
     app.UseOrchardBmSecurityHeaders(config => config
         .AddMicrosoftLoginCookieWhitelist()
         .AddOrchardBmContentSecurityPolicy(cspBuilder => {
-            cspBuilder.AddFormAction().Self().MicrosoftLogin();
+            cspBuilder.AddFormAction()
+                .MicrosoftLogin();
         })
     );
 }
