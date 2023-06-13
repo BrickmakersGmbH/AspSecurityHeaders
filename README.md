@@ -100,20 +100,22 @@ public void Configure(IApplicationBuilder app)
 #### Using the Built-In CSP Report Controller
 
 The library includes a ready-made API-Controller to automatically report CSP-Violations. It will provide an endpoint to
-be used by the browser to report CSP errors and log them as error message. If you want to use the controller, there are
-a few steps that need to be taken.
+be used by the browser to report CSP errors and passes them to a customizable handler function. If you want to use the
+controller, there are a few steps that need to be taken.
 
 First, you have to add the controller to your controllers by extending the `CspReportControllerBase`:
 
 ```cs
 [ApiController]
 [Route("[controller]")]
-[AllowAnonymous]
 public class CspReportController : CspReportControllerBase
 {
     protected override Task HandleCspReport(CspReport cspReport)
     {
         // Implement logging or other handling here
+        // IMPORTANT: If you log the report or values of it, you should sanitized them to prevent log forgery attacks
+        // See: https://owasp.org/www-community/attacks/Log_Injection
+        
         return Task.CompletedTask;
     }
 }
@@ -127,9 +129,8 @@ simply use the `AddCspMediaType` method for that:
 ```cs
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddMvc()
+    services.AddMvc() // works on .AddRazorPages() and .AddControllers() as well
         .AddCspMediaType();
-        // works on .AddRazorPages() and .AddControllers() as well
 }
 ```
 
@@ -168,9 +169,7 @@ public void Configure(IApplicationBuilder app)
             // ...
             
             builder.AddReportUri().To("/CspReport");
-        })
-        .SetMinimumSameSitePolicy(SameSiteMode.Lax));
-
+        }));
     // ...
 }
 ```
@@ -220,7 +219,13 @@ public void Configure(IApplicationBuilder app)
 > be provided in a pure ASP.net application that allows for tighter security controls and a better CSP.
 
 #### Overwriting the Orchard CSP
-When customizing the Orchard CSP, it is important to know that adding custom directives will *overwrite* the existing once, *not add* them. For example, if you want to allow scripts to be loaded from `https://example.com`, you cannot simply use `AddScriptSrc().From("https://example.com")`, as that would break the existing orchard CSP rules for scripts. Instead, you need to copy the existing rules found in [OrchardSecurityHeaders.cs](https://github.com/BrickmakersGmbH/AspSecurityHeaders/blob/main/AspSecurityHeaders.OrchardModule/OrchardSecurityHeaders.cs#L131) and add you custom directives after that:
+
+When customizing the Orchard CSP, it is important to know that adding custom directives will *overwrite* the existing
+once, *not add* them. For example, if you want to allow scripts to be loaded from `https://example.com`, you cannot
+simply use `AddScriptSrc().From("https://example.com")`, as that would break the existing orchard CSP rules for scripts.
+Instead, you need to copy the existing rules found
+in [OrchardSecurityHeaders.cs](https://github.com/BrickmakersGmbH/AspSecurityHeaders/blob/main/AspSecurityHeaders.OrchardModule/OrchardSecurityHeaders.cs#L131)
+and add you custom directives after that:
 
 ```cs
 public void Configure(IApplicationBuilder app)

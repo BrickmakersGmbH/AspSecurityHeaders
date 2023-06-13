@@ -51,6 +51,8 @@ public abstract class CspReportControllerBase : ControllerBase
     [HttpPost]
     [RequestSizeLimit(100000)] // 100 kB
     [Consumes("application/csp-report", "application/json", "text/json")]
+    [AllowAnonymous]
+    [IgnoreAntiforgeryToken]
     public async Task<IActionResult> CspReport([FromBody] [Required] CspReportRequest cspReportRequest)
     {
         await HandleCspReport(cspReportRequest.CspReport);

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 using Brickmakers.AspSecurityHeaders.OrchardModule.Controllers.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -47,7 +48,24 @@ public class CspReportController : ControllerBase
     [IgnoreAntiforgeryToken]
     public Task<IActionResult> CspReport([FromBody] [Required] CspReportRequest cspReportRequest)
     {
-        _logger.LogError("{}", cspReportRequest.CspReport);
+        _logger.LogError("{CspReport}", Sanitize(cspReportRequest.CspReport));
+        foreach (var (key, value) in cspReportRequest.CspReport.AsAttributes())
+        {
+            _logger.LogError("\t{Key}: {Value}", key, Sanitize(value));
+        }
+
         return Task.FromResult<IActionResult>(NoContent());
+    }
+
+    private static string? Sanitize(object? value)
+    {
+        var stringValue = value?.ToString();
+        if (stringValue == null)
+        {
+            return null;
+        }
+
+        return new Regex(@"\s", RegexOptions.CultureInvariant)
+            .Replace(stringValue, " ");
     }
 }

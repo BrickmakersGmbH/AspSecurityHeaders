@@ -92,7 +92,7 @@ public class CspReport
     public override string ToString()
     {
         return
-            $"CSP Violation in {DocumentUri}: Refused to load {BlockedUri} because of '{ViolatedDirective}' directive. " +
-            $"Details:\n{string.Join(Environment.NewLine, AsAttributes())}";
+            $"CSP Violation in {DocumentUri}: " +
+            $"Refused to load {BlockedUri} because of '{ViolatedDirective}' directive";
     }
 }
