@@ -4,7 +4,10 @@ on:
   pull_request:
     branches:
       -  dependabot/nuget/* 
-        
+    types:
+      - opened
+      - synchronize
+
 jobs: 
   pr_fixup:
     name: PR Fixup
