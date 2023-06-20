@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 
 namespace Brickmakers.AspSecurityHeaders.Controllers.Models;
 
@@ -81,18 +82,41 @@ public class CspReport
     ///     Generates a dictionary containing all the fields of the CSP report.
     /// </summary>
     /// <returns>A dictionary with all fields of the CSP.</returns>
+    /// <remarks>This method has been deprecated. Use <see cref="ToDictionary" /> instead.</remarks>
+    [Obsolete("Use ToDictionary instead")]
     public IDictionary<string, string?> AsAttributes()
+    {
+        return ToDictionary().ToDictionary(pair => pair.Key, pair => pair.Value?.ToString());
+    }
+
+    /// <summary>
+    ///     Generates a dictionary containing all the fields of the CSP report.
+    /// </summary>
+    /// <returns>A dictionary with all fields of the CSP.</returns>
+    public IReadOnlyDictionary<string, object?> ToDictionary()
     {
         return GetType().GetProperties().ToDictionary(
             prop => prop.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name ?? prop.Name,
-            prop => prop.GetValue(this)?.ToString());
+            prop => prop.GetValue(this));
     }
 
     /// <inheritdoc cref="object.ToString()" />
     public override string ToString()
     {
         return
-            $"CSP Violation in {DocumentUri}: " +
-            $"Refused to load {BlockedUri} because of '{ViolatedDirective}' directive";
+            $"CSP Violation in {Sanitize(DocumentUri)}: " +
+            $"Refused to load {Sanitize(BlockedUri)} because of '{Sanitize(ViolatedDirective)}' directive";
+    }
+
+    private static string? Sanitize(object? value)
+    {
+        var stringValue = value?.ToString();
+        if (stringValue == null)
+        {
+            return null;
+        }
+
+        return new Regex(@"\s", RegexOptions.CultureInvariant)
+            .Replace(stringValue, " ");
     }
 }

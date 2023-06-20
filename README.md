@@ -114,9 +114,26 @@ public class CspReportController : CspReportControllerBase
     protected override Task HandleCspReport(CspReport cspReport)
     {
         // Implement logging or other handling here
-        // IMPORTANT: If you log the report or values of it, you should sanitized them to prevent log forgery attacks
+        // IMPORTANT: If you log the report values, you should sanitized them to prevent log forgery attacks
         // See: https://owasp.org/www-community/attacks/Log_Injection
         
+        return Task.CompletedTask;
+    }
+}
+```
+
+If you are using the standard `Microsoft.Extensions.Logging.ILogger` for logging, you can use a handy extension method
+on the logger that automatically handles formatting and also logs the properties of the report in case you are using
+a structured logging backend like App Insights.
+
+```cs
+[ApiController]
+[Route("[controller]")]
+public class CspReportController : CspReportControllerBase
+{
+    protected override Task HandleCspReport(CspReport cspReport)
+    {
+        _logger.LogCspReport(cspReport); // default log level ist "Error", but can be adjusted
         return Task.CompletedTask;
     }
 }
