@@ -403,7 +403,7 @@
       "Brickmakers.AspSecurityHeaders.OrchardModule": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.3.0, )",
+          "Brickmakers.AspSecurityHeaders": "[2.4.0, )",
           "OrchardCore.Module.Targets": "[1.6.0, )"
         }
       }
@@ -803,7 +803,7 @@
       "Brickmakers.AspSecurityHeaders.OrchardModule": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.3.0, )",
+          "Brickmakers.AspSecurityHeaders": "[2.4.0, )",
           "OrchardCore.Module.Targets": "[1.6.0, )"
         }
       }
