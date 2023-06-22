@@ -107,27 +107,27 @@ jobs:
       - id: version
         name: Check if a release should be created
         run: |
-          set -e
+          set -eo pipefail
           package_version=$(xmlstarlet sel -t -v "//PackageVersion" AspSecurityHeaders/AspSecurityHeaders.csproj)
           git fetch --tags
           tag_exists=$(git tag -l "v$package_version")
           if [[ -z "$tag_exists" ]]; then
-            echo Release does not exist yet - creating release
-            echo "::set-output name=update::true"
-            echo "::set-output name=version::$package_version"
+            echo ::notice::Release does not exist yet - creating release
+            echo "update=true" >> $GITHUB_OUTPUT
+            echo "version=$package_version" >> $GITHUB_OUTPUT
           else
-            echo Release already exists - skipping creation
-            echo "::set-output name=update::false"
+            echo ::notice::Release already exists - skipping creation
+            echo "update=false" >> $GITHUB_OUTPUT
           fi
       - id: release_content
         name: Generate release content
         if: steps.version.outputs.update == 'true'
         run: |
-          set -e
+          set -eo pipefail
           version_changelog_file=$(mktemp)
-          echo "## Changelog" > $version_changelog_file
-          cat CHANGELOG.md | sed '/^## \[${{ steps.version.outputs.version }}\].*$/,/^## \[/!d;//d' >> $version_changelog_file
-          echo "::set-output name=body_path::$version_changelog_file"
+          echo '## Changelog' > "$version_changelog_file"
+          cat CHANGELOG.md | sed '/^## ${{ steps.version.outputs.version }}.*$/,/^## /!d;//d' >> "$version_changelog_file"
+          echo "body_path=$version_changelog_file" >> $GITHUB_OUTPUT
         working-directory: ${{ inputs.workingDirectory }}
       - name: Create Release
         if: steps.version.outputs.update == 'true'
