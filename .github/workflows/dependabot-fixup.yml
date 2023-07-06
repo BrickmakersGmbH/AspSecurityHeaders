@@ -4,7 +4,7 @@ on:
   workflow_dispatch: 
   pull_request:
     branches: 
-      - dependabot/nuget/*
+      - main
     types:
       - opened
       - synchronize
@@ -12,6 +12,7 @@ on:
 jobs: 
   pr_fixup:
     name: PR Fixup
+    if: github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -23,15 +24,34 @@ jobs:
           dotnet-version: |
             7.0.x
             6.0.x
-      - name: Checkout Code
+      - name: Checkout PR
         uses: actions/checkout@v3
         with:
           persist-credentials: true
       - name: Update lockfiles
         run: dotnet restore --use-lock-file
-      - name: Update pull request
-        uses: peter-evans/create-pull-request@v5
+      - name: Create lockfile update commit
+        run: git commit --all -m "Update lockfiles"
+      - name: Push changes
+        run: git push
+          
+  pr_automerge:
+    name: Enable Automerge
+    needs:
+      - pr_fixup
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Fetch dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1
         with:
-          commit-message: Fixup NuGet lockfiles
-          branch: ${{ github.ref_name }}
-          delete-branch: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Enable auto-merge
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
