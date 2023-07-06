@@ -33,5 +33,5 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           commit-message: Fixup NuGet lockfiles
-          branch: ${{ github.ref }}
+          branch: ${{ github.ref_name }}
           delete-branch: true
