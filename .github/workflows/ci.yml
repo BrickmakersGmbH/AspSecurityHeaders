@@ -1,7 +1,13 @@
 name: CI-Pipeline
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      ref:
+        type: string
+        description: 'Branch or tag ref to checkout code from'
+        required: true
   push:
 
 jobs:
@@ -21,7 +27,7 @@ jobs:
         framework:
           - net7.0
           - net6.0
-        
+
         exclude:
           - project: AspSecurityHeaders.OrchardModule.Test
             framework: netcoreapp3.1
@@ -37,6 +43,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           persist-credentials: false
+          ref: ${{ inputs.ref }}
       - name: Restore packages
         run: dotnet restore --locked-mode
         working-directory: ${{ matrix.project }}
@@ -70,6 +77,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           persist-credentials: false
+          ref: ${{ inputs.ref }}
       - name: Restore packages
         run: dotnet restore --locked-mode
         working-directory: ${{ matrix.project }}

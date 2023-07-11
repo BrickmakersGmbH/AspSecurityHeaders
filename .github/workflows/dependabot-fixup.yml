@@ -2,10 +2,17 @@ name: Dependabot PR fixup
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
 
-jobs: 
+jobs:
   pr_fixup:
     name: PR Fixup
+    if: github.event_name == 'workflow_dispatch' || github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -25,11 +32,22 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update lockfiles
-          
+
+  ci:
+    name: Run CI-Pipeline
+    needs:
+      - pr_fixup
+    if: github.event_name == 'workflow_dispatch' || github.actor == 'dependabot[bot]'
+    uses: ./.github/workflows/ci.yml
+    with:
+      ref: ${{ github.ref }}
+
   pr_automerge:
     name: Enable Automerge
     needs:
       - pr_fixup
+      - ci
+    if: github.event_name == 'workflow_dispatch' || github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: write
