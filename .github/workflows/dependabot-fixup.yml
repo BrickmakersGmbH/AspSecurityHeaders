@@ -14,6 +14,8 @@ jobs:
     name: PR Fixup
     if: github.event_name == 'workflow_dispatch' || github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
+    outputs:
+      commit_hash: ${{ steps.auto_commit.outputs.commit_hash }}
     permissions:
       contents: write
     steps:
@@ -29,7 +31,9 @@ jobs:
           persist-credentials: true
       - name: Update lockfiles
         run: dotnet restore --use-lock-file
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - id: auto_commit
+        name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update lockfiles
 
@@ -40,7 +44,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.actor == 'dependabot[bot]'
     uses: ./.github/workflows/ci.yml
     with:
-      ref: ${{ github.ref }}
+      ref: ${{ needs.pr_fixup.outputs.commit_hash }}
 
   pr_automerge:
     name: Enable Automerge
