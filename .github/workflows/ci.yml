@@ -40,7 +40,7 @@ jobs:
             7.0.x
             6.0.x
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
           ref: ${{ inputs.ref }}
@@ -74,7 +74,7 @@ jobs:
             7.0.x
             6.0.x
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
           ref: ${{ inputs.ref }}
@@ -109,7 +109,7 @@ jobs:
       - name: Install xmlstarlet
         run: sudo apt-get install xmlstarlet
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           persist-credentials: true
       - id: version
