@@ -100,8 +100,8 @@ public static class BmPermissionPolicy
         if (addFeaturePolicy)
         {
             var permissionPolicy = headerPolicyCollection.Values.First(policy => policy is PermissionsPolicyHeader);
-            var bmFeaturePolicy = new BmFeaturePolicyHeader((PermissionsPolicyHeader) permissionPolicy);
-            headerPolicyCollection.Add(bmFeaturePolicy.Header, bmFeaturePolicy);
+            var bmFeaturePolicy = new BmFeaturePolicyHeader((PermissionsPolicyHeader)permissionPolicy);
+            headerPolicyCollection[bmFeaturePolicy.Header] = bmFeaturePolicy;
         }
 
         return headerPolicyCollection;
