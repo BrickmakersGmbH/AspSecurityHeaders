@@ -95,8 +95,8 @@
       },
       "NetEscapades.AspNetCore.SecurityHeaders": {
         "type": "Transitive",
-        "resolved": "0.20.0",
-        "contentHash": "M5l3wdHH2Iu8vZ4GZi3vfeF+nHPniEDJLEP2IYgXpj9wYP/zivIa3YY/9ygsXAW+HMkrfFD/oHb7z3bjJxKWsQ=="
+        "resolved": "0.21.0",
+        "contentHash": "Y0qnwxwZeTrni7G2yt8aDdM6RZ2dAjvvALgdLCNCd+lpBIGgi7qf/3I+0nj7MHwwCDg6fL1e2OAGAE4CtV2pKg=="
       },
       "System.Buffers": {
         "type": "Transitive",
@@ -128,7 +128,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.CookiePolicy": "[2.2.8, )",
           "Microsoft.AspNetCore.Http.Abstractions": "[2.2.0, )",
-          "NetEscapades.AspNetCore.SecurityHeaders": "[0.20.0, )"
+          "NetEscapades.AspNetCore.SecurityHeaders": "[0.21.0, )"
         }
       }
     },
@@ -226,8 +226,8 @@
       },
       "NetEscapades.AspNetCore.SecurityHeaders": {
         "type": "Transitive",
-        "resolved": "0.20.0",
-        "contentHash": "M5l3wdHH2Iu8vZ4GZi3vfeF+nHPniEDJLEP2IYgXpj9wYP/zivIa3YY/9ygsXAW+HMkrfFD/oHb7z3bjJxKWsQ=="
+        "resolved": "0.21.0",
+        "contentHash": "Y0qnwxwZeTrni7G2yt8aDdM6RZ2dAjvvALgdLCNCd+lpBIGgi7qf/3I+0nj7MHwwCDg6fL1e2OAGAE4CtV2pKg=="
       },
       "System.Buffers": {
         "type": "Transitive",
@@ -259,7 +259,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.CookiePolicy": "[2.2.8, )",
           "Microsoft.AspNetCore.Http.Abstractions": "[2.2.0, )",
-          "NetEscapades.AspNetCore.SecurityHeaders": "[0.20.0, )"
+          "NetEscapades.AspNetCore.SecurityHeaders": "[0.21.0, )"
         }
       }
     }
