@@ -33,7 +33,7 @@ jobs:
         run: dotnet restore --use-lock-file
       - id: auto_commit
         name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update lockfiles
 
