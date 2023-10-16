@@ -627,20 +627,20 @@
       },
       "OrchardCore": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "jz89E8D/gm9+cf+NDvFHTtN7DWt1tyPu5O8Ijtrt0EGsWUG7dqzFk8EwmRpeoyI4A3hBpYPGHjRGgGIyKGrMJg==",
+        "resolved": "1.7.1",
+        "contentHash": "ypxfsiLNuPhx39lT0IgVJblMoRMUDafEkFzxJwBTiPRL5u21iX99rVxMqZgtEPv6jFaPMgarK988sZHUXOxeKA==",
         "dependencies": {
           "NodaTime": "3.1.9",
-          "OrchardCore.Abstractions": "1.7.0",
-          "OrchardCore.Infrastructure.Abstractions": "1.7.0",
-          "OrchardCore.Localization.Abstractions": "1.7.0",
+          "OrchardCore.Abstractions": "1.7.1",
+          "OrchardCore.Infrastructure.Abstractions": "1.7.1",
+          "OrchardCore.Localization.Abstractions": "1.7.1",
           "ncrontab": "3.3.3"
         }
       },
       "OrchardCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "f/Adn8KAzdEywsWUQ0txWBiXf9rZXBsV3T9womzoIoezxDZ0htp93enrEvR+/yike/iqRkUpYXas/iTdtCXHlQ==",
+        "resolved": "1.7.1",
+        "contentHash": "ZMFOtUv4vrS8Sb51yUTWs3YP2sd6eXCyh5UcHd/Tg6q860Wdoiib0nKIFoMHhllFcyNJ7ndW8zqqHgEF+GefyA==",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
           "ZString": "2.5.0"
@@ -648,49 +648,49 @@
       },
       "OrchardCore.Application.Mvc.Targets": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "OzvLOxdW4olrWlT76V92K5qgOHLvRK80sGl9YYNb393Eo8WmMBarNdYBEv+C5+KhwoFL/8zm79932Tj4fVA2fQ==",
+        "resolved": "1.7.1",
+        "contentHash": "MBSXsjUteWdzEVJ2HQSPe4qt1Yox7qHDjz3kHAz2cRozlVxBfmy0U8OAWYVtAEP27ctMyUiu5EJayWlyDHcRWQ==",
         "dependencies": {
-          "OrchardCore.Application.Targets": "1.7.0",
-          "OrchardCore.Mvc.Core": "1.7.0"
+          "OrchardCore.Application.Targets": "1.7.1",
+          "OrchardCore.Mvc.Core": "1.7.1"
         }
       },
       "OrchardCore.Application.Targets": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "xPcGedUvEVeo5m8MWCn4tseAkTwQZmOSWAGy+swxNK4jAxwxZWTZDihYGuOy0hwaxeep8ZAdz4VcH7wcA0nXQw==",
+        "resolved": "1.7.1",
+        "contentHash": "WlLfRLuH9gS97B6pQb8ZVmuziugcSoRTS7jDlMlgUaKwTyRKD0WTFxYJSCkEC54xFnE6VrlLmyOLeDmaCasrgw==",
         "dependencies": {
-          "OrchardCore": "1.7.0"
+          "OrchardCore": "1.7.1"
         }
       },
       "OrchardCore.Data.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "De/Xd9ItENDVL2KD1MdJTms20uH5vZQiGjbzlOHkYrQHpPxXM6PCAIumsrkk7/AQuhGbI9SYWK+BjdkMHKoW4w==",
+        "resolved": "1.7.1",
+        "contentHash": "c/QjGqcuosRGV3y9A58I3s5M72ftNPPUSsadZia1oDJQ3cKlFhFNJjf9p3Epbr1ojeeRgkBej86C+stdbssIRg==",
         "dependencies": {
-          "OrchardCore.Abstractions": "1.7.0",
-          "OrchardCore.Queries.Abstractions": "1.7.0"
+          "OrchardCore.Abstractions": "1.7.1",
+          "OrchardCore.Queries.Abstractions": "1.7.1"
         }
       },
       "OrchardCore.DisplayManagement.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "WQe2Y3CyR2czXc3uVQ2XKMDbkVayFhdsm35c/uxOm9IYVQuiDetCSkPjUwscSxIAGYNnJJ9sv7qYXOk4rE/Q7g=="
+        "resolved": "1.7.1",
+        "contentHash": "Schx6WqeR7M1qoucyaJerCb4fmbgOc0aj40k7r4Fj0/RwBb4jfDLq33v612pjjss1rRGz05vgJYmjPTNvnrAqg=="
       },
       "OrchardCore.Infrastructure.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "YvDp3g08OZ1XQ3OP7Fmd3apF2lv9XF0U70aQUPijBqOK/veobGCyjtUN5f+W70TVkBjoDrE/8GGmiVzvgAyvxw==",
+        "resolved": "1.7.1",
+        "contentHash": "nOvkTp1mBwVrLDYVjkH8ffwc42ALso1EpQnmduuME1oucCW1zJVoCMoNMCw2ep7tsiSIJxKJR4PEzDHw/6X9mQ==",
         "dependencies": {
-          "OrchardCore.Abstractions": "1.7.0",
-          "OrchardCore.Data.Abstractions": "1.7.0",
-          "OrchardCore.ResourceManagement.Abstractions": "1.7.0"
+          "OrchardCore.Abstractions": "1.7.1",
+          "OrchardCore.Data.Abstractions": "1.7.1",
+          "OrchardCore.ResourceManagement.Abstractions": "1.7.1"
         }
       },
       "OrchardCore.Localization.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "bxB41SvRF4Ca0Cg4peTB7avwJQpr1RHssI+uvbqsqGOCroXInR/KN1oWh5GwIvegOwMdeKSG1XiIw+d9n9jniA=="
+        "resolved": "1.7.1",
+        "contentHash": "YHysyBXhn12lUIc5BHSbY+u+Gp7qp9OdaUnzRn1819JYRE4nY+wLHbHF1MNsdyMWvARgyABmtxDkIGuExf5muQ=="
       },
       "OrchardCore.Module.Targets": {
         "type": "Transitive",
@@ -702,24 +702,24 @@
       },
       "OrchardCore.Mvc.Core": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "wqMfy0+jeomHQdnAm/b4GfVkRkBhHQNsoReCqDluDHtCeJ8Kt0Oi2Dq9Q7IuR8XazJaUw8yXr7hA1Cs+7FfoaA==",
+        "resolved": "1.7.1",
+        "contentHash": "AsrDGMAxGmmFjcHSjyyMkgw0kMc/WM4a4SZAdF1B8bLp1LVEi3DYtB3IzkHeaZnC3oDl9rMRSBsxPJuPAIdF2w==",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.21",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.21",
-          "OrchardCore.Abstractions": "1.7.0",
-          "OrchardCore.DisplayManagement.Abstractions": "1.7.0"
+          "OrchardCore.Abstractions": "1.7.1",
+          "OrchardCore.DisplayManagement.Abstractions": "1.7.1"
         }
       },
       "OrchardCore.Queries.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "yg524RN3dqCbcMOzj5QRvK/PpCtNF4mG7ewuLkQfeF3cvMHOSs5GMCg3XLl6Q0PHB67u5RCcdzaNA7T28CzEIA=="
+        "resolved": "1.7.1",
+        "contentHash": "gr6GDDX8DLP8nXOjbzETKdeEy5letkHtmKnC1B+c8cEKXV+Y0BBTYtZl9wl0LY7L2MSlYhz3hSztllI6Jp6oSw=="
       },
       "OrchardCore.ResourceManagement.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "Gyn/q3dFSmjNHXv2V/8mbNsiXTsjU1OzrrAPePJYOkdCEPX5pUPfWZEGT0x/y1HXMXTiuUdXgiBLIIw7kbERxw=="
+        "resolved": "1.7.1",
+        "contentHash": "erRzVgYjacX9SnFYSQr7KLcf/oERBd/xE143o1s4UkGMUxcDyVVon6IcF9H5yvnEc98Q4p+L6X9adsiywtgRfA=="
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl": {
         "type": "Transitive",
@@ -1720,7 +1720,7 @@
         "type": "Project",
         "dependencies": {
           "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.5.1, )",
-          "OrchardCore.Application.Mvc.Targets": "[1.7.0, )"
+          "OrchardCore.Application.Mvc.Targets": "[1.7.1, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Test": {
@@ -2359,20 +2359,20 @@
       },
       "OrchardCore": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "jz89E8D/gm9+cf+NDvFHTtN7DWt1tyPu5O8Ijtrt0EGsWUG7dqzFk8EwmRpeoyI4A3hBpYPGHjRGgGIyKGrMJg==",
+        "resolved": "1.7.1",
+        "contentHash": "ypxfsiLNuPhx39lT0IgVJblMoRMUDafEkFzxJwBTiPRL5u21iX99rVxMqZgtEPv6jFaPMgarK988sZHUXOxeKA==",
         "dependencies": {
           "NodaTime": "3.1.9",
-          "OrchardCore.Abstractions": "1.7.0",
-          "OrchardCore.Infrastructure.Abstractions": "1.7.0",
-          "OrchardCore.Localization.Abstractions": "1.7.0",
+          "OrchardCore.Abstractions": "1.7.1",
+          "OrchardCore.Infrastructure.Abstractions": "1.7.1",
+          "OrchardCore.Localization.Abstractions": "1.7.1",
           "ncrontab": "3.3.3"
         }
       },
       "OrchardCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "f/Adn8KAzdEywsWUQ0txWBiXf9rZXBsV3T9womzoIoezxDZ0htp93enrEvR+/yike/iqRkUpYXas/iTdtCXHlQ==",
+        "resolved": "1.7.1",
+        "contentHash": "ZMFOtUv4vrS8Sb51yUTWs3YP2sd6eXCyh5UcHd/Tg6q860Wdoiib0nKIFoMHhllFcyNJ7ndW8zqqHgEF+GefyA==",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
           "ZString": "2.5.0"
@@ -2380,49 +2380,49 @@
       },
       "OrchardCore.Application.Mvc.Targets": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "OzvLOxdW4olrWlT76V92K5qgOHLvRK80sGl9YYNb393Eo8WmMBarNdYBEv+C5+KhwoFL/8zm79932Tj4fVA2fQ==",
+        "resolved": "1.7.1",
+        "contentHash": "MBSXsjUteWdzEVJ2HQSPe4qt1Yox7qHDjz3kHAz2cRozlVxBfmy0U8OAWYVtAEP27ctMyUiu5EJayWlyDHcRWQ==",
         "dependencies": {
-          "OrchardCore.Application.Targets": "1.7.0",
-          "OrchardCore.Mvc.Core": "1.7.0"
+          "OrchardCore.Application.Targets": "1.7.1",
+          "OrchardCore.Mvc.Core": "1.7.1"
         }
       },
       "OrchardCore.Application.Targets": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "xPcGedUvEVeo5m8MWCn4tseAkTwQZmOSWAGy+swxNK4jAxwxZWTZDihYGuOy0hwaxeep8ZAdz4VcH7wcA0nXQw==",
+        "resolved": "1.7.1",
+        "contentHash": "WlLfRLuH9gS97B6pQb8ZVmuziugcSoRTS7jDlMlgUaKwTyRKD0WTFxYJSCkEC54xFnE6VrlLmyOLeDmaCasrgw==",
         "dependencies": {
-          "OrchardCore": "1.7.0"
+          "OrchardCore": "1.7.1"
         }
       },
       "OrchardCore.Data.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "De/Xd9ItENDVL2KD1MdJTms20uH5vZQiGjbzlOHkYrQHpPxXM6PCAIumsrkk7/AQuhGbI9SYWK+BjdkMHKoW4w==",
+        "resolved": "1.7.1",
+        "contentHash": "c/QjGqcuosRGV3y9A58I3s5M72ftNPPUSsadZia1oDJQ3cKlFhFNJjf9p3Epbr1ojeeRgkBej86C+stdbssIRg==",
         "dependencies": {
-          "OrchardCore.Abstractions": "1.7.0",
-          "OrchardCore.Queries.Abstractions": "1.7.0"
+          "OrchardCore.Abstractions": "1.7.1",
+          "OrchardCore.Queries.Abstractions": "1.7.1"
         }
       },
       "OrchardCore.DisplayManagement.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "WQe2Y3CyR2czXc3uVQ2XKMDbkVayFhdsm35c/uxOm9IYVQuiDetCSkPjUwscSxIAGYNnJJ9sv7qYXOk4rE/Q7g=="
+        "resolved": "1.7.1",
+        "contentHash": "Schx6WqeR7M1qoucyaJerCb4fmbgOc0aj40k7r4Fj0/RwBb4jfDLq33v612pjjss1rRGz05vgJYmjPTNvnrAqg=="
       },
       "OrchardCore.Infrastructure.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "YvDp3g08OZ1XQ3OP7Fmd3apF2lv9XF0U70aQUPijBqOK/veobGCyjtUN5f+W70TVkBjoDrE/8GGmiVzvgAyvxw==",
+        "resolved": "1.7.1",
+        "contentHash": "nOvkTp1mBwVrLDYVjkH8ffwc42ALso1EpQnmduuME1oucCW1zJVoCMoNMCw2ep7tsiSIJxKJR4PEzDHw/6X9mQ==",
         "dependencies": {
-          "OrchardCore.Abstractions": "1.7.0",
-          "OrchardCore.Data.Abstractions": "1.7.0",
-          "OrchardCore.ResourceManagement.Abstractions": "1.7.0"
+          "OrchardCore.Abstractions": "1.7.1",
+          "OrchardCore.Data.Abstractions": "1.7.1",
+          "OrchardCore.ResourceManagement.Abstractions": "1.7.1"
         }
       },
       "OrchardCore.Localization.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "bxB41SvRF4Ca0Cg4peTB7avwJQpr1RHssI+uvbqsqGOCroXInR/KN1oWh5GwIvegOwMdeKSG1XiIw+d9n9jniA=="
+        "resolved": "1.7.1",
+        "contentHash": "YHysyBXhn12lUIc5BHSbY+u+Gp7qp9OdaUnzRn1819JYRE4nY+wLHbHF1MNsdyMWvARgyABmtxDkIGuExf5muQ=="
       },
       "OrchardCore.Module.Targets": {
         "type": "Transitive",
@@ -2434,24 +2434,24 @@
       },
       "OrchardCore.Mvc.Core": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "wqMfy0+jeomHQdnAm/b4GfVkRkBhHQNsoReCqDluDHtCeJ8Kt0Oi2Dq9Q7IuR8XazJaUw8yXr7hA1Cs+7FfoaA==",
+        "resolved": "1.7.1",
+        "contentHash": "AsrDGMAxGmmFjcHSjyyMkgw0kMc/WM4a4SZAdF1B8bLp1LVEi3DYtB3IzkHeaZnC3oDl9rMRSBsxPJuPAIdF2w==",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.10",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "7.0.10",
-          "OrchardCore.Abstractions": "1.7.0",
-          "OrchardCore.DisplayManagement.Abstractions": "1.7.0"
+          "OrchardCore.Abstractions": "1.7.1",
+          "OrchardCore.DisplayManagement.Abstractions": "1.7.1"
         }
       },
       "OrchardCore.Queries.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "yg524RN3dqCbcMOzj5QRvK/PpCtNF4mG7ewuLkQfeF3cvMHOSs5GMCg3XLl6Q0PHB67u5RCcdzaNA7T28CzEIA=="
+        "resolved": "1.7.1",
+        "contentHash": "gr6GDDX8DLP8nXOjbzETKdeEy5letkHtmKnC1B+c8cEKXV+Y0BBTYtZl9wl0LY7L2MSlYhz3hSztllI6Jp6oSw=="
       },
       "OrchardCore.ResourceManagement.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.0",
-        "contentHash": "Gyn/q3dFSmjNHXv2V/8mbNsiXTsjU1OzrrAPePJYOkdCEPX5pUPfWZEGT0x/y1HXMXTiuUdXgiBLIIw7kbERxw=="
+        "resolved": "1.7.1",
+        "contentHash": "erRzVgYjacX9SnFYSQr7KLcf/oERBd/xE143o1s4UkGMUxcDyVVon6IcF9H5yvnEc98Q4p+L6X9adsiywtgRfA=="
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl": {
         "type": "Transitive",
@@ -3448,7 +3448,7 @@
         "type": "Project",
         "dependencies": {
           "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.5.1, )",
-          "OrchardCore.Application.Mvc.Targets": "[1.7.0, )"
+          "OrchardCore.Application.Mvc.Targets": "[1.7.1, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Test": {
