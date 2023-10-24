@@ -639,8 +639,8 @@
       },
       "OrchardCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.1",
-        "contentHash": "ZMFOtUv4vrS8Sb51yUTWs3YP2sd6eXCyh5UcHd/Tg6q860Wdoiib0nKIFoMHhllFcyNJ7ndW8zqqHgEF+GefyA==",
+        "resolved": "1.7.2",
+        "contentHash": "zn2XjrRQjL96N4NBjILdbjWiiLhNE/WhU0lpiU56zc2QvRbPagWrD2l+o08Jxg5BQSOYbtBQ1ExkX70975DW3A==",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
           "ZString": "2.5.0"
@@ -694,10 +694,10 @@
       },
       "OrchardCore.Module.Targets": {
         "type": "Transitive",
-        "resolved": "1.7.1",
-        "contentHash": "KM0X4BJKZDxV6lIWVMiEdIxrsMK3NY4uXNTqAA4eMpczky4yGFwklxYyCmfD4zmRClLbktbsOiOlNRW0t+gQ1A==",
+        "resolved": "1.7.2",
+        "contentHash": "LoIrA6J10GWQvc3O7pyHePaUJLSb3+k+Z1M59KsXdY8rYfqchFio7lxjUMBR8z7YyVrriuCoZjW7JiTcaEOSNQ==",
         "dependencies": {
-          "OrchardCore.Abstractions": "1.7.1"
+          "OrchardCore.Abstractions": "1.7.2"
         }
       },
       "OrchardCore.Mvc.Core": {
@@ -1713,7 +1713,7 @@
         "type": "Project",
         "dependencies": {
           "Brickmakers.AspSecurityHeaders": "[2.5.1, )",
-          "OrchardCore.Module.Targets": "[1.7.1, )"
+          "OrchardCore.Module.Targets": "[1.7.2, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.OrchardModule.Example": {
@@ -2371,8 +2371,8 @@
       },
       "OrchardCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.7.1",
-        "contentHash": "ZMFOtUv4vrS8Sb51yUTWs3YP2sd6eXCyh5UcHd/Tg6q860Wdoiib0nKIFoMHhllFcyNJ7ndW8zqqHgEF+GefyA==",
+        "resolved": "1.7.2",
+        "contentHash": "zn2XjrRQjL96N4NBjILdbjWiiLhNE/WhU0lpiU56zc2QvRbPagWrD2l+o08Jxg5BQSOYbtBQ1ExkX70975DW3A==",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
           "ZString": "2.5.0"
@@ -2426,10 +2426,10 @@
       },
       "OrchardCore.Module.Targets": {
         "type": "Transitive",
-        "resolved": "1.7.1",
-        "contentHash": "KM0X4BJKZDxV6lIWVMiEdIxrsMK3NY4uXNTqAA4eMpczky4yGFwklxYyCmfD4zmRClLbktbsOiOlNRW0t+gQ1A==",
+        "resolved": "1.7.2",
+        "contentHash": "LoIrA6J10GWQvc3O7pyHePaUJLSb3+k+Z1M59KsXdY8rYfqchFio7lxjUMBR8z7YyVrriuCoZjW7JiTcaEOSNQ==",
         "dependencies": {
-          "OrchardCore.Abstractions": "1.7.1"
+          "OrchardCore.Abstractions": "1.7.2"
         }
       },
       "OrchardCore.Mvc.Core": {
@@ -3441,7 +3441,7 @@
         "type": "Project",
         "dependencies": {
           "Brickmakers.AspSecurityHeaders": "[2.5.1, )",
-          "OrchardCore.Module.Targets": "[1.7.1, )"
+          "OrchardCore.Module.Targets": "[1.7.2, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.OrchardModule.Example": {
