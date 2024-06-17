@@ -49,7 +49,7 @@
     <ItemGroup Label="Dependencies">
         <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.2.8"/>
         <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0"/>
-        <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.21.0"/>
+        <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.22.0"/>
     </ItemGroup>
 
 </Project>
