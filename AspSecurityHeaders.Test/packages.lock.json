@@ -19,11 +19,11 @@
       },
       "Microsoft.AspNetCore.Mvc.Testing": {
         "type": "Direct",
-        "requested": "[6.0.32, )",
-        "resolved": "6.0.32",
-        "contentHash": "WBNNyYpopwGGvjei7sGqMlMqKEU2SIpJ2JHXaXLk5vhHu2eVBcxk7rYIlUhESw3vdd/jpOfCVdGF0yGH6sKwsw==",
+        "requested": "[6.0.33, )",
+        "resolved": "6.0.33",
+        "contentHash": "57uIEOklyuDkKp+TAqxy6FAxAfhCUMDP3ACYBLN6Yx71/EOdfAgME6lWcoA+Esv6SRi/9bXqSijhr8K1fgE++Q==",
         "dependencies": {
-          "Microsoft.AspNetCore.TestHost": "6.0.32",
+          "Microsoft.AspNetCore.TestHost": "6.0.33",
           "Microsoft.Extensions.DependencyModel": "6.0.0",
           "Microsoft.Extensions.Hosting": "6.0.1"
         }
@@ -105,8 +105,8 @@
       },
       "Microsoft.AspNetCore.TestHost": {
         "type": "Transitive",
-        "resolved": "6.0.32",
-        "contentHash": "ryzfyWamXO5IDWgp/pMrCJJXbamnjAvyJN6ERY/C1lw4+gaihOSjqbc0EzaIcYcSkebCod5Qn/OwoPcZIvvUGg==",
+        "resolved": "6.0.33",
+        "contentHash": "P1uql2YFnpuLTvCKnddxFGG/mnr8lJ6ElqVQSDZbCN/0JIy13Ej9dQe45vjgC5hc/NEilFIG9vNjGizdoJd+SA==",
         "dependencies": {
           "System.IO.Pipelines": "6.0.3"
         }
@@ -625,11 +625,11 @@
       },
       "Microsoft.AspNetCore.Mvc.Testing": {
         "type": "Direct",
-        "requested": "[6.0.32, )",
-        "resolved": "6.0.32",
-        "contentHash": "WBNNyYpopwGGvjei7sGqMlMqKEU2SIpJ2JHXaXLk5vhHu2eVBcxk7rYIlUhESw3vdd/jpOfCVdGF0yGH6sKwsw==",
+        "requested": "[6.0.33, )",
+        "resolved": "6.0.33",
+        "contentHash": "57uIEOklyuDkKp+TAqxy6FAxAfhCUMDP3ACYBLN6Yx71/EOdfAgME6lWcoA+Esv6SRi/9bXqSijhr8K1fgE++Q==",
         "dependencies": {
-          "Microsoft.AspNetCore.TestHost": "6.0.32",
+          "Microsoft.AspNetCore.TestHost": "6.0.33",
           "Microsoft.Extensions.DependencyModel": "6.0.0",
           "Microsoft.Extensions.Hosting": "6.0.1"
         }
@@ -711,8 +711,8 @@
       },
       "Microsoft.AspNetCore.TestHost": {
         "type": "Transitive",
-        "resolved": "6.0.32",
-        "contentHash": "ryzfyWamXO5IDWgp/pMrCJJXbamnjAvyJN6ERY/C1lw4+gaihOSjqbc0EzaIcYcSkebCod5Qn/OwoPcZIvvUGg==",
+        "resolved": "6.0.33",
+        "contentHash": "P1uql2YFnpuLTvCKnddxFGG/mnr8lJ6ElqVQSDZbCN/0JIy13Ej9dQe45vjgC5hc/NEilFIG9vNjGizdoJd+SA==",
         "dependencies": {
           "System.IO.Pipelines": "6.0.3"
         }
