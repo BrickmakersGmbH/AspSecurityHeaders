@@ -25,9 +25,9 @@
       },
       "NetEscapades.AspNetCore.SecurityHeaders": {
         "type": "Direct",
-        "requested": "[0.22.0, )",
-        "resolved": "0.22.0",
-        "contentHash": "8Nzff7nu6SdvV7tq4six1P4ALIwFhpIaOFzYEfLlUi1qWZXoaC/kaUF+BXYRw9Jh7SfA2580z21ATg8OY0xfUg=="
+        "requested": "[0.23.0, )",
+        "resolved": "0.23.0",
+        "contentHash": "wOi6FuJF9VmsPMTyaYeHTrTqa/ZmSXHrZzuJVRhfJL6wxRw1YDpeoXFdOl/j4K5iqCgnvm7WaA83Kzs7DpuFRA=="
       },
       "Microsoft.AspNetCore.Http": {
         "type": "Transitive",
@@ -151,9 +151,9 @@
       },
       "NetEscapades.AspNetCore.SecurityHeaders": {
         "type": "Direct",
-        "requested": "[0.22.0, )",
-        "resolved": "0.22.0",
-        "contentHash": "8Nzff7nu6SdvV7tq4six1P4ALIwFhpIaOFzYEfLlUi1qWZXoaC/kaUF+BXYRw9Jh7SfA2580z21ATg8OY0xfUg=="
+        "requested": "[0.23.0, )",
+        "resolved": "0.23.0",
+        "contentHash": "wOi6FuJF9VmsPMTyaYeHTrTqa/ZmSXHrZzuJVRhfJL6wxRw1YDpeoXFdOl/j4K5iqCgnvm7WaA83Kzs7DpuFRA=="
       },
       "Microsoft.AspNetCore.Http": {
         "type": "Transitive",
