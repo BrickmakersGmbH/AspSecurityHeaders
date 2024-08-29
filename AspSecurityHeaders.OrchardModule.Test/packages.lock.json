@@ -825,28 +825,28 @@
       "Brickmakers.AspSecurityHeaders.Example": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.5.1, )",
+          "Brickmakers.AspSecurityHeaders": "[2.5.2, )",
           "Swashbuckle.AspNetCore": "[6.7.3, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.OrchardModule": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.5.1, )",
+          "Brickmakers.AspSecurityHeaders": "[2.5.2, )",
           "OrchardCore.Module.Targets": "[1.8.3, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.OrchardModule.Example": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.5.1, )",
+          "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.5.2, )",
           "OrchardCore.Application.Mvc.Targets": "[1.8.3, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Test": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.5.1, )",
+          "Brickmakers.AspSecurityHeaders": "[2.5.2, )",
           "Brickmakers.AspSecurityHeaders.Example": "[1.0.0, )",
           "FluentAssertions": "[6.12.0, )",
           "Microsoft.AspNetCore.Mvc.Testing": "[6.0.33, )",

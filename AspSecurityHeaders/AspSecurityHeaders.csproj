@@ -13,23 +13,23 @@
     </PropertyGroup>
 
     <PropertyGroup Label="Assembly Information">
-        <Company>BRICKMAKERS GmbH</Company>
+        <Company>BRICKMAKERS AG</Company>
         <Product>Brickmakers.AspSecurityHeaders</Product>
         <AssemblyName>Brickmakers.AspSecurityHeaders</AssemblyName>
-        <AssemblyVersion>2.5.1</AssemblyVersion>
-        <FileVersion>2.5.1</FileVersion>
+        <AssemblyVersion>2.5.2</AssemblyVersion>
+        <FileVersion>2.5.2</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Label="NuGet-Packaging">
         <PackageId>Brickmakers.AspSecurityHeaders</PackageId>
-        <PackageVersion>2.5.1</PackageVersion>
+        <PackageVersion>2.5.2</PackageVersion>
         <Description>A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.</Description>
         <Authors>BRICKMAKERS Security Engineering Team</Authors>
         <PackageProjectUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageIcon>AspSecurityHeaders.png</PackageIcon>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <Copyright>2022 BRICKMAKERS GmbH</Copyright>
+        <Copyright>2024 BRICKMAKERS AG</Copyright>
         <PackageTags>Brickmakers ASP.NET dotnetcore dotnet HTTPS CSP HSTS Security HTTP-Headers Security-Headers</PackageTags>
         <RepositoryType>GIT</RepositoryType>
         <RepositoryUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders.git</RepositoryUrl>

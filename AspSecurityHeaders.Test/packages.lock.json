@@ -602,7 +602,7 @@
       "Brickmakers.AspSecurityHeaders.Example": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.5.1, )",
+          "Brickmakers.AspSecurityHeaders": "[2.5.2, )",
           "Swashbuckle.AspNetCore": "[6.7.3, )"
         }
       }
@@ -1204,7 +1204,7 @@
       "Brickmakers.AspSecurityHeaders.Example": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.5.1, )",
+          "Brickmakers.AspSecurityHeaders": "[2.5.2, )",
           "Swashbuckle.AspNetCore": "[6.7.3, )"
         }
       }
