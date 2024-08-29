@@ -265,7 +265,7 @@
         }
       }
     },
-    "net7.0": {
+    "net8.0": {
       "coverlet.collector": {
         "type": "Direct",
         "requested": "[6.0.2, )",

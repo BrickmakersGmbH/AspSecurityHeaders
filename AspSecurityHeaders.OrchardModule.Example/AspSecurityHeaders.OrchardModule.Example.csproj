@@ -10,7 +10,7 @@
         <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
         <OpenApiGenerateDocumentsOnBuild>false</OpenApiGenerateDocumentsOnBuild>
         <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-        <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+        <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -20,15 +20,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="wwwroot\" />
+        <Folder Include="wwwroot\"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.7.2" />
+        <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="1.8.3"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AspSecurityHeaders.OrchardModule\AspSecurityHeaders.OrchardModule.csproj" />
+        <ProjectReference Include="..\AspSecurityHeaders.OrchardModule\AspSecurityHeaders.OrchardModule.csproj"/>
     </ItemGroup>
 
 </Project>

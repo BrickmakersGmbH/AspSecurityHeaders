@@ -132,7 +132,7 @@
         }
       }
     },
-    "net7.0": {
+    "net8.0": {
       "Microsoft.AspNetCore.CookiePolicy": {
         "type": "Transitive",
         "resolved": "2.2.8",

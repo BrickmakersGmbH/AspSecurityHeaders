@@ -34,7 +34,7 @@ public class Startup
         // create "fake" server header to be removed by security headers
         app.Use(async (context, next) =>
         {
-            context.Response.Headers.Add("Server", "ASP.Net Core");
+            context.Response.Headers.Append("Server", "ASP.Net Core");
             await next();
         });
 

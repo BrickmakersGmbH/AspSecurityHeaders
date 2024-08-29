@@ -175,7 +175,7 @@
         }
       }
     },
-    "net7.0": {
+    "net8.0": {
       "Swashbuckle.AspNetCore": {
         "type": "Direct",
         "requested": "[6.7.3, )",

@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <RootNamespace>Brickmakers.AspSecurityHeaders.Example</RootNamespace>
-        <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+        <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
         <LangVersion>default</LangVersion>
         <IsPackable>false</IsPackable>
         <Nullable>enable</Nullable>
@@ -19,11 +19,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj" />
+        <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3"/>
     </ItemGroup>
 
 </Project>
