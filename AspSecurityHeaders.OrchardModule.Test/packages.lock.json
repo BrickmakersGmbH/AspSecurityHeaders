@@ -55,6 +55,19 @@
         "resolved": "2.8.2",
         "contentHash": "vm1tbfXhFmjFMUmS4M0J0ASXz3/U5XvXBa6DOQUL3fEz4Vt6YPhv+ESCarx6M6D+9kJkJYZKCNvJMas1+nVfmQ=="
       },
+      "Json.More.Net": {
+        "type": "Transitive",
+        "resolved": "2.0.2",
+        "contentHash": "izscdjjk8EAHDBCjyz7V7n77SzkrSjh/hUGV6cyR6PlVdjYDh5ohc8yqvwSqJ9+6Uof8W6B24dIHlDKD+I1F8A=="
+      },
+      "JsonPath.Net": {
+        "type": "Transitive",
+        "resolved": "1.1.4",
+        "contentHash": "RAVhHdPEJPUoKPSSHBh82Q8Qrwl3mr1OlRj0I/IFj42DSoS8b9VUOPCCr+O6V/2gmPDbuGnf2mdic9Cp8AqfBg==",
+        "dependencies": {
+          "Json.More.Net": "2.0.2"
+        }
+      },
       "Microsoft.AspNetCore.CookiePolicy": {
         "type": "Transitive",
         "resolved": "2.2.8",
@@ -94,25 +107,6 @@
           "Microsoft.Extensions.Primitives": "2.2.0"
         }
       },
-      "Microsoft.AspNetCore.JsonPatch": {
-        "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "klQdb/9+j0u8MDjoqHEgDCPz8GRhfsbRVvZIM3glFqjs8uY7S1hS9RvKZuz8o4dS9NsEpFp4Jccd8CQuIYHK0g==",
-        "dependencies": {
-          "Microsoft.CSharp": "4.7.0",
-          "Newtonsoft.Json": "13.0.3"
-        }
-      },
-      "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
-        "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "/e5+eBvY759xiZJO+y1lHi4VzXqbDzTJSyCtKpaj3Ko2JAFQjiCOJ0ZHk2i4g4HpoSdXmzEXQsjr6dUX9U0/JA==",
-        "dependencies": {
-          "Microsoft.AspNetCore.JsonPatch": "8.0.0",
-          "Newtonsoft.Json": "13.0.3",
-          "Newtonsoft.Json.Bson": "1.0.2"
-        }
-      },
       "Microsoft.AspNetCore.Mvc.Razor.Extensions": {
         "type": "Transitive",
         "resolved": "6.0.0",
@@ -124,12 +118,12 @@
       },
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
         "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "HyLDtyWwpavSEFBOL0qOdymY8f+VwN5QhhE7gj3wBw53j9EA0ZcYkbfTvkhvMeV9PavgCcMIe4sAsBGEE/YnNA==",
+        "resolved": "8.0.8",
+        "contentHash": "WzTDrNhrIcwB3tB9vlvFuDR1l1e9kUwAQ0x0vzH+iR/F6EEmzJyQWXcp60C1D2C2WKnfdq0Jk7pOGORA5+HzgA==",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Razor.Extensions": "6.0.0",
           "Microsoft.CodeAnalysis.Razor": "6.0.0",
-          "Microsoft.Extensions.DependencyModel": "8.0.0"
+          "Microsoft.Extensions.DependencyModel": "8.0.1"
         }
       },
       "Microsoft.AspNetCore.Razor.Language": {
@@ -195,11 +189,6 @@
         "type": "Transitive",
         "resolved": "17.11.0",
         "contentHash": "QKcOSuw7MZG4XiQ+pCj+Ib6amOwoRDEO7e3DbxqXeOPXSnfyGXYoZQI8I140s1mKQVn1Vh+c5WlKvCvlgMovpg=="
-      },
-      "Microsoft.CSharp": {
-        "type": "Transitive",
-        "resolved": "4.7.0",
-        "contentHash": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA=="
       },
       "Microsoft.Extensions.ApiDescription.Server": {
         "type": "Transitive",
@@ -300,11 +289,11 @@
       },
       "Microsoft.Extensions.DependencyModel": {
         "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "NSmDw3K0ozNDgShSIpsZcbFIzBX4w28nDag+TfaQujkXGazBm+lid5onlWoCBy4VsLxqnnKjEBbGSJVWJMf43g==",
+        "resolved": "8.0.1",
+        "contentHash": "5Ou6varcxLBzQ+Agfm0k0pnH7vrEITYlXMDuE6s7ZHlZHz6/G8XJ3iISZDr5rfwfge6RnXJ1+Wc479mMn52vjA==",
         "dependencies": {
           "System.Text.Encodings.Web": "8.0.0",
-          "System.Text.Json": "8.0.0"
+          "System.Text.Json": "8.0.4"
         }
       },
       "Microsoft.Extensions.FileProviders.Abstractions": {
@@ -531,91 +520,97 @@
       },
       "Newtonsoft.Json": {
         "type": "Transitive",
-        "resolved": "13.0.3",
-        "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
-      },
-      "Newtonsoft.Json.Bson": {
-        "type": "Transitive",
-        "resolved": "1.0.2",
-        "contentHash": "QYFyxhaABwmq3p/21VrZNYvCg3DaEoN/wUuw5nmfAf0X3HLjgupwhkEWdgfb9nvGAUIv3osmZoD3kKl4jxEmYQ==",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.1"
-        }
+        "resolved": "13.0.1",
+        "contentHash": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A=="
       },
       "NodaTime": {
         "type": "Transitive",
-        "resolved": "3.1.10",
-        "contentHash": "56V8ELg9Az1S0Nij44xILAtfUQs3WTLIwbTQTuWZxL8EagsfUkkPAoWxv/HyZccmfaUEqFHfHiAuqfj/NfbfrA==",
+        "resolved": "3.1.11",
+        "contentHash": "AYSiCHp1PLzWKVf7hEL3MJ0q9kzOWMNIaTVysXk4XKrDBzK5PF2wpd4LsAl+EIQ2Hbvu+vw4oFaexcXzCuY1lQ==",
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "4.7.1"
         }
       },
       "OrchardCore": {
         "type": "Transitive",
-        "resolved": "1.8.3",
-        "contentHash": "V9ve+3F0o1vb9Ta/5o27pXoJp1O+wJMLYxPiCi3At+3cRuIMUu+zG0wZRd/rtGE7UCU9aFbJynDKdfhliCQe/w==",
+        "resolved": "2.0.0",
+        "contentHash": "zVCAQITn28AaE4y8OSL1hbhRqza42pIpkJV7bsg69/c615GPzTP4LFri+AH8x0iUzwlizIq21Xjoeu2hjNeYZQ==",
         "dependencies": {
-          "NodaTime": "3.1.10",
-          "OrchardCore.Abstractions": "1.8.3",
-          "OrchardCore.Infrastructure.Abstractions": "1.8.3",
-          "OrchardCore.Localization.Abstractions": "1.8.3",
+          "JsonPath.Net": "1.1.4",
+          "NodaTime": "3.1.11",
+          "OrchardCore.Abstractions": "2.0.0",
+          "OrchardCore.Infrastructure.Abstractions": "2.0.0",
+          "OrchardCore.Localization.Abstractions": "2.0.0",
+          "ZString": "2.6.0",
           "ncrontab": "3.3.3"
         }
       },
       "OrchardCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.8.3",
-        "contentHash": "r8uUiAsVIWM+0fJHjgtVATRVHm4Z7MF3WCj/Us2P2KYZZdUsX8YFtq5nnV1WBCTBc1ygZx2JGwei1KhPYfd5Bg==",
+        "resolved": "2.0.0",
+        "contentHash": "IbKfC3G7IbM/BPH3nrDap6bT3C2AJJ0boQYL6EXeBf94Tjz9hc/WNiZ4rXYJsN5i432FAI1bboun5sOyRKlL1Q==",
         "dependencies": {
-          "Newtonsoft.Json": "13.0.3",
-          "ZString": "2.5.1"
+          "JsonPath.Net": "1.1.4",
+          "ZString": "2.6.0"
         }
       },
       "OrchardCore.Application.Mvc.Targets": {
         "type": "Transitive",
-        "resolved": "1.8.3",
-        "contentHash": "PJJ9gfETMWZTa25H/JaXutn1JAgf3g3p4D15ZJ93X2kk6vLAK1qphHlOw/FgDNlp5jdaY3p3ee58B8nBtv7CCw==",
+        "resolved": "2.0.0",
+        "contentHash": "xYIrSxIja1Wy8jx6kHg+eIzaQQta04KkkFwJLfZNyKiTMn5H1QkwxVPq5u6+zNIVeUXg8j5kEF/Gf0Io5LNoxg==",
         "dependencies": {
-          "OrchardCore.Application.Targets": "1.8.3",
-          "OrchardCore.Mvc.Core": "1.8.3"
+          "JsonPath.Net": "1.1.4",
+          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "8.0.8",
+          "NodaTime": "3.1.11",
+          "OrchardCore.Application.Targets": "2.0.0",
+          "OrchardCore.Mvc.Core": "2.0.0",
+          "ZString": "2.6.0",
+          "ncrontab": "3.3.3"
         }
       },
       "OrchardCore.Application.Targets": {
         "type": "Transitive",
-        "resolved": "1.8.3",
-        "contentHash": "byb3JbUfX+OVXZ0TT1r8VAagvRQP7WMxbL7kwn2GJzN5EbtU5knQcB2iTwc9yYBlC7wBVFd1J4gu8OEMnjw4NQ==",
+        "resolved": "2.0.0",
+        "contentHash": "a1PnWK/N7oPqZwZCtxwaCllvXAy11X16DZc1gkD2aOUdCSDCGWfVL67/2UoCu1EcrzEn/bY1uqc4b4SVrbXcMA==",
         "dependencies": {
-          "OrchardCore": "1.8.3"
+          "JsonPath.Net": "1.1.4",
+          "NodaTime": "3.1.11",
+          "OrchardCore": "2.0.0",
+          "ZString": "2.6.0",
+          "ncrontab": "3.3.3"
         }
       },
       "OrchardCore.Data.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.8.3",
-        "contentHash": "uYQ2OT7EbLWc0dmDq/tgGXSYABYtHF9fLoqu/k09M9dLLX0mX/X1jHy5S3hseDSYcdiHqyFIY1KOQ/E1reuTWw==",
+        "resolved": "2.0.0",
+        "contentHash": "uLB5YvrbgKxKgXvstELRVQui9V6IEe6zEczH+zqFy5gtWjMNcK/7QF32BAIdofYkvPHXJlxFbT//gJBKkfYdcg==",
         "dependencies": {
-          "OrchardCore.Abstractions": "1.8.3",
-          "OrchardCore.Queries.Abstractions": "1.8.3"
+          "JsonPath.Net": "1.1.4",
+          "OrchardCore.Abstractions": "2.0.0",
+          "ZString": "2.6.0"
         }
       },
       "OrchardCore.DisplayManagement.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.8.3",
-        "contentHash": "T+dtHVMaMH5oPxVLgoCkUOxD0XRGPsGXjOSiw6oe88yioF1ImbArKd84HkIurme/Gw2TcCibWHtI7RX2S/B1vw=="
+        "resolved": "2.0.0",
+        "contentHash": "1DaggXBWd4qGqolrqqTRReQy9pQQ/YrgyKboFdnin3pwMIXvtUsKcLmM7Z0dCpB4Loph9yxYKNSXKQZcQ53zKw=="
       },
       "OrchardCore.Infrastructure.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.8.3",
-        "contentHash": "hVs9sQjhtxae3Sl2REpmrNqQG/osIeTfgBZi9IADbY77Okn/EVD9uhpvWXGBR/EUcKtgTxvjeNscvxQWZbAoRg==",
+        "resolved": "2.0.0",
+        "contentHash": "1t2uMUnI4vptiHuGRFakislt0PBHEAUZHIoS18tYkw4SSGbeuXKWlvsHl9vbrsiJ9LFC2I+NGjc4Qc6YBZy1Lw==",
         "dependencies": {
-          "OrchardCore.Abstractions": "1.8.3",
-          "OrchardCore.Data.Abstractions": "1.8.3",
-          "OrchardCore.ResourceManagement.Abstractions": "1.8.3"
+          "JsonPath.Net": "1.1.4",
+          "OrchardCore.Abstractions": "2.0.0",
+          "OrchardCore.Data.Abstractions": "2.0.0",
+          "OrchardCore.ResourceManagement.Abstractions": "2.0.0",
+          "ZString": "2.6.0"
         }
       },
       "OrchardCore.Localization.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.8.3",
-        "contentHash": "pyxlzrCsBGhSvrcwf2ey9AqcMWB7V3Xmz5J+WpkVB1N9/xoTB1k0wvrrSFju5/wVEMKIhD23GLY8J9uo8lG5Ow=="
+        "resolved": "2.0.0",
+        "contentHash": "2BrWFtgYSXfjgvhPnVS+LDn3i2IHi1QYbZeEhniOWwoxG7JabHlVWE7XatQzSaMa/AkYI1W23/5+YtprnNURaA=="
       },
       "OrchardCore.Module.Targets": {
         "type": "Transitive",
@@ -627,24 +622,20 @@
       },
       "OrchardCore.Mvc.Core": {
         "type": "Transitive",
-        "resolved": "1.8.3",
-        "contentHash": "yCxGuL2xgKXcxNGgFVcxUJewIKG0Hn8oIx11TpBXQls8MN0nJyWBoqEsZRFpdfeJG3naxbKpX6Dmvt/q49VotQ==",
+        "resolved": "2.0.0",
+        "contentHash": "Mb4H2IoDQio5vXsyTRA/ng1l/RTozLEnZsZIb7l8oHldGWfC7C6AaGReiFLjNEi1fov/2G8DECD049KYI0BCkA==",
         "dependencies": {
-          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.0",
-          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "8.0.0",
-          "OrchardCore.Abstractions": "1.8.3",
-          "OrchardCore.DisplayManagement.Abstractions": "1.8.3"
+          "JsonPath.Net": "1.1.4",
+          "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "8.0.8",
+          "OrchardCore.Abstractions": "2.0.0",
+          "OrchardCore.DisplayManagement.Abstractions": "2.0.0",
+          "ZString": "2.6.0"
         }
-      },
-      "OrchardCore.Queries.Abstractions": {
-        "type": "Transitive",
-        "resolved": "1.8.3",
-        "contentHash": "VheR4xU4k6ra1Zf3n6GXjrizKrte01MWQ6nCeLWA1qdv0m6M8eoA5tD/m8TsZ8f5i+uAMF9klNqqT6n7whknlg=="
       },
       "OrchardCore.ResourceManagement.Abstractions": {
         "type": "Transitive",
-        "resolved": "1.8.3",
-        "contentHash": "vC4CzfbR7fFjkGGErY01VlUi/THLGpgYYqgqx6ToHgJYonaJywT0MwR634nerKSY16H3zj56jc6YATbGJbeRrg=="
+        "resolved": "2.0.0",
+        "contentHash": "Uozmsbf29S3xsCJEnqTLFN7AcePSzx6gBphWQbSVgtLWTCkYl98wywoN7Lt/GwAHWtQgo/NJgn/lLyvv6clUzA=="
       },
       "Swashbuckle.AspNetCore": {
         "type": "Transitive",
@@ -758,8 +749,8 @@
       },
       "System.Text.Json": {
         "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "OdrZO2WjkiEG6ajEFRABTRCi/wuXQPxeV6g8xvUJqdxMvvuCCEk86zPla8UiIQJz3durtUEbNyY/3lIhS0yZvQ==",
+        "resolved": "8.0.4",
+        "contentHash": "bAkhgDJ88XTsqczoxEMliSrpijKZHhbJQldhAmObj/RbrN3sU5dcokuXmWJWsdQAhiMJ9bTayWsL1C9fbbCRhw==",
         "dependencies": {
           "System.Text.Encodings.Web": "8.0.0"
         }
@@ -811,8 +802,8 @@
       },
       "ZString": {
         "type": "Transitive",
-        "resolved": "2.5.1",
-        "contentHash": "hHZnrIZAgda8j9n2gR4M7GbETcjr6EBo4CUnMtK8o2MgkgzARg+Y7XI142nNOpRRuup1LJb12/gd/tMhzwdw8g=="
+        "resolved": "2.6.0",
+        "contentHash": "XE8a+11nZg0LRaf+RGABEWaHIf8yGd5w8v/Ra1iWxMBmAVzwuKbW7G21mS0U7w7sh1lYcgckInWGgnz4qyET8A=="
       },
       "Brickmakers.AspSecurityHeaders": {
         "type": "Project",
@@ -840,7 +831,7 @@
         "type": "Project",
         "dependencies": {
           "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.5.2, )",
-          "OrchardCore.Application.Mvc.Targets": "[1.8.3, )"
+          "OrchardCore.Application.Mvc.Targets": "[2.0.0, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Test": {
