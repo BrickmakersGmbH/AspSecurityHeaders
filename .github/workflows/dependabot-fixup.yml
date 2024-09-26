@@ -1,4 +1,4 @@
-name: Dependabot PR automerge
+name: Dependabot PR fixup
 
 on:
   workflow_dispatch:
@@ -10,8 +10,37 @@ on:
       - synchronize
 
 jobs:
+  pr_fixup:
+    name: PR Fixup
+    if: github.event_name == 'workflow_dispatch' || github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    outputs:
+      commit_hash: ${{ steps.auto_commit.outputs.commit_hash }}
+    permissions:
+      contents: write
+    steps:
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            7.0.x
+            6.0.x
+      - name: Checkout PR
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Update lockfiles
+        run: dotnet restore --use-lock-file
+      - id: auto_commit
+        name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update lockfiles
+
   ci:
     name: Run CI-Pipeline
+    needs:
+      - pr_fixup
     if: github.event_name == 'workflow_dispatch' || github.actor == 'dependabot[bot]'
     uses: ./.github/workflows/ci.yml
     with:
@@ -20,6 +49,7 @@ jobs:
   pr_automerge:
     name: Enable Automerge
     needs:
+      - pr_fixup
       - ci
     if: github.event_name == 'workflow_dispatch' || github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
