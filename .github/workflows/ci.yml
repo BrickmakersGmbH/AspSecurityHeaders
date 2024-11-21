@@ -25,20 +25,16 @@ jobs:
           - macos-latest
           - windows-latest
         framework:
+          - net9.0
           - net8.0
-          - net6.0
-
-        exclude:
-          - project: AspSecurityHeaders.OrchardModule.Test
-            framework: net6.0
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
+            9.0.x
             8.0.x
-            6.0.x
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
@@ -71,8 +67,8 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
+            9.0.x
             8.0.x
-            6.0.x
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
@@ -155,7 +151,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 9.0.x
       - name: Download NuGet package
         uses: actions/download-artifact@v4
         with:

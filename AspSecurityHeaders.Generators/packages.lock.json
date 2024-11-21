@@ -1,7 +1,7 @@
 {
   "version": 1,
   "dependencies": {
-    "net6.0": {
+    "net8.0": {
       "Microsoft.AspNetCore.CookiePolicy": {
         "type": "Transitive",
         "resolved": "2.2.8",
@@ -132,7 +132,7 @@
         }
       }
     },
-    "net8.0": {
+    "net9.0": {
       "Microsoft.AspNetCore.CookiePolicy": {
         "type": "Transitive",
         "resolved": "2.2.8",

@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <RootNamespace>Brickmakers.AspSecurityHeaders.Example</RootNamespace>
-        <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
         <LangVersion>default</LangVersion>
         <IsPackable>false</IsPackable>
         <Nullable>enable</Nullable>
@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="7.0.0" />
     </ItemGroup>
 
 </Project>

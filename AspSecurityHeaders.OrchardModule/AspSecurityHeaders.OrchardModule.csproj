@@ -10,7 +10,7 @@
         <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup Label="Assembly Information">
@@ -52,7 +52,7 @@
     </ItemGroup>
 
     <ItemGroup Label="Dependencies">
-        <PackageReference Include="OrchardCore.Module.Targets" Version="1.8.3"/>
+        <PackageReference Include="OrchardCore.Module.Targets" Version="1.8.4" />
     </ItemGroup>
 
     <ItemGroup Label="Project References">
