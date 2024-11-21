@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-using Brickmakers.AspSecurityHeaders.OrchardModule.Controllers.Models;
+using Brickmakers.AspSecurityHeaders.Controllers.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
