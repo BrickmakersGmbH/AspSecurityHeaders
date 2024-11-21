@@ -1,0 +1,32 @@
+<Project>
+    <PropertyGroup Label="Build Configuration">
+        <LangVersion>default</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <WarningsAsErrors>Nullable</WarningsAsErrors>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+        <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+    </PropertyGroup>
+    
+    <PropertyGroup Label="Assembly Information">
+        <Company>BRICKMAKERS AG</Company>
+        <AssemblyVersion>2.5.2</AssemblyVersion>
+        <FileVersion>2.5.2</FileVersion>
+        <InformationalVersion>2.5.2</InformationalVersion>
+        <Copyright>2024 BRICKMAKERS AG</Copyright>
+    </PropertyGroup>
+
+    <PropertyGroup Label="NuGet-Packaging">
+        <PackageVersion>2.5.2</PackageVersion>
+        <Authors>BRICKMAKERS Security Engineering Team</Authors>
+        <PackageProjectUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>AspSecurityHeaders.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryType>GIT</RepositoryType>
+        <RepositoryUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders.git</RepositoryUrl>
+        <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/../CHANGELOG.md"))</PackageReleaseNotes>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+</Project>

@@ -2,19 +2,10 @@
 
     <PropertyGroup>
         <RootNamespace>Brickmakers.AspSecurityHeaders.OrchardModule.Test</RootNamespace>
-        <LangVersion>default</LangVersion>
-        <IsPackable>false</IsPackable>
-        <Nullable>enable</Nullable>
-        <WarningsAsErrors>Nullable</WarningsAsErrors>
-        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-        <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
-        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <Company>BRICKMAKERS GmbH</Company>
         <Product>Brickmakers.AspSecurityHeaders.OrchardModule.Test</Product>
         <AssemblyName>Brickmakers.AspSecurityHeaders.OrchardModule.Test</AssemblyName>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>

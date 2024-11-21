@@ -1,19 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <RootNamespace>Brickmakers.AspSecurityHeaders.Generators.Test</RootNamespace>
-        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-        <LangVersion>default</LangVersion>
-        <IsPackable>false</IsPackable>
-        <Nullable>enable</Nullable>
-        <WarningsAsErrors>Nullable</WarningsAsErrors>
-        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-        <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <Company>BRICKMAKERS GmbH</Company>
         <Product>Brickmakers.AspSecurityHeaders.Generators.Test</Product>
         <AssemblyName>Brickmakers.AspSecurityHeaders.Generators.Test</AssemblyName>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>

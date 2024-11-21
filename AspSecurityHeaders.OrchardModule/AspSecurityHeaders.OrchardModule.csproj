@@ -1,43 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
-    <PropertyGroup>
+    <PropertyGroup Label="Build Configuration">
         <RootNamespace>Brickmakers.AspSecurityHeaders.OrchardModule</RootNamespace>
-        <LangVersion>default</LangVersion>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <WarningsAsErrors>Nullable</WarningsAsErrors>
-        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-        <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
     </PropertyGroup>
 
     <PropertyGroup Label="Assembly Information">
-        <Company>BRICKMAKERS AG</Company>
         <Product>Brickmakers.AspSecurityHeaders.OrchardModule</Product>
         <AssemblyName>Brickmakers.AspSecurityHeaders.OrchardModule</AssemblyName>
-        <AssemblyVersion>2.5.2</AssemblyVersion>
-        <FileVersion>2.5.2</FileVersion>
     </PropertyGroup>
 
     <PropertyGroup Label="NuGet-Packaging">
         <PackageId>Brickmakers.AspSecurityHeaders.OrchardModule</PackageId>
-        <PackageVersion>2.5.2</PackageVersion>
-        <Description>An Orchard Core MVC module to automatically configure secure HTTP-Headers.</Description>
-        <Authors>BRICKMAKERS Security Engineering Team</Authors>
-        <PackageProjectUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders</PackageProjectUrl>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageIcon>AspSecurityHeaders.png</PackageIcon>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
-        <Copyright>2024 BRICKMAKERS AG</Copyright>
-        <PackageTags>Brickmakers ASP.NET dotnetcore dotnet HTTPS CSP HSTS Security HTTP-Headers Security-Headers OrchardCore Module</PackageTags>
-        <RepositoryType>GIT</RepositoryType>
-        <RepositoryUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders.git</RepositoryUrl>
         <Title>AspSecurityHeaders by BRICKMAKERS</Title>
-        <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/../CHANGELOG.md"))</PackageReleaseNotes>
-        <IncludeSymbols>true</IncludeSymbols>
-        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Description>An Orchard Core MVC module to automatically configure secure HTTP-Headers.</Description>
+        <PackageTags>Brickmakers ASP.NET dotnetcore dotnet HTTPS CSP HSTS Security HTTP-Headers Security-Headers OrchardCore Module</PackageTags>
     </PropertyGroup>
 
     <ItemGroup Label="NuGet Files">

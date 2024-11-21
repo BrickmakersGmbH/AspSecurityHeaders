@@ -2,20 +2,11 @@
 
     <PropertyGroup>
         <RootNamespace>Brickmakers.AspSecurityHeaders.Example</RootNamespace>
-        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-        <LangVersion>default</LangVersion>
-        <IsPackable>false</IsPackable>
-        <Nullable>enable</Nullable>
-        <WarningsAsErrors>Nullable</WarningsAsErrors>
-        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-        <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
-        <OpenApiGenerateDocumentsOnBuild>false</OpenApiGenerateDocumentsOnBuild>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <Company>BRICKMAKERS GmbH</Company>
         <Product>Brickmakers.AspSecurityHeaders.Example</Product>
         <AssemblyName>Brickmakers.AspSecurityHeaders.Example</AssemblyName>
+        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+        <IsPackable>false</IsPackable>
+        <OpenApiGenerateDocumentsOnBuild>false</OpenApiGenerateDocumentsOnBuild>
     </PropertyGroup>
 
     <ItemGroup>

@@ -823,7 +823,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.CookiePolicy": "[2.2.8, )",
           "Microsoft.AspNetCore.Http.Abstractions": "[2.2.0, )",
-          "NetEscapades.AspNetCore.SecurityHeaders": "[0.24.0, )"
+          "NetEscapades.AspNetCore.SecurityHeaders": "[0.24.0, )",
+          "System.Text.Encodings.Web": "[9.0.0, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Example": {
@@ -844,14 +845,15 @@
         "type": "Project",
         "dependencies": {
           "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.5.2, )",
-          "OrchardCore.Application.Mvc.Targets": "[1.8.4, )"
+          "OrchardCore.Application.Mvc.Targets": "[1.8.4, )",
+          "System.Text.Json": "[9.0.0, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Test": {
         "type": "Project",
         "dependencies": {
           "Brickmakers.AspSecurityHeaders": "[2.5.2, )",
-          "Brickmakers.AspSecurityHeaders.Example": "[1.0.0, )",
+          "Brickmakers.AspSecurityHeaders.Example": "[2.5.2, )",
           "FluentAssertions": "[6.12.2, )",
           "Microsoft.AspNetCore.Mvc.Testing": "[8.0.11, )",
           "Microsoft.NET.Test.Sdk": "[17.12.0, )",
@@ -1612,8 +1614,13 @@
       },
       "System.Text.Encodings.Web": {
         "type": "Transitive",
-        "resolved": "4.5.0",
-        "contentHash": "Xg4G4Indi4dqP1iuAiMSwpiWS54ZghzR644OtsRCm/m/lBMG8dUBhLVN7hLm8NNrNTR+iGbshCPTwrvxZPlm4g=="
+        "resolved": "9.0.0",
+        "contentHash": "e2hMgAErLbKyUUwt18qSBf9T5Y+SFAL3ZedM8fLupkVj8Rj2PZ9oxQ37XX2LF8fTO1wNIxvKpihD7Of7D/NxZw=="
+      },
+      "System.Text.Json": {
+        "type": "Transitive",
+        "resolved": "9.0.0",
+        "contentHash": "js7+qAu/9mQvnhA4EfGMZNEzXtJCDxgkgj8ohuxq/Qxv+R56G+ljefhiJHOxTNiw54q8vmABCWUwkMulNdlZ4A=="
       },
       "System.Threading.Tasks.Extensions": {
         "type": "Transitive",
@@ -1670,7 +1677,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.CookiePolicy": "[2.2.8, )",
           "Microsoft.AspNetCore.Http.Abstractions": "[2.2.0, )",
-          "NetEscapades.AspNetCore.SecurityHeaders": "[0.24.0, )"
+          "NetEscapades.AspNetCore.SecurityHeaders": "[0.24.0, )",
+          "System.Text.Encodings.Web": "[9.0.0, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Example": {
@@ -1691,14 +1699,15 @@
         "type": "Project",
         "dependencies": {
           "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.5.2, )",
-          "OrchardCore.Application.Mvc.Targets": "[1.8.4, )"
+          "OrchardCore.Application.Mvc.Targets": "[1.8.4, )",
+          "System.Text.Json": "[9.0.0, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Test": {
         "type": "Project",
         "dependencies": {
           "Brickmakers.AspSecurityHeaders": "[2.5.2, )",
-          "Brickmakers.AspSecurityHeaders.Example": "[1.0.0, )",
+          "Brickmakers.AspSecurityHeaders.Example": "[2.5.2, )",
           "FluentAssertions": "[6.12.2, )",
           "Microsoft.AspNetCore.Mvc.Testing": "[8.0.11, )",
           "Microsoft.NET.Test.Sdk": "[17.12.0, )",
