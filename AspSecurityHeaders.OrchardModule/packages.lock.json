@@ -4,12 +4,13 @@
     "net8.0": {
       "OrchardCore.Module.Targets": {
         "type": "Direct",
-        "requested": "[2.0.2, )",
-        "resolved": "2.0.2",
-        "contentHash": "5DxviU9hfnG/u3uNb9gAK0HkFqY+nyip/J6Z1ef2ksZT932rBFZQ2OkdXpZVq99G/RkwCTyokTRVTYhOC0y9qA==",
+        "requested": "[2.1.2, )",
+        "resolved": "2.1.2",
+        "contentHash": "x/v2+Smf0xtza/FRdYJbri5FYoAiXdQA5uqmndM8zMSBG6+Zt9W2UMiGQDwKzUuhwwiQ6GITPo5O7fCPKas7+w==",
         "dependencies": {
-          "JsonPath.Net": "1.1.4",
-          "OrchardCore.Abstractions": "2.0.2",
+          "JsonPath.Net": "1.1.6",
+          "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
+          "OrchardCore.Abstractions": "2.1.2",
           "ZString": "2.6.0"
         }
       },
@@ -20,8 +21,8 @@
       },
       "JsonPath.Net": {
         "type": "Transitive",
-        "resolved": "1.1.4",
-        "contentHash": "RAVhHdPEJPUoKPSSHBh82Q8Qrwl3mr1OlRj0I/IFj42DSoS8b9VUOPCCr+O6V/2gmPDbuGnf2mdic9Cp8AqfBg==",
+        "resolved": "1.1.6",
+        "contentHash": "FQLbFJdjIa70GdYGR3RpdGkLTMZwQCqcd8gC35yx6aGofVEP3QxMvSuXHn75N30jj9SS6yvsPPTDzJmPMt/Mdw==",
         "dependencies": {
           "Json.More.Net": "2.0.2"
         }
@@ -108,6 +109,11 @@
           "System.Runtime.CompilerServices.Unsafe": "4.5.1"
         }
       },
+      "Microsoft.IO.RecyclableMemoryStream": {
+        "type": "Transitive",
+        "resolved": "3.0.1",
+        "contentHash": "s/s20YTVY9r9TPfTrN5g8zPF1YhwxyqO6PxUkrYTGI2B+OGPe9AdajWZrLhFqXIvqIW23fnUE4+ztrUWNU1+9g=="
+      },
       "Microsoft.Net.Http.Headers": {
         "type": "Transitive",
         "resolved": "2.2.0",
@@ -124,10 +130,11 @@
       },
       "OrchardCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "2.0.2",
-        "contentHash": "5u6O15PgR2QY0f86sT8AKxbprzWiq+4hD6jk+Em0iKnv7C4w0msTQkMVem7W8Dg4tbomaF0kP+56N2j4GiP8mw==",
+        "resolved": "2.1.2",
+        "contentHash": "UYdumS4EzBcMdRkXqTC//PSQfMgxI0f7jGxdb3GrtaOBqhv8Ye7P2iNlNSBtFo3LKOV5QMGD71/t+RcEXDIUIw==",
         "dependencies": {
-          "JsonPath.Net": "1.1.4",
+          "JsonPath.Net": "1.1.6",
+          "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
           "ZString": "2.6.0"
         }
       },
@@ -174,12 +181,13 @@
     "net9.0": {
       "OrchardCore.Module.Targets": {
         "type": "Direct",
-        "requested": "[2.0.2, )",
-        "resolved": "2.0.2",
-        "contentHash": "5DxviU9hfnG/u3uNb9gAK0HkFqY+nyip/J6Z1ef2ksZT932rBFZQ2OkdXpZVq99G/RkwCTyokTRVTYhOC0y9qA==",
+        "requested": "[2.1.2, )",
+        "resolved": "2.1.2",
+        "contentHash": "x/v2+Smf0xtza/FRdYJbri5FYoAiXdQA5uqmndM8zMSBG6+Zt9W2UMiGQDwKzUuhwwiQ6GITPo5O7fCPKas7+w==",
         "dependencies": {
-          "JsonPath.Net": "1.1.4",
-          "OrchardCore.Abstractions": "2.0.2",
+          "JsonPath.Net": "1.1.6",
+          "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
+          "OrchardCore.Abstractions": "2.1.2",
           "ZString": "2.6.0"
         }
       },
@@ -190,8 +198,8 @@
       },
       "JsonPath.Net": {
         "type": "Transitive",
-        "resolved": "1.1.4",
-        "contentHash": "RAVhHdPEJPUoKPSSHBh82Q8Qrwl3mr1OlRj0I/IFj42DSoS8b9VUOPCCr+O6V/2gmPDbuGnf2mdic9Cp8AqfBg==",
+        "resolved": "1.1.6",
+        "contentHash": "FQLbFJdjIa70GdYGR3RpdGkLTMZwQCqcd8gC35yx6aGofVEP3QxMvSuXHn75N30jj9SS6yvsPPTDzJmPMt/Mdw==",
         "dependencies": {
           "Json.More.Net": "2.0.2"
         }
@@ -278,6 +286,11 @@
           "System.Runtime.CompilerServices.Unsafe": "4.5.1"
         }
       },
+      "Microsoft.IO.RecyclableMemoryStream": {
+        "type": "Transitive",
+        "resolved": "3.0.1",
+        "contentHash": "s/s20YTVY9r9TPfTrN5g8zPF1YhwxyqO6PxUkrYTGI2B+OGPe9AdajWZrLhFqXIvqIW23fnUE4+ztrUWNU1+9g=="
+      },
       "Microsoft.Net.Http.Headers": {
         "type": "Transitive",
         "resolved": "2.2.0",
@@ -294,10 +307,11 @@
       },
       "OrchardCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "2.0.2",
-        "contentHash": "5u6O15PgR2QY0f86sT8AKxbprzWiq+4hD6jk+Em0iKnv7C4w0msTQkMVem7W8Dg4tbomaF0kP+56N2j4GiP8mw==",
+        "resolved": "2.1.2",
+        "contentHash": "UYdumS4EzBcMdRkXqTC//PSQfMgxI0f7jGxdb3GrtaOBqhv8Ye7P2iNlNSBtFo3LKOV5QMGD71/t+RcEXDIUIw==",
         "dependencies": {
-          "JsonPath.Net": "1.1.4",
+          "JsonPath.Net": "1.1.6",
+          "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
           "ZString": "2.6.0"
         }
       },
