@@ -10,14 +10,14 @@
     
     <PropertyGroup Label="Assembly Information">
         <Company>BRICKMAKERS AG</Company>
-        <AssemblyVersion>2.6.0</AssemblyVersion>
-        <FileVersion>2.6.0</FileVersion>
-        <InformationalVersion>2.6.0</InformationalVersion>
+        <AssemblyVersion>2.6.1</AssemblyVersion>
+        <FileVersion>2.6.1</FileVersion>
+        <InformationalVersion>2.6.1</InformationalVersion>
         <Copyright>2024 BRICKMAKERS AG</Copyright>
     </PropertyGroup>
 
     <PropertyGroup Label="NuGet-Packaging">
-        <PackageVersion>2.6.0</PackageVersion>
+        <PackageVersion>2.6.1</PackageVersion>
         <Authors>BRICKMAKERS Security Engineering Team</Authors>
         <PackageProjectUrl>https://github.com/BrickmakersGmbH/AspSecurityHeaders</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>

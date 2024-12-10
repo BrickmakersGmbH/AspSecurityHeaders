@@ -298,7 +298,7 @@
       "Brickmakers.AspSecurityHeaders.Generators": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.6.0, )"
+          "Brickmakers.AspSecurityHeaders": "[2.6.1, )"
         }
       }
     },
@@ -599,7 +599,7 @@
       "Brickmakers.AspSecurityHeaders.Generators": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.6.0, )"
+          "Brickmakers.AspSecurityHeaders": "[2.6.1, )"
         }
       }
     }
