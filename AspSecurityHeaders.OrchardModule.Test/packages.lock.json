@@ -716,10 +716,10 @@
       },
       "System.Net.Http.Json": {
         "type": "Transitive",
-        "resolved": "9.0.0",
-        "contentHash": "e8s0BFOwHaFTqz6wi3l+9tm0SuKOUs5wiahHTjnAabF9n1+0NuZeG/vOLo2vSfUp+DlIChaRfnAiOFkRpHN/ew==",
+        "resolved": "9.0.1",
+        "contentHash": "MhCJ2P2txSz4MMXi7TTutycFdbzPDU/A+pwUNpF6zvbDyZtFtvXJN4EEOuIq8b6sZfarakACnXqr0dTYGjUqzQ==",
         "dependencies": {
-          "System.Text.Json": "9.0.0"
+          "System.Text.Json": "9.0.1"
         }
       },
       "System.Reflection.Metadata": {
@@ -844,7 +844,7 @@
           "FluentAssertions": "[8.0.0, )",
           "Microsoft.AspNetCore.Mvc.Testing": "[8.0.12, )",
           "Microsoft.NET.Test.Sdk": "[17.12.0, )",
-          "System.Net.Http.Json": "[9.0.0, )",
+          "System.Net.Http.Json": "[9.0.1, )",
           "xunit": "[2.9.3, )"
         }
       }
@@ -1564,8 +1564,8 @@
       },
       "System.Net.Http.Json": {
         "type": "Transitive",
-        "resolved": "9.0.0",
-        "contentHash": "e8s0BFOwHaFTqz6wi3l+9tm0SuKOUs5wiahHTjnAabF9n1+0NuZeG/vOLo2vSfUp+DlIChaRfnAiOFkRpHN/ew=="
+        "resolved": "9.0.1",
+        "contentHash": "MhCJ2P2txSz4MMXi7TTutycFdbzPDU/A+pwUNpF6zvbDyZtFtvXJN4EEOuIq8b6sZfarakACnXqr0dTYGjUqzQ=="
       },
       "System.Reflection.Metadata": {
         "type": "Transitive",
@@ -1685,7 +1685,7 @@
           "FluentAssertions": "[8.0.0, )",
           "Microsoft.AspNetCore.Mvc.Testing": "[8.0.12, )",
           "Microsoft.NET.Test.Sdk": "[17.12.0, )",
-          "System.Net.Http.Json": "[9.0.0, )",
+          "System.Net.Http.Json": "[9.0.1, )",
           "xunit": "[2.9.3, )"
         }
       }
