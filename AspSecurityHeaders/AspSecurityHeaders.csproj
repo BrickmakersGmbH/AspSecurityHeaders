@@ -29,7 +29,7 @@
         <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.2.8"/>
         <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0"/>
         <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.24.0"/>
-        <PackageReference Include="System.Text.Encodings.Web" Version="9.0.0" Label="https://github.com/advisories/GHSA-ghhp-997w-qr28" />
+        <PackageReference Include="System.Text.Encodings.Web" Version="9.0.1" Label="https://github.com/advisories/GHSA-ghhp-997w-qr28" />
     </ItemGroup>
 
 </Project>
