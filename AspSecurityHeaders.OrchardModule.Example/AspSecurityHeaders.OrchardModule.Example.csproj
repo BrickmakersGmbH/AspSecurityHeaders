@@ -16,7 +16,7 @@
 
     <ItemGroup>
         <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="2.1.4" />
-        <PackageReference Include="System.Text.Json" Version="9.0.1" Label="https://github.com/advisories/GHSA-8g4q-xg66-9fp4" />
+        <PackageReference Include="System.Text.Json" Version="9.0.2" Label="https://github.com/advisories/GHSA-8g4q-xg66-9fp4" />
     </ItemGroup>
 
     <ItemGroup>
