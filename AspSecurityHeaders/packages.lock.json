@@ -25,9 +25,9 @@
       },
       "NetEscapades.AspNetCore.SecurityHeaders": {
         "type": "Direct",
-        "requested": "[0.24.0, )",
-        "resolved": "0.24.0",
-        "contentHash": "QXoO4rqhkiLPQus1hXNtoBYMKXZpTKQg2UahHbebOTaPqJzt432ggfuceHR77AgyY5B+fC6CdgLCwCummWp8tQ=="
+        "requested": "[1.0.0, )",
+        "resolved": "1.0.0",
+        "contentHash": "dZtPGIt7b2PfdQL/E62daQ9jlHaGGVOvVFt4Xe3oqcETL/GwCGGE1BSOc2V32BLz1/qyU68ZIDYR9B7WSn3oxA=="
       },
       "System.Text.Encodings.Web": {
         "type": "Direct",
@@ -135,9 +135,9 @@
       },
       "NetEscapades.AspNetCore.SecurityHeaders": {
         "type": "Direct",
-        "requested": "[0.24.0, )",
-        "resolved": "0.24.0",
-        "contentHash": "QXoO4rqhkiLPQus1hXNtoBYMKXZpTKQg2UahHbebOTaPqJzt432ggfuceHR77AgyY5B+fC6CdgLCwCummWp8tQ=="
+        "requested": "[1.0.0, )",
+        "resolved": "1.0.0",
+        "contentHash": "dZtPGIt7b2PfdQL/E62daQ9jlHaGGVOvVFt4Xe3oqcETL/GwCGGE1BSOc2V32BLz1/qyU68ZIDYR9B7WSn3oxA=="
       },
       "System.Text.Encodings.Web": {
         "type": "Direct",
