@@ -83,7 +83,7 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
     [InlineData("fullscreen", "self")]
     [InlineData("picture-in-picture", "self")]
     [InlineData("sync-xhr", "self")]
-    public async Task ShouldContainPermissionAndFeaturePolicyValues(string name, string? expectedValue)
+    public async Task ShouldContainPermissionPolicyValues(string name, string? expectedValue)
     {
         var response = await GetIndex();
 
@@ -92,21 +92,7 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
         permissions.Should().ContainKey(name);
         var permissionValue = permissions[name];
 
-        response.Headers.Should().ContainKey("Feature-Policy");
-        var features = HeaderExtractor.ParseFeatures(response.Headers.GetValues("Feature-Policy"));
-        features.Should().ContainKey(name);
-        var featureValue = features[name];
-
-        if (expectedValue == null)
-        {
-            permissionValue.Should().Be("()");
-            featureValue.Should().Be("'none'");
-        }
-        else
-        {
-            permissionValue.Should().Be(expectedValue);
-            featureValue.Should().Be($"'{expectedValue}'");
-        }
+        permissionValue.Should().Be(expectedValue ?? "()");
     }
 
     [Theory]

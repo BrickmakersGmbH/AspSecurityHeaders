@@ -1,7 +1,5 @@
-using Brickmakers.AspSecurityHeaders.HeaderPolicies;
 using Brickmakers.AspSecurityHeaders.PermissionPolicyBuilderExtensions;
 using Microsoft.AspNetCore.Builder;
-using NetEscapades.AspNetCore.SecurityHeaders.Headers;
 
 namespace Brickmakers.AspSecurityHeaders.HeaderPolicyCollectionExtensions;
 
@@ -47,10 +45,6 @@ public static class BmPermissionPolicy
     ///     A configure callback that provides a <see cref="PermissionsPolicyBuilder" /> to add policies to. The build is
     ///     already preconfigured with a secure basis of policies.
     /// </param>
-    /// <param name="addFeaturePolicy">
-    ///     If set to true (the default), a <c>Feature-Policy</c> header will be added as well, with
-    ///     the same values as for the permission policy. This is useful to support older browsers.
-    /// </param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
     /// <remarks>
     ///     You can easily overwrite any of the default policies by calling <c>builder.AddXXX()</c> again. For example,
@@ -60,8 +54,7 @@ public static class BmPermissionPolicy
     ///     </code>
     /// </remarks>
     public static HeaderPolicyCollection AddBmPermissionPolicy(this HeaderPolicyCollection headerPolicyCollection,
-        Action<PermissionsPolicyBuilder> configure,
-        bool addFeaturePolicy = true)
+        Action<PermissionsPolicyBuilder> configure)
     {
         headerPolicyCollection.AddPermissionsPolicy(builder =>
         {
@@ -96,14 +89,16 @@ public static class BmPermissionPolicy
             configure(builder);
         });
 
-        // ReSharper disable once InvertIf
-        if (addFeaturePolicy)
-        {
-            var permissionPolicy = headerPolicyCollection.Values.First(policy => policy is PermissionsPolicyHeader);
-            var bmFeaturePolicy = new BmFeaturePolicyHeader((PermissionsPolicyHeader)permissionPolicy);
-            headerPolicyCollection[bmFeaturePolicy.Header] = bmFeaturePolicy;
-        }
-
         return headerPolicyCollection;
     }
+    
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    [Obsolete("The 'addFeaturePolicy' parameter is no longer used because the FeaturePolicy header has been deprecated and will be removed in a future version. Use the overload without it.")]
+    public static HeaderPolicyCollection AddBmPermissionPolicy(this HeaderPolicyCollection headerPolicyCollection,
+        Action<PermissionsPolicyBuilder> configure,
+        bool addFeaturePolicy)
+    {
+        return headerPolicyCollection.AddBmPermissionPolicy(configure);
+    }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

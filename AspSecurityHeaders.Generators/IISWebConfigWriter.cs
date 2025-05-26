@@ -152,30 +152,19 @@ public class IISWebConfigWriter
         return WriteHttpsHeaders(writeTlsHeaders);
     }
 
-    /// <summary>
-    ///     Configures whether HTML-Only security headers should be added to the generated config. By default, HTML headers are
-    ///     added.
-    /// </summary>
-    /// <param name="writeHtmlHeaders">Specifies if the headers should be added or not.</param>
-    /// <returns>A reference to this.</returns>
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    [Obsolete("Method has no effect as the feature was dropped by AspSecurityHeaders and will be removed in a future version.")]
     public IISWebConfigWriter WriteHtmlHeaders(bool writeHtmlHeaders)
     {
-        _settings.WriteHtmlHeaders = writeHtmlHeaders;
         return this;
     }
 
-    /// <summary>
-    ///     Configures whether HTML-Only security headers should be added to the generated config. By default, HTML headers are
-    ///     added.
-    /// </summary>
-    /// <param name="writeHttpHeaders">Specifies if the headers should be added or not.</param>
-    /// <returns>A reference to this.</returns>
-    /// <remarks>This method has been renamed to <see cref="WriteHtmlHeaders" /></remarks>
-    [Obsolete($"Method was renamed to {nameof(WriteHtmlHeaders)}")]
+    [Obsolete("Method has no effect as the feature was dropped by AspSecurityHeaders and will be removed in a future version.")]
     public IISWebConfigWriter WriteHttpHeaders(bool writeHttpHeaders)
     {
-        return WriteHtmlHeaders(writeHttpHeaders);
+        return this;
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 
     /// <summary>
     ///     Runs the writer to generate the web.config. The config gets written to the specified path.
