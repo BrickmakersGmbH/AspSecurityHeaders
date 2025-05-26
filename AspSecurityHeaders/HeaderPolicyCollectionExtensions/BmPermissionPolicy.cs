@@ -58,33 +58,16 @@ public static class BmPermissionPolicy
     {
         headerPolicyCollection.AddPermissionsPolicy(builder =>
         {
-            builder.AddAccelerometer().None();
+            builder.AddDefaultSecureDirectives();
             builder.AddAmbientLightSensor().None();
-            builder.AddCamera().None();
             builder.AddClipboardRead().None();
             builder.AddClipboardWrite().None();
-            builder.AddDisplayCapture().None();
             builder.AddDocumentDomain().None();
-            builder.AddEncryptedMedia().None();
             builder.AddFederatedLearningOfCohortsCalculation().None();
-            builder.AddGeolocation().None();
-            builder.AddGyroscope().None();
-            builder.AddMagnetometer().None();
-            builder.AddMicrophone().None();
-            builder.AddMidi().None();
-            builder.AddPayment().None();
-            builder.AddPublickeyCredentialsGet().None();
-            builder.AddScreenWakeLock().None();
             builder.AddSpeaker().None();
-            builder.AddUsb().None();
             builder.AddVR().None();
-            builder.AddWebShare().None();
-            builder.AddXrSpatialTracking().None();
 
             builder.AddAutoplay().Self();
-            builder.AddFullscreen().Self();
-            builder.AddPictureInPicture().Self();
-            builder.AddSyncXHR().Self();
 
             configure(builder);
         });

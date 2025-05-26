@@ -119,10 +119,9 @@ public class IISWebConfigWriterTests
         <add name=""Cross-Origin-Opener-Policy"" value=""same-origin"" />
         <add name=""Cross-Origin-Embedder-Policy"" value=""require-corp"" />
         <add name=""Cross-Origin-Resource-Policy"" value=""same-origin"" />
-        <add name=""X-XSS-Protection"" value=""0"" />
         <add name=""X-Permitted-Cross-Domain-Policies"" value=""none"" />
         <add name=""Cache-Control"" value=""no-store"" />
-        <add name=""Permissions-Policy"" value=""accelerometer=(), ambient-light-sensor=(), camera=(), clipboard-read=(), clipboard-write=(), display-capture=(), document-domain=(), encrypted-media=(), interest-cohort=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), publickey-credentials-get=(), screen-wake-lock=(), speaker=(), usb=(), vr=(), web-share=(), xr-spatial-tracking=(), autoplay=self, fullscreen=self, picture-in-picture=self, sync-xhr=self"" />
+        <add name=""Permissions-Policy"" value=""accelerometer=(), autoplay=self, camera=(), display-capture=(), encrypted-media=(), fullscreen=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=(), ambient-light-sensor=(), clipboard-read=(), clipboard-write=(), document-domain=(), interest-cohort=(), speaker=(), vr=()"" />
         <remove name=""Server"" />
         <remove name=""X-Powered-By"" />
       </customHeaders>
@@ -152,10 +151,9 @@ public class IISWebConfigWriterTests
         <add name=""Cross-Origin-Opener-Policy"" value=""same-origin"" />
         <add name=""Cross-Origin-Embedder-Policy"" value=""require-corp"" />
         <add name=""Cross-Origin-Resource-Policy"" value=""same-origin"" />
-        <add name=""X-XSS-Protection"" value=""0"" />
         <add name=""X-Permitted-Cross-Domain-Policies"" value=""none"" />
         <add name=""Cache-Control"" value=""no-store"" />
-        <add name=""Permissions-Policy"" value=""accelerometer=(), ambient-light-sensor=(), camera=(), clipboard-read=(), clipboard-write=(), display-capture=(), document-domain=(), encrypted-media=(), interest-cohort=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), publickey-credentials-get=(), screen-wake-lock=(), speaker=(), usb=(), vr=(), web-share=(), xr-spatial-tracking=(), autoplay=self, fullscreen=self, picture-in-picture=self, sync-xhr=self"" />
+        <add name=""Permissions-Policy"" value=""accelerometer=(), autoplay=self, camera=(), display-capture=(), encrypted-media=(), fullscreen=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=(), ambient-light-sensor=(), clipboard-read=(), clipboard-write=(), document-domain=(), interest-cohort=(), speaker=(), vr=()"" />
         <remove name=""Server"" />
         <remove name=""X-Powered-By"" />
       </customHeaders>

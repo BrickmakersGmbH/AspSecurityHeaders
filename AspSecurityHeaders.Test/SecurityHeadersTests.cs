@@ -32,7 +32,6 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
 
     [Theory]
     [InlineData("X-Frame-Options", "DENY")]
-    [InlineData("X-XSS-Protection", "0")]
     [InlineData("X-Content-Type-Options", "nosniff")]
     [InlineData("Referrer-Policy", "no-referrer")]
     [InlineData("X-Permitted-Cross-Domain-Policies", "none")]
@@ -65,6 +64,7 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
     [InlineData("display-capture", null)]
     [InlineData("document-domain", null)]
     [InlineData("encrypted-media", null)]
+    [InlineData("fullscreen", null)]
     [InlineData("interest-cohort", null)]
     [InlineData("geolocation", null)]
     [InlineData("gyroscope", null)]
@@ -72,17 +72,16 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
     [InlineData("microphone", null)]
     [InlineData("midi", null)]
     [InlineData("payment", null)]
+    [InlineData("picture-in-picture", null)]
     [InlineData("publickey-credentials-get", null)]
     [InlineData("screen-wake-lock", null)]
     [InlineData("speaker", null)]
+    [InlineData("sync-xhr", null)]
     [InlineData("usb", null)]
     [InlineData("vr", null)]
     [InlineData("web-share", null)]
     [InlineData("xr-spatial-tracking", null)]
     [InlineData("autoplay", "self")]
-    [InlineData("fullscreen", "self")]
-    [InlineData("picture-in-picture", "self")]
-    [InlineData("sync-xhr", "self")]
     public async Task ShouldContainPermissionPolicyValues(string name, string? expectedValue)
     {
         var response = await GetIndex();

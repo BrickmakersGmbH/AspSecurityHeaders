@@ -35,7 +35,6 @@ public static class DefaultBmSecurityHeaders
         return headerPolicyCollection
             .AddDefaultSecurityHeaders()
             .AddStrictTransportSecurityMaxAgeIncludeSubDomains()
-            .AddXssProtectionDisabled()
             .AddReferrerPolicyNoReferrer()
             .AddXPermittedCrossDomainPoliciesNone()
             .AddCrossOriginEmbedderPolicy(builder => builder.RequireCorp())
@@ -64,7 +63,7 @@ public static class DefaultBmSecurityHeaders
         this HeaderPolicyCollection headerPolicyCollection)
     {
         return headerPolicyCollection
-            .AddContentTypeOptionsNoSniff()
+            .AddDefaultApiSecurityHeaders()
             .AddStrictTransportSecurityMaxAgeIncludeSubDomains()
             .AddXPermittedCrossDomainPoliciesNone()
             .AddCacheControlNoStore()
