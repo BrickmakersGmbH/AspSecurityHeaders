@@ -43,8 +43,12 @@ public static class BmContentSecurityPolicy
     ///     </code>
     /// </remarks>
     public static HeaderPolicyCollection AddBmContentSecurityPolicy(
-        this HeaderPolicyCollection headerPolicyCollection, Action<BmCspBuilder> cspBuilder,
-        bool allowInsecureRequests = false, bool allowMixedContent = false, bool reportSamples = true)
+        this HeaderPolicyCollection headerPolicyCollection,
+        Action<BmCspBuilder> cspBuilder,
+        bool allowInsecureRequests = false,
+        bool allowMixedContent = false,
+        bool reportSamples = true
+    )
     {
         return headerPolicyCollection.AddContentSecurityPolicy(builder =>
         {
@@ -70,10 +74,14 @@ public static class BmContentSecurityPolicy
             if (reportSamples)
             {
                 bmCspBuilder
-                    .GetCachedDirective<ScriptSourceDirectiveBuilder>(nameof(BmCspBuilder.AddScriptSrc))
+                    .GetCachedDirective<ScriptSourceDirectiveBuilder>(
+                        nameof(BmCspBuilder.AddScriptSrc)
+                    )
                     ?.ReportSample();
                 bmCspBuilder
-                    .GetCachedDirective<StyleSourceDirectiveBuilder>(nameof(BmCspBuilder.AddStyleSrc))
+                    .GetCachedDirective<StyleSourceDirectiveBuilder>(
+                        nameof(BmCspBuilder.AddStyleSrc)
+                    )
                     ?.ReportSample();
             }
         });

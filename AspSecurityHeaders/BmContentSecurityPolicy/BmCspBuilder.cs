@@ -178,7 +178,9 @@ public class BmCspBuilder
     /// </summary>
     /// <param name="clear">Clear all previously set sources for this directive before adding new sources</param>
     /// <returns>A configured <see cref="FrameSourceDirectiveBuilder" /></returns>
-    [Obsolete("Use AddFrameSrc method instead. This method will be removed in a future version of the library.")]
+    [Obsolete(
+        "Use AddFrameSrc method instead. This method will be removed in a future version of the library."
+    )]
     public FrameSourceDirectiveBuilder AddFrameSource(bool clear = false)
     {
         return AddOrGetDirective(nameof(AddFrameSrc), RawCspBuilder.AddFrameSrc, clear);
@@ -229,7 +231,11 @@ public class BmCspBuilder
     /// <returns>A configured <see cref="UpgradeInsecureRequestsDirectiveBuilder" /></returns>
     public UpgradeInsecureRequestsDirectiveBuilder AddUpgradeInsecureRequests(bool clear = false)
     {
-        return AddOrGetDirective(nameof(AddUpgradeInsecureRequests), RawCspBuilder.AddUpgradeInsecureRequests, clear);
+        return AddOrGetDirective(
+            nameof(AddUpgradeInsecureRequests),
+            RawCspBuilder.AddUpgradeInsecureRequests,
+            clear
+        );
     }
 
     /// <summary>
@@ -246,7 +252,11 @@ public class BmCspBuilder
     /// <returns>A configured <see cref="BlockAllMixedContentDirectiveBuilder" /></returns>
     public BlockAllMixedContentDirectiveBuilder AddBlockAllMixedContent(bool clear = false)
     {
-        return AddOrGetDirective(nameof(AddBlockAllMixedContent), RawCspBuilder.AddBlockAllMixedContent, clear);
+        return AddOrGetDirective(
+            nameof(AddBlockAllMixedContent),
+            RawCspBuilder.AddBlockAllMixedContent,
+            clear
+        );
     }
 
     /// <summary>
@@ -280,7 +290,11 @@ public class BmCspBuilder
     /// <returns>A configured <see cref="ReportToDirectiveBuilder" /></returns>
     public ReportToDirectiveBuilder AddReportTo(string groupName, bool clear = false)
     {
-        return AddOrGetDirective(nameof(AddReportTo), () => RawCspBuilder.AddReportTo(groupName), clear);
+        return AddOrGetDirective(
+            nameof(AddReportTo),
+            () => RawCspBuilder.AddReportTo(groupName),
+            clear
+        );
     }
 
     /// <summary>
@@ -291,8 +305,11 @@ public class BmCspBuilder
     /// <returns>A configured <see cref="CustomDirective" /></returns>
     public CustomDirective AddCustomDirective(string directive, bool clear = false)
     {
-        return AddOrGetDirective($"{nameof(AddCustomDirective)}({directive})",
-            () => RawCspBuilder.AddCustomDirective(directive), clear);
+        return AddOrGetDirective(
+            $"{nameof(AddCustomDirective)}({directive})",
+            () => RawCspBuilder.AddCustomDirective(directive),
+            clear
+        );
     }
 
     /// <summary>
@@ -304,8 +321,11 @@ public class BmCspBuilder
     /// <returns>A configured <see cref="CustomDirective" /></returns>
     public CustomDirective AddCustomDirective(string directive, string value, bool clear = false)
     {
-        return AddOrGetDirective($"{nameof(AddCustomDirective)}({directive})",
-            () => RawCspBuilder.AddCustomDirective(directive, value), clear);
+        return AddOrGetDirective(
+            $"{nameof(AddCustomDirective)}({directive})",
+            () => RawCspBuilder.AddCustomDirective(directive, value),
+            clear
+        );
     }
 
     /// <summary>
@@ -319,11 +339,15 @@ public class BmCspBuilder
     /// <returns>A configured <see cref="CspDirectiveBuilder" /></returns>
     public CspDirectiveBuilder AddCustomDirectiveBuilder(string directive, bool clear = false)
     {
-        return AddOrGetDirective($"{nameof(AddCustomDirectiveBuilder)}({directive})",
-            () => RawCspBuilder.AddCustomDirectiveBuilder(directive), clear);
+        return AddOrGetDirective(
+            $"{nameof(AddCustomDirectiveBuilder)}({directive})",
+            () => RawCspBuilder.AddCustomDirectiveBuilder(directive),
+            clear
+        );
     }
 
-    internal T? GetCachedDirective<T>(string name) where T : CspDirectiveBuilderBase
+    internal T? GetCachedDirective<T>(string name)
+        where T : CspDirectiveBuilderBase
     {
         return (T?)_directiveCache.GetValueOrDefault(name);
     }

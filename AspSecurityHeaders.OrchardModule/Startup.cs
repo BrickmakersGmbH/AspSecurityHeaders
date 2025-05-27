@@ -17,16 +17,19 @@ public class Startup : StartupBase
     {
         services.PostConfigure<MvcOptions>(options =>
         {
-            options.InputFormatters
-                .OfType<InputFormatter>()
+            options
+                .InputFormatters.OfType<InputFormatter>()
                 .ToList()
                 .ForEach(formatter => formatter.SupportedMediaTypes.Add("application/csp-report"));
         });
     }
 
     /// <inheritdoc />
-    public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes,
-        IServiceProvider serviceProvider)
+    public override void Configure(
+        IApplicationBuilder builder,
+        IEndpointRouteBuilder routes,
+        IServiceProvider serviceProvider
+    )
     {
         builder.UseOrchardBmSecurityHeaders(config => { });
     }

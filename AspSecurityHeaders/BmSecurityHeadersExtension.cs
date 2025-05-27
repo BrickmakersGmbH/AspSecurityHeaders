@@ -13,7 +13,9 @@ public static class BmSecurityHeadersExtension
     /// </summary>
     /// <param name="applicationBuilder">A <see cref="IApplicationBuilder" /> to add the middleware to.</param>
     /// <returns>The applicationBuilder that was passed as this.</returns>
-    public static IApplicationBuilder UseBmSecurityHeaders(this IApplicationBuilder applicationBuilder)
+    public static IApplicationBuilder UseBmSecurityHeaders(
+        this IApplicationBuilder applicationBuilder
+    )
     {
         return applicationBuilder.UseBmSecurityHeaders(policy => { });
     }
@@ -27,8 +29,10 @@ public static class BmSecurityHeadersExtension
     ///     configure the security headers middleware.
     /// </param>
     /// <returns>The applicationBuilder that was passed as this.</returns>
-    public static IApplicationBuilder UseBmSecurityHeaders(this IApplicationBuilder applicationBuilder,
-        Action<BmSecurityHeadersConfig> configure)
+    public static IApplicationBuilder UseBmSecurityHeaders(
+        this IApplicationBuilder applicationBuilder,
+        Action<BmSecurityHeadersConfig> configure
+    )
     {
         var policy = new BmSecurityHeadersConfig();
         policy.AddDefaultBmSecurityHeaders();
@@ -43,7 +47,9 @@ public static class BmSecurityHeadersExtension
     /// </summary>
     /// <param name="applicationBuilder">A <see cref="IApplicationBuilder" /> to add the middleware to.</param>
     /// <returns>The applicationBuilder that was passed as this.</returns>
-    public static IApplicationBuilder UseBmApiSecurityHeaders(this IApplicationBuilder applicationBuilder)
+    public static IApplicationBuilder UseBmApiSecurityHeaders(
+        this IApplicationBuilder applicationBuilder
+    )
     {
         return applicationBuilder.UseBmApiSecurityHeaders(policy => { });
     }
@@ -58,8 +64,10 @@ public static class BmSecurityHeadersExtension
     ///     configure the security headers middleware.
     /// </param>
     /// <returns>The applicationBuilder that was passed as this.</returns>
-    public static IApplicationBuilder UseBmApiSecurityHeaders(this IApplicationBuilder applicationBuilder,
-        Action<BmSecurityHeadersConfig> configure)
+    public static IApplicationBuilder UseBmApiSecurityHeaders(
+        this IApplicationBuilder applicationBuilder,
+        Action<BmSecurityHeadersConfig> configure
+    )
     {
         var policy = new BmSecurityHeadersConfig();
         policy.AddDefaultBmApiSecurityHeaders();

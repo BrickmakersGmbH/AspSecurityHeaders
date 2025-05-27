@@ -17,13 +17,12 @@ public static class BmSecurityControllers
     /// <returns>The mvcBuilder that was passed as this.</returns>
     public static IMvcBuilder AddCspMediaType(this IMvcBuilder mvcBuilder)
     {
-        return mvcBuilder
-            .AddMvcOptions(options =>
-            {
-                var jsonInputFormatter = options.InputFormatters
-                    .OfType<SystemTextJsonInputFormatter>()
-                    .Single();
-                jsonInputFormatter.SupportedMediaTypes.Add("application/csp-report");
-            });
+        return mvcBuilder.AddMvcOptions(options =>
+        {
+            var jsonInputFormatter = options
+                .InputFormatters.OfType<SystemTextJsonInputFormatter>()
+                .Single();
+            jsonInputFormatter.SupportedMediaTypes.Add("application/csp-report");
+        });
     }
 }

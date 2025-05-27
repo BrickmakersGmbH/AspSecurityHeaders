@@ -14,7 +14,8 @@ public static class PublickeyCredentialsGetPermission
     /// <param name="permissionsPolicyBuilder">A <see cref="PermissionsPolicyBuilder" /> to add the permission to.</param>
     /// <returns>The permissionsPolicyBuilder that was passed as this.</returns>
     public static PermissionsPolicyDirectiveBuilder AddPublickeyCredentialsGet(
-        this PermissionsPolicyBuilder permissionsPolicyBuilder)
+        this PermissionsPolicyBuilder permissionsPolicyBuilder
+    )
     {
         return permissionsPolicyBuilder.AddCustomFeature("publickey-credentials-get");
     }

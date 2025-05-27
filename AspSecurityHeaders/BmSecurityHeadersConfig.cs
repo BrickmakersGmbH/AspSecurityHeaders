@@ -25,13 +25,15 @@ public class BmSecurityHeadersConfig : HeaderPolicyCollection
             Secure = CookieSecurePolicy.Always,
             HttpOnly = HttpOnlyPolicy.Always,
             MinimumSameSitePolicy = MinimumSameSitePolicy,
-            OnAppendCookie = AddActions.Count > 0
-                ? context => AddActions.ForEach(configure => configure(context))
-                : null,
-            OnDeleteCookie = DeleteActions.Count > 0
-                ? context => DeleteActions.ForEach(configure => configure(context))
-                : null,
-            CheckConsentNeeded = CheckConsentNeeded
+            OnAppendCookie =
+                AddActions.Count > 0
+                    ? context => AddActions.ForEach(configure => configure(context))
+                    : null,
+            OnDeleteCookie =
+                DeleteActions.Count > 0
+                    ? context => DeleteActions.ForEach(configure => configure(context))
+                    : null,
+            CheckConsentNeeded = CheckConsentNeeded,
         };
 
         if (ConsentCookieBuilder != null)

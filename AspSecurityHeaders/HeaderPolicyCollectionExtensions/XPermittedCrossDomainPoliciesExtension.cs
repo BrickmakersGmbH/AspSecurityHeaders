@@ -15,7 +15,8 @@ public static class XPermittedCrossDomainPoliciesExtension
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the header to.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
     public static HeaderPolicyCollection AddXPermittedCrossDomainPoliciesNone(
-        this HeaderPolicyCollection headerPolicyCollection)
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection.AddCustomHeader(Header, "none");
     }
@@ -26,7 +27,8 @@ public static class XPermittedCrossDomainPoliciesExtension
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the header to.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
     public static HeaderPolicyCollection AddXPermittedCrossDomainPoliciesMasterOnly(
-        this HeaderPolicyCollection headerPolicyCollection)
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection.AddCustomHeader(Header, "master-only");
     }
@@ -37,7 +39,8 @@ public static class XPermittedCrossDomainPoliciesExtension
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the header to.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
     public static HeaderPolicyCollection AddXPermittedCrossDomainPoliciesByContentType(
-        this HeaderPolicyCollection headerPolicyCollection)
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection.AddCustomHeader(Header, "by-content-type");
     }
@@ -48,7 +51,8 @@ public static class XPermittedCrossDomainPoliciesExtension
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the header to.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
     public static HeaderPolicyCollection AddXPermittedCrossDomainPoliciesAll(
-        this HeaderPolicyCollection headerPolicyCollection)
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection.AddCustomHeader(Header, "all");
     }

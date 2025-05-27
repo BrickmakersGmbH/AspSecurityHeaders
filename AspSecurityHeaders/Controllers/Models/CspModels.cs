@@ -95,17 +95,19 @@ public class CspReport
     /// <returns>A dictionary with all fields of the CSP.</returns>
     public IReadOnlyDictionary<string, object?> ToDictionary()
     {
-        return GetType().GetProperties().ToDictionary(
-            prop => prop.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name ?? prop.Name,
-            prop => prop.GetValue(this));
+        return GetType()
+            .GetProperties()
+            .ToDictionary(
+                prop => prop.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name ?? prop.Name,
+                prop => prop.GetValue(this)
+            );
     }
 
     /// <inheritdoc cref="object.ToString()" />
     public override string ToString()
     {
-        return
-            $"CSP Violation in {Sanitize(DocumentUri)}: " +
-            $"Refused to load {Sanitize(BlockedUri)} because of '{Sanitize(ViolatedDirective)}' directive";
+        return $"CSP Violation in {Sanitize(DocumentUri)}: "
+            + $"Refused to load {Sanitize(BlockedUri)} because of '{Sanitize(ViolatedDirective)}' directive";
     }
 
     private static string? Sanitize(object? value)
@@ -116,7 +118,6 @@ public class CspReport
             return null;
         }
 
-        return new Regex(@"\s", RegexOptions.CultureInvariant)
-            .Replace(stringValue, " ");
+        return new Regex(@"\s", RegexOptions.CultureInvariant).Replace(stringValue, " ");
     }
 }

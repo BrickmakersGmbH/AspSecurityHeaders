@@ -14,7 +14,9 @@ public static class CacheControlExtension
     /// </summary>
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the header to.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
-    public static HeaderPolicyCollection AddCacheControlPrivate(this HeaderPolicyCollection headerPolicyCollection)
+    public static HeaderPolicyCollection AddCacheControlPrivate(
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection.AddCacheControl("private");
     }
@@ -24,7 +26,9 @@ public static class CacheControlExtension
     /// </summary>
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the header to.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
-    public static HeaderPolicyCollection AddCacheControlPublic(this HeaderPolicyCollection headerPolicyCollection)
+    public static HeaderPolicyCollection AddCacheControlPublic(
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection.AddCacheControl("public");
     }
@@ -34,7 +38,9 @@ public static class CacheControlExtension
     /// </summary>
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the header to.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
-    public static HeaderPolicyCollection AddCacheControlNoCache(this HeaderPolicyCollection headerPolicyCollection)
+    public static HeaderPolicyCollection AddCacheControlNoCache(
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection.AddCacheControl("no-cache");
     }
@@ -44,7 +50,9 @@ public static class CacheControlExtension
     /// </summary>
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the header to.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
-    public static HeaderPolicyCollection AddCacheControlNoStore(this HeaderPolicyCollection headerPolicyCollection)
+    public static HeaderPolicyCollection AddCacheControlNoStore(
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection.AddCacheControl("no-store");
     }
@@ -55,8 +63,10 @@ public static class CacheControlExtension
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the header to.</param>
     /// <param name="cacheControl">The value of the cache control header. Can be a comma-seperated list of values.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
-    public static HeaderPolicyCollection AddCacheControl(this HeaderPolicyCollection headerPolicyCollection,
-        string cacheControl)
+    public static HeaderPolicyCollection AddCacheControl(
+        this HeaderPolicyCollection headerPolicyCollection,
+        string cacheControl
+    )
     {
         return headerPolicyCollection.AddCustomHeader(Header, cacheControl);
     }
@@ -67,7 +77,9 @@ public static class CacheControlExtension
     /// </summary>
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to remove the configuration from.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
-    public static HeaderPolicyCollection UnconfigureCacheControl(this HeaderPolicyCollection headerPolicyCollection)
+    public static HeaderPolicyCollection UnconfigureCacheControl(
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         headerPolicyCollection.Remove(Header);
         return headerPolicyCollection;

@@ -14,7 +14,8 @@ public static class ClipboardPermissions
     /// <param name="permissionsPolicyBuilder">A <see cref="PermissionsPolicyBuilder" /> to add the permission to.</param>
     /// <returns>The permissionsPolicyBuilder that was passed as this.</returns>
     public static PermissionsPolicyDirectiveBuilder AddClipboardRead(
-        this PermissionsPolicyBuilder permissionsPolicyBuilder)
+        this PermissionsPolicyBuilder permissionsPolicyBuilder
+    )
     {
         return permissionsPolicyBuilder.AddCustomFeature("clipboard-read");
     }
@@ -25,7 +26,8 @@ public static class ClipboardPermissions
     /// <param name="permissionsPolicyBuilder">A <see cref="PermissionsPolicyBuilder" /> to add the permission to.</param>
     /// <returns>The permissionsPolicyBuilder that was passed as this.</returns>
     public static PermissionsPolicyDirectiveBuilder AddClipboardWrite(
-        this PermissionsPolicyBuilder permissionsPolicyBuilder)
+        this PermissionsPolicyBuilder permissionsPolicyBuilder
+    )
     {
         return permissionsPolicyBuilder.AddCustomFeature("clipboard-write");
     }

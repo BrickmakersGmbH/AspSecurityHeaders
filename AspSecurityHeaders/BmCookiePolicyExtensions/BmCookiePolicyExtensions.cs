@@ -20,7 +20,9 @@ public static class BmCookiePolicyExtensions
     ///     Is thrown if the headerPolicyCollection is not a <see cref="BmSecurityHeadersConfig" />.
     /// </exception>
     public static BmSecurityHeadersConfig SetMinimumSameSitePolicy(
-        this HeaderPolicyCollection headerPolicyCollection, SameSiteMode sameSiteMode)
+        this HeaderPolicyCollection headerPolicyCollection,
+        SameSiteMode sameSiteMode
+    )
     {
         var bmConfig = headerPolicyCollection.AsBmConfig();
         bmConfig.MinimumSameSitePolicy = sameSiteMode;
@@ -42,10 +44,16 @@ public static class BmCookiePolicyExtensions
     ///     Is thrown if the headerPolicyCollection is not a <see cref="BmSecurityHeadersConfig" />.
     /// </exception>
     /// <seealso cref="CookiePolicyOptions.OnAppendCookie" />
-    public static BmSecurityHeadersConfig AddCookieOption(this HeaderPolicyCollection headerPolicyCollection,
-        string cookieName, Action<CookieOptions> configure)
+    public static BmSecurityHeadersConfig AddCookieOption(
+        this HeaderPolicyCollection headerPolicyCollection,
+        string cookieName,
+        Action<CookieOptions> configure
+    )
     {
-        return headerPolicyCollection.AddCookieOption(new Regex($"^{Regex.Escape(cookieName)}$"), configure);
+        return headerPolicyCollection.AddCookieOption(
+            new Regex($"^{Regex.Escape(cookieName)}$"),
+            configure
+        );
     }
 
     /// <summary>
@@ -63,8 +71,11 @@ public static class BmCookiePolicyExtensions
     ///     Is thrown if the headerPolicyCollection is not a <see cref="BmSecurityHeadersConfig" />.
     /// </exception>
     /// <seealso cref="CookiePolicyOptions.OnAppendCookie" />
-    public static BmSecurityHeadersConfig AddCookieOption(this HeaderPolicyCollection headerPolicyCollection,
-        Regex cookieMatcher, Action<CookieOptions> configure)
+    public static BmSecurityHeadersConfig AddCookieOption(
+        this HeaderPolicyCollection headerPolicyCollection,
+        Regex cookieMatcher,
+        Action<CookieOptions> configure
+    )
     {
         return headerPolicyCollection.AddCookieFilter(context =>
         {
@@ -92,8 +103,10 @@ public static class BmCookiePolicyExtensions
     ///     Is thrown if the headerPolicyCollection is not a <see cref="BmSecurityHeadersConfig" />.
     /// </exception>
     /// <seealso cref="CookiePolicyOptions.OnAppendCookie" />
-    public static BmSecurityHeadersConfig AddCookieFilter(this HeaderPolicyCollection headerPolicyCollection,
-        Action<AppendCookieContext> configure)
+    public static BmSecurityHeadersConfig AddCookieFilter(
+        this HeaderPolicyCollection headerPolicyCollection,
+        Action<AppendCookieContext> configure
+    )
     {
         var bmConfig = headerPolicyCollection.AsBmConfig();
         bmConfig.AddActions.Add(configure);
@@ -113,8 +126,10 @@ public static class BmCookiePolicyExtensions
     ///     Is thrown if the headerPolicyCollection is not a <see cref="BmSecurityHeadersConfig" />.
     /// </exception>
     /// <seealso cref="CookiePolicyOptions.OnDeleteCookie" />
-    public static BmSecurityHeadersConfig AddDeleteCookieFilter(this HeaderPolicyCollection headerPolicyCollection,
-        Action<DeleteCookieContext> configure)
+    public static BmSecurityHeadersConfig AddDeleteCookieFilter(
+        this HeaderPolicyCollection headerPolicyCollection,
+        Action<DeleteCookieContext> configure
+    )
     {
         var bmConfig = headerPolicyCollection.AsBmConfig();
         bmConfig.DeleteActions.Add(configure);
@@ -131,8 +146,10 @@ public static class BmCookiePolicyExtensions
     ///     Is thrown if the headerPolicyCollection is not a <see cref="BmSecurityHeadersConfig" />.
     /// </exception>
     /// <seealso cref="CookiePolicyOptions.ConsentCookie" />
-    public static BmSecurityHeadersConfig SetConsentCookie(this HeaderPolicyCollection headerPolicyCollection,
-        CookieBuilder builder)
+    public static BmSecurityHeadersConfig SetConsentCookie(
+        this HeaderPolicyCollection headerPolicyCollection,
+        CookieBuilder builder
+    )
     {
         var bmConfig = headerPolicyCollection.AsBmConfig();
         bmConfig.ConsentCookieBuilder = builder;
@@ -149,15 +166,19 @@ public static class BmCookiePolicyExtensions
     ///     Is thrown if the headerPolicyCollection is not a <see cref="BmSecurityHeadersConfig" />.
     /// </exception>
     /// <seealso cref="CookiePolicyOptions.CheckConsentNeeded" />
-    public static BmSecurityHeadersConfig CheckConsentNeeded(this HeaderPolicyCollection headerPolicyCollection,
-        Func<HttpContext, bool> checkConsentNeeded)
+    public static BmSecurityHeadersConfig CheckConsentNeeded(
+        this HeaderPolicyCollection headerPolicyCollection,
+        Func<HttpContext, bool> checkConsentNeeded
+    )
     {
         var bmConfig = headerPolicyCollection.AsBmConfig();
         bmConfig.CheckConsentNeeded = checkConsentNeeded;
         return bmConfig;
     }
 
-    private static BmSecurityHeadersConfig AsBmConfig(this HeaderPolicyCollection headerPolicyCollection)
+    private static BmSecurityHeadersConfig AsBmConfig(
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         if (headerPolicyCollection is BmSecurityHeadersConfig bmConfig)
         {

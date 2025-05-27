@@ -13,7 +13,9 @@ public static class WebSharePermission
     /// </summary>
     /// <param name="permissionsPolicyBuilder">A <see cref="PermissionsPolicyBuilder" /> to add the permission to.</param>
     /// <returns>The permissionsPolicyBuilder that was passed as this.</returns>
-    public static PermissionsPolicyDirectiveBuilder AddWebShare(this PermissionsPolicyBuilder permissionsPolicyBuilder)
+    public static PermissionsPolicyDirectiveBuilder AddWebShare(
+        this PermissionsPolicyBuilder permissionsPolicyBuilder
+    )
     {
         return permissionsPolicyBuilder.AddCustomFeature("web-share");
     }

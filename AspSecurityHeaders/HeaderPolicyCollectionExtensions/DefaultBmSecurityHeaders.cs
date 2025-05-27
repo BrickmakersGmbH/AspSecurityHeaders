@@ -30,7 +30,9 @@ public static class DefaultBmSecurityHeaders
     /// </summary>
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the headers to.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
-    public static HeaderPolicyCollection AddDefaultBmSecurityHeaders(this HeaderPolicyCollection headerPolicyCollection)
+    public static HeaderPolicyCollection AddDefaultBmSecurityHeaders(
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection
             .AddDefaultSecurityHeaders()
@@ -60,7 +62,8 @@ public static class DefaultBmSecurityHeaders
     /// <param name="headerPolicyCollection">A <see cref="HeaderPolicyCollection" /> to add the headers to.</param>
     /// <returns>The headerPolicyCollection that was passed as this.</returns>
     public static HeaderPolicyCollection AddDefaultBmApiSecurityHeaders(
-        this HeaderPolicyCollection headerPolicyCollection)
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection
             .AddDefaultApiSecurityHeaders()

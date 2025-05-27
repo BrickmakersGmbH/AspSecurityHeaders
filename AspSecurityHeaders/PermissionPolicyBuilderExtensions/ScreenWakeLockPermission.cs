@@ -14,7 +14,8 @@ public static class ScreenWakeLockPermission
     /// <param name="permissionsPolicyBuilder">A <see cref="PermissionsPolicyBuilder" /> to add the permission to.</param>
     /// <returns>The permissionsPolicyBuilder that was passed as this.</returns>
     public static PermissionsPolicyDirectiveBuilder AddScreenWakeLock(
-        this PermissionsPolicyBuilder permissionsPolicyBuilder)
+        this PermissionsPolicyBuilder permissionsPolicyBuilder
+    )
     {
         return permissionsPolicyBuilder.AddCustomFeature("screen-wake-lock");
     }

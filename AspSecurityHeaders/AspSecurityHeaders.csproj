@@ -1,35 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup Label="Build Configuration">
-        <RootNamespace>Brickmakers.AspSecurityHeaders</RootNamespace>
-        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    </PropertyGroup>
-
-    <PropertyGroup Label="Assembly Information">
-        <Product>Brickmakers.AspSecurityHeaders</Product>
-        <AssemblyName>Brickmakers.AspSecurityHeaders</AssemblyName>
-    </PropertyGroup>
-
-    <PropertyGroup Label="NuGet-Packaging">
-        <PackageId>Brickmakers.AspSecurityHeaders</PackageId>
-        <Title>AspSecurityHeaders by BRICKMAKERS</Title>
-        <Description>A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.</Description>
-        <PackageTags>Brickmakers ASP.NET dotnetcore dotnet HTTPS CSP HSTS Security HTTP-Headers Security-Headers</PackageTags>
-    </PropertyGroup>
-
-    <ItemGroup Label="NuGet Files">
-        <None Include="..\README.md" Pack="true" PackagePath="\" />
-        <None Include="..\CHANGELOG.md" Pack="true" PackagePath="\" />
-        <None Include="..\LICENSE.txt" Pack="true" PackagePath="\" />
-        <None Include="..\AspSecurityHeaders.png" Pack="true" PackagePath="\" />
-    </ItemGroup>
-
-    <ItemGroup Label="Dependencies">
-        <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.3.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
-        <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.1.0" />
-        <PackageReference Include="System.Text.Encodings.Web" Version="9.0.5" Label="https://github.com/advisories/GHSA-ghhp-997w-qr28" />
-    </ItemGroup>
-
+  <PropertyGroup Label="Build Configuration">
+    <RootNamespace>Brickmakers.AspSecurityHeaders</RootNamespace>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Label="Assembly Information">
+    <Product>Brickmakers.AspSecurityHeaders</Product>
+    <AssemblyName>Brickmakers.AspSecurityHeaders</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Label="NuGet-Packaging">
+    <PackageId>Brickmakers.AspSecurityHeaders</PackageId>
+    <Title>AspSecurityHeaders by BRICKMAKERS</Title>
+    <Description>A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.</Description>
+    <PackageTags>Brickmakers ASP.NET dotnetcore dotnet HTTPS CSP HSTS Security HTTP-Headers Security-Headers</PackageTags>
+  </PropertyGroup>
+  <ItemGroup Label="NuGet Files">
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\CHANGELOG.md" Pack="true" PackagePath="\" />
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="\" />
+    <None Include="..\AspSecurityHeaders.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup Label="Dependencies">
+    <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+    <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.1.0" />
+    <PackageReference
+      Include="System.Text.Encodings.Web"
+      Version="9.0.5"
+      Label="https://github.com/advisories/GHSA-ghhp-997w-qr28"
+    />
+  </ItemGroup>
 </Project>

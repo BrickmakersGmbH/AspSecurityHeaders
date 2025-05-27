@@ -1,32 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup Label="Build Configuration">
-        <RootNamespace>Brickmakers.AspSecurityHeaders.Generators</RootNamespace>
-        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    </PropertyGroup>
-
-    <PropertyGroup Label="Assembly Information">
-        <Product>Brickmakers.AspSecurityHeaders.Generators</Product>
-        <AssemblyName>Brickmakers.AspSecurityHeaders.Generators</AssemblyName>
-    </PropertyGroup>
-
-    <PropertyGroup Label="NuGet-Packaging">
-        <PackageId>Brickmakers.AspSecurityHeaders.Generators</PackageId>
-        <Title>AspSecurityHeaders by BRICKMAKERS</Title>
-        <Description>A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.</Description>
-        <PackageTags>Brickmakers ASP.NET dotnetcore dotnet HTTPS CSP HSTS Security HTTP-Headers Security-Headers</PackageTags>
-    </PropertyGroup>
-
-    <ItemGroup Label="NuGet Files">
-        <None Include="..\README.md" Pack="true" PackagePath="\"/>
-        <None Include="..\CHANGELOG.md" Pack="true" PackagePath="\"/>
-        <None Include="..\LICENSE.txt" Pack="true" PackagePath="\"/>
-        <None Include="..\AspSecurityHeaders.png" Pack="true" PackagePath="\"/>
-    </ItemGroup>
-
-    <ItemGroup Label="Project References">
-        <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj"/>
-    </ItemGroup>
-
+  <PropertyGroup Label="Build Configuration">
+    <RootNamespace>Brickmakers.AspSecurityHeaders.Generators</RootNamespace>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Label="Assembly Information">
+    <Product>Brickmakers.AspSecurityHeaders.Generators</Product>
+    <AssemblyName>Brickmakers.AspSecurityHeaders.Generators</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Label="NuGet-Packaging">
+    <PackageId>Brickmakers.AspSecurityHeaders.Generators</PackageId>
+    <Title>AspSecurityHeaders by BRICKMAKERS</Title>
+    <Description>A small package for ASP.Net (Core) to automatically configure secure HTTP-Headers.</Description>
+    <PackageTags>Brickmakers ASP.NET dotnetcore dotnet HTTPS CSP HSTS Security HTTP-Headers Security-Headers</PackageTags>
+  </PropertyGroup>
+  <ItemGroup Label="NuGet Files">
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+    <None Include="..\CHANGELOG.md" Pack="true" PackagePath="\" />
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="\" />
+    <None Include="..\AspSecurityHeaders.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup Label="Project References">
+    <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj" />
+  </ItemGroup>
 </Project>

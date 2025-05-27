@@ -23,8 +23,7 @@ public class Startup
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddMvc()
-            .AddCspMediaType(); // works on AddRazorPages and AddControllers as well
+        services.AddMvc().AddCspMediaType(); // works on AddRazorPages and AddControllers as well
         services.AddSwaggerGen();
     }
 
@@ -32,21 +31,25 @@ public class Startup
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         // create "fake" server header to be removed by security headers
-        app.Use(async (context, next) =>
-        {
-            context.Response.Headers.Append("Server", "ASP.Net Core");
-            await next();
-        });
-
-        app.UseBmSecurityHeaders(collection => collection
-            .AddBmContentSecurityPolicy(builder =>
+        app.Use(
+            async (context, next) =>
             {
-                builder.AddScriptSrc().Self();
-                builder.AddStyleSrc().Self();
-                builder.AddImgSrc().Self();
-                builder.AddReportUri().To("/CspReport");
-            })
-            .SetMinimumSameSitePolicy(SameSiteMode.Lax));
+                context.Response.Headers.Append("Server", "ASP.Net Core");
+                await next();
+            }
+        );
+
+        app.UseBmSecurityHeaders(collection =>
+            collection
+                .AddBmContentSecurityPolicy(builder =>
+                {
+                    builder.AddScriptSrc().Self();
+                    builder.AddStyleSrc().Self();
+                    builder.AddImgSrc().Self();
+                    builder.AddReportUri().To("/CspReport");
+                })
+                .SetMinimumSameSitePolicy(SameSiteMode.Lax)
+        );
 
         if (env.IsDevelopment())
         {
@@ -66,16 +69,18 @@ public class Startup
 
         app.UseAuthorization();
 
-        app.Use(async (context, next) =>
-        {
-            context.Response.Cookies.Append("TestCookie", "value", new CookieOptions
+        app.Use(
+            async (context, next) =>
             {
-                Path = "/",
-                Expires = DateTimeOffset.UtcNow.AddHours(1)
-            });
+                context.Response.Cookies.Append(
+                    "TestCookie",
+                    "value",
+                    new CookieOptions { Path = "/", Expires = DateTimeOffset.UtcNow.AddHours(1) }
+                );
 
-            await next();
-        });
+                await next();
+            }
+        );
 
         app.UseEndpoints(endpoints =>
         {

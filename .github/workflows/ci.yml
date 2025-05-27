@@ -11,6 +11,26 @@ on:
   push:
 
 jobs:
+  analyze:
+    name: Analyze Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ inputs.ref }}
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            9.0.x
+            8.0.x
+      - name: Restore tools
+        run: dotnet tool restore
+      - name: Validate formatting
+        run: dotnet csharpier check .
+        
   test:
     name: Run Tests
     strategy:
@@ -52,8 +72,6 @@ jobs:
 
   build:
     name: Build NuGet packages
-    needs:
-      - test
     strategy:
       fail-fast: false
       matrix:
@@ -96,6 +114,7 @@ jobs:
     name: Create release if required
     runs-on: ubuntu-latest
     needs:
+      - analyze
       - test
       - build
     if: github.ref == 'refs/heads/main'

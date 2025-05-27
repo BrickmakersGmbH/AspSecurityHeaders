@@ -87,7 +87,9 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
         var response = await GetIndex();
 
         response.Headers.Should().ContainKey("Permissions-Policy");
-        var permissions = HeaderExtractor.ParsePermissions(response.Headers.GetValues("Permissions-Policy"));
+        var permissions = HeaderExtractor.ParsePermissions(
+            response.Headers.GetValues("Permissions-Policy")
+        );
         permissions.Should().ContainKey(name);
         var permissionValue = permissions[name];
 
@@ -135,12 +137,13 @@ public class SecurityHeadersTests : IClassFixture<WebApplicationFactory<Startup>
     {
         using var client = _factory.CreateClient();
 
-        var response = await client.PostAsync("/CspReport", JsonContent.Create(
-            new CspReportRequest
-            {
-                CspReport = new CspReport()
-            },
-            new MediaTypeHeaderValue("application/csp-report")));
+        var response = await client.PostAsync(
+            "/CspReport",
+            JsonContent.Create(
+                new CspReportRequest { CspReport = new CspReport() },
+                new MediaTypeHeaderValue("application/csp-report")
+            )
+        );
 
         response.StatusCode.Should().Be(HttpStatusCode.NoContent);
     }

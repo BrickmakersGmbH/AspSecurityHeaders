@@ -22,8 +22,7 @@ public static class HeaderExtractor
                 case ',':
                     if (parenthesisCount == 0)
                     {
-                        yield return permissions[begin..index]
-                            .Trim();
+                        yield return permissions[begin..index].Trim();
                         begin = index + 1;
                     }
 
@@ -42,11 +41,12 @@ public static class HeaderExtractor
         return new KeyValuePair<string, string>(name, value);
     }
 
-    public static IReadOnlyDictionary<string, string> ParsePermissions(IEnumerable<string> permissions)
+    public static IReadOnlyDictionary<string, string> ParsePermissions(
+        IEnumerable<string> permissions
+    )
     {
-        return new Dictionary<string, string>(permissions
-            .SelectMany(ExtractPermissions)
-            .Select(ParsePermission)
+        return new Dictionary<string, string>(
+            permissions.SelectMany(ExtractPermissions).Select(ParsePermission)
         );
     }
 
@@ -60,11 +60,12 @@ public static class HeaderExtractor
 
     public static IReadOnlyDictionary<string, string> ParseFeatures(IEnumerable<string> features)
     {
-        return new Dictionary<string, string>(features
-            .SelectMany(featureValues => featureValues.Split(';'))
-            .Select(feature => feature.Trim())
-            .Where(feature => feature.Length > 0)
-            .Select(ParseFeature)
+        return new Dictionary<string, string>(
+            features
+                .SelectMany(featureValues => featureValues.Split(';'))
+                .Select(feature => feature.Trim())
+                .Where(feature => feature.Length > 0)
+                .Select(ParseFeature)
         );
     }
 
@@ -76,11 +77,11 @@ public static class HeaderExtractor
 
     public static IReadOnlyDictionary<string, IEnumerable<string>> ParseCsp(IEnumerable<string> csp)
     {
-        return new Dictionary<string, IEnumerable<string>>(csp
-            .SelectMany(cspValues => cspValues.Split(';'))
-            .Select(cspEntry => cspEntry.Trim())
-            .Where(cspEntry => cspEntry.Length > 0)
-            .Select(ParseCsp)
+        return new Dictionary<string, IEnumerable<string>>(
+            csp.SelectMany(cspValues => cspValues.Split(';'))
+                .Select(cspEntry => cspEntry.Trim())
+                .Where(cspEntry => cspEntry.Length > 0)
+                .Select(ParseCsp)
         );
     }
 
@@ -99,10 +100,8 @@ public static class HeaderExtractor
 
     public static IReadOnlyDictionary<string, string> ParseCookie(string cookie)
     {
-        return new Dictionary<string, string>(cookie
-            .Split(';')
-            .Select(value => value.Trim())
-            .Select(ParseCookieValue)
+        return new Dictionary<string, string>(
+            cookie.Split(';').Select(value => value.Trim()).Select(ParseCookieValue)
         );
     }
 }

@@ -12,9 +12,7 @@ public class IISWebConfigWriter
 {
     private readonly IISWebConfigWriterSettings _settings = new();
 
-    private IISWebConfigWriter()
-    {
-    }
+    private IISWebConfigWriter() { }
 
     /// <summary>
     ///     Creates a new <see cref="IISWebConfigWriter" /> using the standard security headers.
@@ -77,7 +75,9 @@ public class IISWebConfigWriter
     /// </summary>
     /// <param name="bmSecurityHeadersConfig">The new config to be used.</param>
     /// <returns>A reference to this.</returns>
-    public IISWebConfigWriter SetBmSecurityHeadersConfig(BmSecurityHeadersConfig bmSecurityHeadersConfig)
+    public IISWebConfigWriter SetBmSecurityHeadersConfig(
+        BmSecurityHeadersConfig bmSecurityHeadersConfig
+    )
     {
         _settings.BmSecurityHeadersConfig = bmSecurityHeadersConfig;
         return this;
@@ -153,13 +153,17 @@ public class IISWebConfigWriter
     }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-    [Obsolete("Method has no effect as the feature was dropped by AspSecurityHeaders and will be removed in a future version.")]
+    [Obsolete(
+        "Method has no effect as the feature was dropped by AspSecurityHeaders and will be removed in a future version."
+    )]
     public IISWebConfigWriter WriteHtmlHeaders(bool writeHtmlHeaders)
     {
         return this;
     }
 
-    [Obsolete("Method has no effect as the feature was dropped by AspSecurityHeaders and will be removed in a future version.")]
+    [Obsolete(
+        "Method has no effect as the feature was dropped by AspSecurityHeaders and will be removed in a future version."
+    )]
     public IISWebConfigWriter WriteHttpHeaders(bool writeHttpHeaders)
     {
         return this;
@@ -173,8 +177,10 @@ public class IISWebConfigWriter
     /// <seealso cref="XmlWriter.Create(string,System.Xml.XmlWriterSettings)" />
     public async Task Run(string path)
     {
-        await using var writer =
-            new IISWebConfigWriterImpl(XmlWriter.Create(path, _settings.XmlWriterSettings), _settings);
+        await using var writer = new IISWebConfigWriterImpl(
+            XmlWriter.Create(path, _settings.XmlWriterSettings),
+            _settings
+        );
         await writer.Run();
     }
 
@@ -185,8 +191,10 @@ public class IISWebConfigWriter
     /// <seealso cref="XmlWriter.Create(System.IO.Stream,System.Xml.XmlWriterSettings)" />
     public async Task Run(Stream stream)
     {
-        await using var writer =
-            new IISWebConfigWriterImpl(XmlWriter.Create(stream, _settings.XmlWriterSettings), _settings);
+        await using var writer = new IISWebConfigWriterImpl(
+            XmlWriter.Create(stream, _settings.XmlWriterSettings),
+            _settings
+        );
         await writer.Run();
     }
 
@@ -197,8 +205,10 @@ public class IISWebConfigWriter
     /// <seealso cref="XmlWriter.Create(System.IO.TextWriter,System.Xml.XmlWriterSettings)" />
     public async Task Run(TextWriter textWriter)
     {
-        await using var writer =
-            new IISWebConfigWriterImpl(XmlWriter.Create(textWriter, _settings.XmlWriterSettings), _settings);
+        await using var writer = new IISWebConfigWriterImpl(
+            XmlWriter.Create(textWriter, _settings.XmlWriterSettings),
+            _settings
+        );
         await writer.Run();
     }
 
@@ -209,8 +219,10 @@ public class IISWebConfigWriter
     /// <seealso cref="XmlWriter.Create(System.Text.StringBuilder,System.Xml.XmlWriterSettings)" />
     public async Task Run(StringBuilder stringBuilder)
     {
-        await using var writer =
-            new IISWebConfigWriterImpl(XmlWriter.Create(stringBuilder, _settings.XmlWriterSettings), _settings);
+        await using var writer = new IISWebConfigWriterImpl(
+            XmlWriter.Create(stringBuilder, _settings.XmlWriterSettings),
+            _settings
+        );
         await writer.Run();
     }
 }

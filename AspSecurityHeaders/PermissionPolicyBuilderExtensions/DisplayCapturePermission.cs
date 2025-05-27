@@ -14,7 +14,8 @@ public static class DisplayCapturePermission
     /// <param name="permissionsPolicyBuilder">A <see cref="PermissionsPolicyBuilder" /> to add the permission to.</param>
     /// <returns>The permissionsPolicyBuilder that was passed as this.</returns>
     public static PermissionsPolicyDirectiveBuilder AddDisplayCapture(
-        this PermissionsPolicyBuilder permissionsPolicyBuilder)
+        this PermissionsPolicyBuilder permissionsPolicyBuilder
+    )
     {
         return permissionsPolicyBuilder.AddCustomFeature("display-capture");
     }

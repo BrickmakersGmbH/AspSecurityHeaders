@@ -53,8 +53,10 @@ public static class BmPermissionPolicy
     ///         builder => builder.AddCamera().Self();
     ///     </code>
     /// </remarks>
-    public static HeaderPolicyCollection AddBmPermissionPolicy(this HeaderPolicyCollection headerPolicyCollection,
-        Action<PermissionsPolicyBuilder> configure)
+    public static HeaderPolicyCollection AddBmPermissionPolicy(
+        this HeaderPolicyCollection headerPolicyCollection,
+        Action<PermissionsPolicyBuilder> configure
+    )
     {
         headerPolicyCollection.AddPermissionsPolicy(builder =>
         {
@@ -74,12 +76,16 @@ public static class BmPermissionPolicy
 
         return headerPolicyCollection;
     }
-    
+
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-    [Obsolete("The 'addFeaturePolicy' parameter is no longer used because the FeaturePolicy header has been deprecated and will be removed in a future version. Use the overload without it.")]
-    public static HeaderPolicyCollection AddBmPermissionPolicy(this HeaderPolicyCollection headerPolicyCollection,
+    [Obsolete(
+        "The 'addFeaturePolicy' parameter is no longer used because the FeaturePolicy header has been deprecated and will be removed in a future version. Use the overload without it."
+    )]
+    public static HeaderPolicyCollection AddBmPermissionPolicy(
+        this HeaderPolicyCollection headerPolicyCollection,
         Action<PermissionsPolicyBuilder> configure,
-        bool addFeaturePolicy)
+        bool addFeaturePolicy
+    )
     {
         return headerPolicyCollection.AddBmPermissionPolicy(configure);
     }

@@ -26,8 +26,10 @@ public static class OrchardSecurityHeaders
     ///     If the orchard module itself is activated, the headers get configured automatically. Unless you do need to
     ///     customize the headers, this call is not needed.
     /// </remarks>
-    public static IApplicationBuilder UseOrchardBmSecurityHeaders(this IApplicationBuilder app,
-        Action<BmSecurityHeadersConfig> configure)
+    public static IApplicationBuilder UseOrchardBmSecurityHeaders(
+        this IApplicationBuilder app,
+        Action<BmSecurityHeadersConfig> configure
+    )
     {
         return app.UseBmSecurityHeaders(config =>
         {
@@ -37,7 +39,6 @@ public static class OrchardSecurityHeaders
             configure(config);
         });
     }
-
 
     /// <summary>
     ///     Adds special cookie policy rules to enable the login to the Azure AD.<br />
@@ -51,13 +52,18 @@ public static class OrchardSecurityHeaders
     ///     <see cref="MicrosoftLogin" />.
     /// </remarks>
     public static HeaderPolicyCollection AddMicrosoftLoginCookieWhitelist(
-        this HeaderPolicyCollection headerPolicyCollection)
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection
-            .AddCookieOption(new Regex(@"^\.AspNetCore\.OpenIdConnect\.Nonce\..+$"),
-                options => options.SameSite = SameSiteMode.None)
-            .AddCookieOption(new Regex(@"^\.AspNetCore\.Correlation\..+$"),
-                options => options.SameSite = SameSiteMode.None);
+            .AddCookieOption(
+                new Regex(@"^\.AspNetCore\.OpenIdConnect\.Nonce\..+$"),
+                options => options.SameSite = SameSiteMode.None
+            )
+            .AddCookieOption(
+                new Regex(@"^\.AspNetCore\.Correlation\..+$"),
+                options => options.SameSite = SameSiteMode.None
+            );
     }
 
     /// <summary>
@@ -70,11 +76,11 @@ public static class OrchardSecurityHeaders
     /// <remarks>Obsolete. Has been renamed to AddMicrosoftLoginCookieWhitelist.</remarks>
     [Obsolete("Use AddMicrosoftLoginCookieWhitelist instead")]
     public static HeaderPolicyCollection AddAzureLoginCookieWhitelist(
-        this HeaderPolicyCollection headerPolicyCollection)
+        this HeaderPolicyCollection headerPolicyCollection
+    )
     {
         return headerPolicyCollection.AddMicrosoftLoginCookieWhitelist();
     }
-
 
     /// <summary>
     ///     Adds a CSP-Header to the security headers with the default secure basis of CSP-directives plus all the
@@ -119,22 +125,16 @@ public static class OrchardSecurityHeaders
         Action<BmCspBuilder> cspBuilder,
         bool allowInsecureRequests = false,
         bool allowMixedContent = false,
-        bool reportSamples = true)
+        bool reportSamples = true
+    )
     {
-        return headerPolicyCollection.AddBmContentSecurityPolicy(builder =>
+        return headerPolicyCollection.AddBmContentSecurityPolicy(
+            builder =>
             {
-                builder.AddScriptSrc()
-                    .Self()
-                    .UnsafeInline()
-                    .UnsafeEval();
-                builder.AddImgSrc()
-                    .Self()
-                    .Data();
-                builder.AddStyleSrc()
-                    .Self()
-                    .UnsafeInline();
-                builder.AddFontSrc()
-                    .Self();
+                builder.AddScriptSrc().Self().UnsafeInline().UnsafeEval();
+                builder.AddImgSrc().Self().Data();
+                builder.AddStyleSrc().Self().UnsafeInline();
+                builder.AddFontSrc().Self();
                 builder.AddFormAction().Self();
                 builder.AddConnectSrc().Self();
                 builder.AddReportUri().To("/CspReport");
@@ -143,7 +143,8 @@ public static class OrchardSecurityHeaders
             },
             allowInsecureRequests,
             allowMixedContent,
-            reportSamples);
+            reportSamples
+        );
     }
 
     /// <summary>
@@ -155,7 +156,9 @@ public static class OrchardSecurityHeaders
     ///     Unless you actually use the azure login, you do not need to enable this. Should be used in conjunction with
     ///     <see cref="AddAzureLoginCookieWhitelist" />.
     /// </remarks>
-    public static FormActionDirectiveBuilder MicrosoftLogin(this FormActionDirectiveBuilder formActionBuilder)
+    public static FormActionDirectiveBuilder MicrosoftLogin(
+        this FormActionDirectiveBuilder formActionBuilder
+    )
     {
         return formActionBuilder.From("https://login.microsoftonline.com");
     }

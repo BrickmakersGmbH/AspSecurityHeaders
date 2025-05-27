@@ -14,14 +14,19 @@ public class IISWebConfigWriterTests
 
         await CreateDisabledWriter().Run(stringBuilder);
 
-        stringBuilder.ToString().Should().Be(@"<?xml version=""1.0"" encoding=""utf-16""?>
+        stringBuilder
+            .ToString()
+            .Should()
+            .Be(
+                @"<?xml version=""1.0"" encoding=""utf-16""?>
 <configuration>
   <system.webServer>
     <httpProtocol>
       <customHeaders />
     </httpProtocol>
   </system.webServer>
-</configuration>");
+</configuration>"
+            );
     }
 
     [Fact]
@@ -33,13 +38,18 @@ public class IISWebConfigWriterTests
             .SetXmlWriterSettings(settings => settings.OmitXmlDeclaration = true)
             .Run(stringBuilder);
 
-        stringBuilder.ToString().Should().Be(@"<configuration>
+        stringBuilder
+            .ToString()
+            .Should()
+            .Be(
+                @"<configuration>
   <system.webServer>
     <httpProtocol>
       <customHeaders />
     </httpProtocol>
   </system.webServer>
-</configuration>");
+</configuration>"
+            );
     }
 
     [Fact]
@@ -47,11 +57,13 @@ public class IISWebConfigWriterTests
     {
         var stringBuilder = new StringBuilder();
 
-        await CreateDisabledWriter()
-            .RemoveServerHeaders(true)
-            .Run(stringBuilder);
+        await CreateDisabledWriter().RemoveServerHeaders(true).Run(stringBuilder);
 
-        stringBuilder.ToString().Should().Be(@"<?xml version=""1.0"" encoding=""utf-16""?>
+        stringBuilder
+            .ToString()
+            .Should()
+            .Be(
+                @"<?xml version=""1.0"" encoding=""utf-16""?>
 <configuration>
   <system.web>
     <httpRuntime enableVersionHeader=""false"" />
@@ -66,7 +78,8 @@ public class IISWebConfigWriterTests
       </customHeaders>
     </httpProtocol>
   </system.webServer>
-</configuration>");
+</configuration>"
+            );
     }
 
     [Fact]
@@ -74,11 +87,13 @@ public class IISWebConfigWriterTests
     {
         var stringBuilder = new StringBuilder();
 
-        await CreateDisabledWriter()
-            .EnforceHttps(true)
-            .Run(stringBuilder);
+        await CreateDisabledWriter().EnforceHttps(true).Run(stringBuilder);
 
-        stringBuilder.ToString().Should().Be(@"<?xml version=""1.0"" encoding=""utf-16""?>
+        stringBuilder
+            .ToString()
+            .Should()
+            .Be(
+                @"<?xml version=""1.0"" encoding=""utf-16""?>
 <configuration>
   <system.webServer>
     <rewrite>
@@ -96,7 +111,8 @@ public class IISWebConfigWriterTests
       <customHeaders />
     </httpProtocol>
   </system.webServer>
-</configuration>");
+</configuration>"
+            );
     }
 
     [Fact]
@@ -106,7 +122,11 @@ public class IISWebConfigWriterTests
 
         await CreateSecurityHeadersOnlyWriter().Run(stringBuilder);
 
-        stringBuilder.ToString().Should().Be(@"<?xml version=""1.0"" encoding=""utf-16""?>
+        stringBuilder
+            .ToString()
+            .Should()
+            .Be(
+                @"<?xml version=""1.0"" encoding=""utf-16""?>
 <configuration>
   <system.webServer>
     <httpProtocol>
@@ -127,7 +147,8 @@ public class IISWebConfigWriterTests
       </customHeaders>
     </httpProtocol>
   </system.webServer>
-</configuration>");
+</configuration>"
+            );
     }
 
     [Fact]
@@ -135,11 +156,13 @@ public class IISWebConfigWriterTests
     {
         var stringBuilder = new StringBuilder();
 
-        await CreateSecurityHeadersOnlyWriter()
-            .WriteHttpsHeaders(false)
-            .Run(stringBuilder);
+        await CreateSecurityHeadersOnlyWriter().WriteHttpsHeaders(false).Run(stringBuilder);
 
-        stringBuilder.ToString().Should().Be(@"<?xml version=""1.0"" encoding=""utf-16""?>
+        stringBuilder
+            .ToString()
+            .Should()
+            .Be(
+                @"<?xml version=""1.0"" encoding=""utf-16""?>
 <configuration>
   <system.webServer>
     <httpProtocol>
@@ -159,14 +182,13 @@ public class IISWebConfigWriterTests
       </customHeaders>
     </httpProtocol>
   </system.webServer>
-</configuration>");
+</configuration>"
+            );
     }
 
     private static IISWebConfigWriter CreateSecurityHeadersOnlyWriter()
     {
-        return IISWebConfigWriter.Create()
-            .RemoveServerHeaders(false)
-            .EnforceHttps(false);
+        return IISWebConfigWriter.Create().RemoveServerHeaders(false).EnforceHttps(false);
     }
 
     private static IISWebConfigWriter CreateDisabledWriter()

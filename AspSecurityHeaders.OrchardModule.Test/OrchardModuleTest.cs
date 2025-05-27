@@ -36,19 +36,11 @@ public class OrchardModuleTest : IClassFixture<WebApplicationFactory<Example.Sta
     [InlineData("default-src", new[] { "'none'" })]
     [InlineData("base-uri", new[] { "'none'" })]
     [InlineData("frame-ancestors", new[] { "'none'" })]
-    [InlineData("script-src", new[]
-    {
-        "'self'",
-        "'unsafe-inline'",
-        "'unsafe-eval'",
-        "'report-sample'"
-    })]
-    [InlineData("style-src", new[]
-    {
-        "'self'",
-        "'unsafe-inline'",
-        "'report-sample'"
-    })]
+    [InlineData(
+        "script-src",
+        new[] { "'self'", "'unsafe-inline'", "'unsafe-eval'", "'report-sample'" }
+    )]
+    [InlineData("style-src", new[] { "'self'", "'unsafe-inline'", "'report-sample'" })]
     [InlineData("img-src", new[] { "'self'", "data:" })]
     [InlineData("font-src", new[] { "'self'" })]
     [InlineData("form-action", new[] { "'self'" })]
@@ -70,16 +62,20 @@ public class OrchardModuleTest : IClassFixture<WebApplicationFactory<Example.Sta
     public async Task ShouldAcceptCspReports()
     {
         using var client = _factory.CreateClient();
-        var response = await client.PostAsync("/CspReport", JsonContent.Create(
-            new CspReportRequest
-            {
-                CspReport = new CspReport
+        var response = await client.PostAsync(
+            "/CspReport",
+            JsonContent.Create(
+                new CspReportRequest
                 {
-                    StatusCode = 400,
-                    BlockedUri = "http://localhost/"
-                }
-            },
-            new MediaTypeHeaderValue("application/csp-report")));
+                    CspReport = new CspReport
+                    {
+                        StatusCode = 400,
+                        BlockedUri = "http://localhost/",
+                    },
+                },
+                new MediaTypeHeaderValue("application/csp-report")
+            )
+        );
 
         response.StatusCode.Should().Be(HttpStatusCode.NoContent);
     }

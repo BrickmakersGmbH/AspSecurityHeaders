@@ -1,26 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
-    <PropertyGroup>
-        <RootNamespace>Brickmakers.AspSecurityHeaders.OrchardModule.Example</RootNamespace>
-        <Product>Brickmakers.AspSecurityHeaders.OrchardModule.Example</Product>
-        <AssemblyName>Brickmakers.AspSecurityHeaders.OrchardModule.Example</AssemblyName>
-        <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
-        <IsPackable>false</IsPackable>
-        <OpenApiGenerateDocumentsOnBuild>false</OpenApiGenerateDocumentsOnBuild>
-        <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <Folder Include="wwwroot\" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="2.1.7" />
-        <PackageReference Include="System.Text.Json" Version="9.0.5" Label="https://github.com/advisories/GHSA-8g4q-xg66-9fp4" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\AspSecurityHeaders.OrchardModule\AspSecurityHeaders.OrchardModule.csproj" />
-    </ItemGroup>
-
+  <PropertyGroup>
+    <RootNamespace>Brickmakers.AspSecurityHeaders.OrchardModule.Example</RootNamespace>
+    <Product>Brickmakers.AspSecurityHeaders.OrchardModule.Example</Product>
+    <AssemblyName>Brickmakers.AspSecurityHeaders.OrchardModule.Example</AssemblyName>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+    <OpenApiGenerateDocumentsOnBuild>false</OpenApiGenerateDocumentsOnBuild>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="OrchardCore.Application.Mvc.Targets" Version="2.1.7" />
+    <PackageReference
+      Include="System.Text.Json"
+      Version="9.0.5"
+      Label="https://github.com/advisories/GHSA-8g4q-xg66-9fp4"
+    />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AspSecurityHeaders.OrchardModule\AspSecurityHeaders.OrchardModule.csproj" />
+  </ItemGroup>
 </Project>
