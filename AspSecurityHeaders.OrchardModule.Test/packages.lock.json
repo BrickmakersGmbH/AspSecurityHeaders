@@ -820,21 +820,21 @@
       "Brickmakers.AspSecurityHeaders.Example": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.6.1, )",
+          "Brickmakers.AspSecurityHeaders": "[2.7.0, )",
           "Swashbuckle.AspNetCore": "[8.1.2, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.OrchardModule": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.6.1, )",
+          "Brickmakers.AspSecurityHeaders": "[2.7.0, )",
           "OrchardCore.Module.Targets": "[2.1.7, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.OrchardModule.Example": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.6.1, )",
+          "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.7.0, )",
           "OrchardCore.Application.Mvc.Targets": "[2.1.7, )",
           "System.Text.Json": "[9.0.5, )"
         }
@@ -842,8 +842,8 @@
       "Brickmakers.AspSecurityHeaders.Test": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.6.1, )",
-          "Brickmakers.AspSecurityHeaders.Example": "[2.6.1, )",
+          "Brickmakers.AspSecurityHeaders": "[2.7.0, )",
+          "Brickmakers.AspSecurityHeaders.Example": "[2.7.0, )",
           "FluentAssertions": "[8.3.0, )",
           "Microsoft.AspNetCore.Mvc.Testing": "[8.0.16, )",
           "Microsoft.NET.Test.Sdk": "[17.14.0, )",
@@ -1664,21 +1664,21 @@
       "Brickmakers.AspSecurityHeaders.Example": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.6.1, )",
+          "Brickmakers.AspSecurityHeaders": "[2.7.0, )",
           "Swashbuckle.AspNetCore": "[8.1.2, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.OrchardModule": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.6.1, )",
+          "Brickmakers.AspSecurityHeaders": "[2.7.0, )",
           "OrchardCore.Module.Targets": "[2.1.7, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.OrchardModule.Example": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.6.1, )",
+          "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.7.0, )",
           "OrchardCore.Application.Mvc.Targets": "[2.1.7, )",
           "System.Text.Json": "[9.0.5, )"
         }
@@ -1686,8 +1686,8 @@
       "Brickmakers.AspSecurityHeaders.Test": {
         "type": "Project",
         "dependencies": {
-          "Brickmakers.AspSecurityHeaders": "[2.6.1, )",
-          "Brickmakers.AspSecurityHeaders.Example": "[2.6.1, )",
+          "Brickmakers.AspSecurityHeaders": "[2.7.0, )",
+          "Brickmakers.AspSecurityHeaders.Example": "[2.7.0, )",
           "FluentAssertions": "[8.3.0, )",
           "Microsoft.AspNetCore.Mvc.Testing": "[8.0.16, )",
           "Microsoft.NET.Test.Sdk": "[17.14.0, )",

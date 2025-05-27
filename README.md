@@ -26,9 +26,23 @@ A small package for ASP.Net (Core) to automatically configure secure HTTP-Header
 <small><i><a href='https://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with
 markdown-toc</a></i></small>
 
-## IMPORTANT CHANGES in version 2.1.0
+## IMPORTANT CHANGES in version 2.7.0
 
-In 2.1.0, support for strict site isolation has been added and enabled. Check the release notes for more details.
+In 2.7.0, the `NetEscapades.AspNetCore.SecurityHeaders` have been updated to version 1.1.0, which includes some changes
+to the actual header values being set. The changes are reflected in this package as well, so you might encounter some
+deprecations and changes in the headers being set. The most notable changes are:
+
+- The `Feature-Policy` header has been removed, as is no longer supported by browsers. The `Permissions-Policy`
+  header is not affected by this change and will still be set.
+- The default values for the `Permissions-Policy` header have been changed to be more restrictive. This means that
+  some features that were previously allowed by default are now disabled by default. If you actively use these
+  (unsecure) features, you will have to manually reenable them after the update. The newly disabled features are:
+    - `fullscreen`
+    - `picture-in-picture`
+    - `sync-xhr`
+- The package no longer differentiates between HTML and non-HTML responses and always sets the same headers for
+  all responses. This means that the `Content-Security-Policy` header will always be set, even for API responses when 
+  configured for normal websites. This includes the generated IIS `web.config` files.
 
 ## Features
 
@@ -214,8 +228,8 @@ With the, the module is automatically loaded and activated. It will:
 2. Register the CSP report controller under `/CspReport`
 
 To customize the security headers, you can basically follow the standard instructions of the normal Security headers
-package, with 2 exceptions: Use `UseOrchardBmSecurityHeaders` and `AddOrchardBmContentSecurityPolicy` instead of their "
-normal" counterparts:
+package, with 2 exceptions: Use `UseOrchardBmSecurityHeaders` and `AddOrchardBmContentSecurityPolicy` instead of their 
+"normal" counterparts:
 
 ```cs
 public void Configure(IApplicationBuilder app)
@@ -307,7 +321,7 @@ available with web.config files. These are:
 - XML Writer configuration for controlling how the generated XML is formatted
 - Advanced removal of server identifying headers
 - Enforce HTTPS
-- Flags to control if the generated headers should be for HTTP / TLS
+- Flags to control if the generated headers should be for TLS
 
 ## Attributions and Background
 
@@ -315,9 +329,9 @@ This project is heavily based
 on [NetEscapades.AspNetCore.SecurityHeaders](https://github.com/andrewlock/NetEscapades.AspNetCore.SecurityHeaders),
 thanks to everyone involved on that project.
 
-The reason this package exists is because it enforces even stricter defaults than the original package and adds
-additional features. It has not been integrated into the original security headers, as some of these feature would be
-breaking changes and too strict for some users.
+The reason this package exists is that it enforces even stricter defaults than the original package and adds additional
+features. It has not been integrated into the original security headers, as some of these features would be breaking
+changes and too strict for some users.
 
 However, we at BRICKMAKERS prefer to use tight secure defaults, which is why we created this package. It will always set
 everything to no by default and may add new, even more restricting headers in the future.

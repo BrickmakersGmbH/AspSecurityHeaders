@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.7.0 - 2025-05-26
+
+### Changed
+- Updated dependencies
+- Updated `NetEscapades.AspNetCore.SecurityHeaders` to 1.1.0
+  - The `Feature-Policy` header has been removed, as is no longer supported by browsers. The `Permissions-Policy`
+    header is not affected by this change and will still be set.
+  - The default values for the `Permissions-Policy` header have been changed to be more restrictive. This means that
+    some features that were previously allowed by default are now disabled by default. If you actively use these
+    (unsecure) features, you will have to manually reenable them after the update. The newly disabled features are:
+    - `fullscreen`
+    - `picture-in-picture`
+    - `sync-xhr`
+  - The package no longer differentiates between HTML and non-HTML responses and always sets the same headers for
+    all responses. This means that the `Content-Security-Policy` header will always be set, even for API responses when
+    configured for normal websites. This includes the generated IIS `web.config` files.
+
 ## 2.6.1 - 2024-12-10
 
 ### Changed
