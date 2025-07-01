@@ -10,17 +10,17 @@
       },
       "FluentAssertions": {
         "type": "Direct",
-        "requested": "[8.3.0, )",
-        "resolved": "8.3.0",
-        "contentHash": "iri1druxHPUAvaFqTUKJG7NOHwnOLmWwfDorgezZWpeBWBJmk2o8niI7jL7zW9TEFGnUpMJi/JLG6FXgr3cM3A=="
+        "requested": "[8.4.0, )",
+        "resolved": "8.4.0",
+        "contentHash": "EL0ckSJMGfJTiDF0EFU48bV/iIsgFKCaHEpp5LxqjNO0RhfF3WxQuNWosX2L/Xwt8VRRLE8TgN4tSzTTiZAfdA=="
       },
       "Microsoft.AspNetCore.Mvc.Testing": {
         "type": "Direct",
-        "requested": "[8.0.16, )",
-        "resolved": "8.0.16",
-        "contentHash": "4L0zYc7VdfEjpMpl7RJWDyId78qybL47oBQa32kfkSCpSPewQWB102lwESM6FrhfsGNgDv+hHL1uGbax13LIVQ==",
+        "requested": "[8.0.17, )",
+        "resolved": "8.0.17",
+        "contentHash": "hVHxsQQHbhLqv71DXTjFjNsELXcJp/KiP79RyNQ3tqV3jUVvgoCxkacy4k5undGdlAgchisIG+hsX0flGSuP2g==",
         "dependencies": {
-          "Microsoft.AspNetCore.TestHost": "8.0.16",
+          "Microsoft.AspNetCore.TestHost": "8.0.17",
           "Microsoft.Extensions.DependencyModel": "8.0.2",
           "Microsoft.Extensions.Hosting": "8.0.1"
         }
@@ -130,8 +130,8 @@
       },
       "Microsoft.AspNetCore.TestHost": {
         "type": "Transitive",
-        "resolved": "8.0.16",
-        "contentHash": "+tM/7ggwHyiMn1QoFcSmYvldVpbUpWVUzZkAlqKfhAK9L/nhGrsXvhaLGCImP3IimTNRQ6eyNoPO2UUo0xGnBg==",
+        "resolved": "8.0.17",
+        "contentHash": "0e89eGEP7OuhUzM34b9bOZ5REMrue+W1FD+U9DAE/CYNZxbDK0SF1MgkIOkQ2VSkG6ldDe7yTK2+fZenZBNOkQ==",
         "dependencies": {
           "System.IO.Pipelines": "8.0.0"
         }
@@ -844,8 +844,8 @@
         "dependencies": {
           "Brickmakers.AspSecurityHeaders": "[2.7.0, )",
           "Brickmakers.AspSecurityHeaders.Example": "[2.7.0, )",
-          "FluentAssertions": "[8.3.0, )",
-          "Microsoft.AspNetCore.Mvc.Testing": "[8.0.16, )",
+          "FluentAssertions": "[8.4.0, )",
+          "Microsoft.AspNetCore.Mvc.Testing": "[8.0.17, )",
           "Microsoft.NET.Test.Sdk": "[17.14.1, )",
           "System.Net.Http.Json": "[9.0.5, )",
           "xunit": "[2.9.3, )"
@@ -861,17 +861,17 @@
       },
       "FluentAssertions": {
         "type": "Direct",
-        "requested": "[8.3.0, )",
-        "resolved": "8.3.0",
-        "contentHash": "iri1druxHPUAvaFqTUKJG7NOHwnOLmWwfDorgezZWpeBWBJmk2o8niI7jL7zW9TEFGnUpMJi/JLG6FXgr3cM3A=="
+        "requested": "[8.4.0, )",
+        "resolved": "8.4.0",
+        "contentHash": "EL0ckSJMGfJTiDF0EFU48bV/iIsgFKCaHEpp5LxqjNO0RhfF3WxQuNWosX2L/Xwt8VRRLE8TgN4tSzTTiZAfdA=="
       },
       "Microsoft.AspNetCore.Mvc.Testing": {
         "type": "Direct",
-        "requested": "[8.0.16, )",
-        "resolved": "8.0.16",
-        "contentHash": "4L0zYc7VdfEjpMpl7RJWDyId78qybL47oBQa32kfkSCpSPewQWB102lwESM6FrhfsGNgDv+hHL1uGbax13LIVQ==",
+        "requested": "[8.0.17, )",
+        "resolved": "8.0.17",
+        "contentHash": "hVHxsQQHbhLqv71DXTjFjNsELXcJp/KiP79RyNQ3tqV3jUVvgoCxkacy4k5undGdlAgchisIG+hsX0flGSuP2g==",
         "dependencies": {
-          "Microsoft.AspNetCore.TestHost": "8.0.16",
+          "Microsoft.AspNetCore.TestHost": "8.0.17",
           "Microsoft.Extensions.DependencyModel": "8.0.2",
           "Microsoft.Extensions.Hosting": "8.0.1"
         }
@@ -981,8 +981,8 @@
       },
       "Microsoft.AspNetCore.TestHost": {
         "type": "Transitive",
-        "resolved": "8.0.16",
-        "contentHash": "+tM/7ggwHyiMn1QoFcSmYvldVpbUpWVUzZkAlqKfhAK9L/nhGrsXvhaLGCImP3IimTNRQ6eyNoPO2UUo0xGnBg==",
+        "resolved": "8.0.17",
+        "contentHash": "0e89eGEP7OuhUzM34b9bOZ5REMrue+W1FD+U9DAE/CYNZxbDK0SF1MgkIOkQ2VSkG6ldDe7yTK2+fZenZBNOkQ==",
         "dependencies": {
           "System.IO.Pipelines": "8.0.0"
         }
@@ -1688,8 +1688,8 @@
         "dependencies": {
           "Brickmakers.AspSecurityHeaders": "[2.7.0, )",
           "Brickmakers.AspSecurityHeaders.Example": "[2.7.0, )",
-          "FluentAssertions": "[8.3.0, )",
-          "Microsoft.AspNetCore.Mvc.Testing": "[8.0.16, )",
+          "FluentAssertions": "[8.4.0, )",
+          "Microsoft.AspNetCore.Mvc.Testing": "[8.0.17, )",
           "Microsoft.NET.Test.Sdk": "[17.14.1, )",
           "System.Net.Http.Json": "[9.0.5, )",
           "xunit": "[2.9.3, )"
