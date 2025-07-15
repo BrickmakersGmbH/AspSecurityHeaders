@@ -10,17 +10,17 @@
       },
       "FluentAssertions": {
         "type": "Direct",
-        "requested": "[8.3.0, )",
-        "resolved": "8.3.0",
-        "contentHash": "iri1druxHPUAvaFqTUKJG7NOHwnOLmWwfDorgezZWpeBWBJmk2o8niI7jL7zW9TEFGnUpMJi/JLG6FXgr3cM3A=="
+        "requested": "[8.5.0, )",
+        "resolved": "8.5.0",
+        "contentHash": "VN3eH+jnwSBbEDK1/Z7Sg8Mw6O/zHLKK58OueRpG4rIzLxtlJYTUkUieGee5C4Ymhjkiim0ag2H/0Nc8PfNmaA=="
       },
       "Microsoft.AspNetCore.Mvc.Testing": {
         "type": "Direct",
-        "requested": "[8.0.16, )",
-        "resolved": "8.0.16",
-        "contentHash": "4L0zYc7VdfEjpMpl7RJWDyId78qybL47oBQa32kfkSCpSPewQWB102lwESM6FrhfsGNgDv+hHL1uGbax13LIVQ==",
+        "requested": "[8.0.18, )",
+        "resolved": "8.0.18",
+        "contentHash": "QfMWUySY4rtLkzdqT/i431ZA+iydEc1pEZoFDpkpu8U9Lc6RlOoZvK4oBU47G+TxqNcHz4omf0JrCqpfL1wq6g==",
         "dependencies": {
-          "Microsoft.AspNetCore.TestHost": "8.0.16",
+          "Microsoft.AspNetCore.TestHost": "8.0.18",
           "Microsoft.Extensions.DependencyModel": "8.0.2",
           "Microsoft.Extensions.Hosting": "8.0.1"
         }
@@ -57,9 +57,9 @@
       },
       "xunit.runner.visualstudio": {
         "type": "Direct",
-        "requested": "[3.1.1, )",
-        "resolved": "3.1.1",
-        "contentHash": "gNu2zhnuwjq5vQlU4S7yK/lfaKZDLmtcu+vTjnhfTlMAUYn+Hmgu8IIX0UCwWepYkk+Szx03DHx1bDnc9Fd+9w=="
+        "requested": "[3.1.2, )",
+        "resolved": "3.1.2",
+        "contentHash": "0W1J4AFaswO3ycVWiN8ApgJFMXLJ7OuR9XmDeoWmjPF1pwMz0I8UnyIiwXcytyBYKjXD3M2cXbLmCTLToUg3TA=="
       },
       "Microsoft.AspNetCore.CookiePolicy": {
         "type": "Transitive",
@@ -102,8 +102,8 @@
       },
       "Microsoft.AspNetCore.TestHost": {
         "type": "Transitive",
-        "resolved": "8.0.16",
-        "contentHash": "+tM/7ggwHyiMn1QoFcSmYvldVpbUpWVUzZkAlqKfhAK9L/nhGrsXvhaLGCImP3IimTNRQ6eyNoPO2UUo0xGnBg==",
+        "resolved": "8.0.18",
+        "contentHash": "ofyg3Go9hNptZkZt6MXS2W8LTe+ayceXOebf3XTxywGHn9rbtg/cwXjwcMZ3e6On2p1eSEBtHUmdi6YWplXuSQ==",
         "dependencies": {
           "System.IO.Pipelines": "8.0.0"
         }
@@ -596,17 +596,17 @@
       },
       "FluentAssertions": {
         "type": "Direct",
-        "requested": "[8.3.0, )",
-        "resolved": "8.3.0",
-        "contentHash": "iri1druxHPUAvaFqTUKJG7NOHwnOLmWwfDorgezZWpeBWBJmk2o8niI7jL7zW9TEFGnUpMJi/JLG6FXgr3cM3A=="
+        "requested": "[8.5.0, )",
+        "resolved": "8.5.0",
+        "contentHash": "VN3eH+jnwSBbEDK1/Z7Sg8Mw6O/zHLKK58OueRpG4rIzLxtlJYTUkUieGee5C4Ymhjkiim0ag2H/0Nc8PfNmaA=="
       },
       "Microsoft.AspNetCore.Mvc.Testing": {
         "type": "Direct",
-        "requested": "[8.0.16, )",
-        "resolved": "8.0.16",
-        "contentHash": "4L0zYc7VdfEjpMpl7RJWDyId78qybL47oBQa32kfkSCpSPewQWB102lwESM6FrhfsGNgDv+hHL1uGbax13LIVQ==",
+        "requested": "[8.0.18, )",
+        "resolved": "8.0.18",
+        "contentHash": "QfMWUySY4rtLkzdqT/i431ZA+iydEc1pEZoFDpkpu8U9Lc6RlOoZvK4oBU47G+TxqNcHz4omf0JrCqpfL1wq6g==",
         "dependencies": {
-          "Microsoft.AspNetCore.TestHost": "8.0.16",
+          "Microsoft.AspNetCore.TestHost": "8.0.18",
           "Microsoft.Extensions.DependencyModel": "8.0.2",
           "Microsoft.Extensions.Hosting": "8.0.1"
         }
@@ -640,9 +640,9 @@
       },
       "xunit.runner.visualstudio": {
         "type": "Direct",
-        "requested": "[3.1.1, )",
-        "resolved": "3.1.1",
-        "contentHash": "gNu2zhnuwjq5vQlU4S7yK/lfaKZDLmtcu+vTjnhfTlMAUYn+Hmgu8IIX0UCwWepYkk+Szx03DHx1bDnc9Fd+9w=="
+        "requested": "[3.1.2, )",
+        "resolved": "3.1.2",
+        "contentHash": "0W1J4AFaswO3ycVWiN8ApgJFMXLJ7OuR9XmDeoWmjPF1pwMz0I8UnyIiwXcytyBYKjXD3M2cXbLmCTLToUg3TA=="
       },
       "Microsoft.AspNetCore.CookiePolicy": {
         "type": "Transitive",
@@ -685,8 +685,8 @@
       },
       "Microsoft.AspNetCore.TestHost": {
         "type": "Transitive",
-        "resolved": "8.0.16",
-        "contentHash": "+tM/7ggwHyiMn1QoFcSmYvldVpbUpWVUzZkAlqKfhAK9L/nhGrsXvhaLGCImP3IimTNRQ6eyNoPO2UUo0xGnBg==",
+        "resolved": "8.0.18",
+        "contentHash": "ofyg3Go9hNptZkZt6MXS2W8LTe+ayceXOebf3XTxywGHn9rbtg/cwXjwcMZ3e6On2p1eSEBtHUmdi6YWplXuSQ==",
         "dependencies": {
           "System.IO.Pipelines": "8.0.0"
         }
