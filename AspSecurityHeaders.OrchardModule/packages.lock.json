@@ -4,13 +4,13 @@
     "net8.0": {
       "OrchardCore.Module.Targets": {
         "type": "Direct",
-        "requested": "[2.1.7, )",
-        "resolved": "2.1.7",
-        "contentHash": "/kggoTnOUms/YTG/dFQVOScAFXCbpWwlI4ndYI7T3OFvPGkUAVCrKes5ZsXPwDACp8XEeup6yk+xiyBL+B1uwA==",
+        "requested": "[2.1.8, )",
+        "resolved": "2.1.8",
+        "contentHash": "6XgfVUfONXPitgvZNRy6eHuw5MtDU8pUbqzkKQNRg5t+gi8sYKRnM4R5+bWe5+c69QBGkYJamJGnLCIn+J5f5Q==",
         "dependencies": {
           "JsonPath.Net": "1.1.6",
           "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
-          "OrchardCore.Abstractions": "2.1.7",
+          "OrchardCore.Abstractions": "2.1.8",
           "ZString": "2.6.0"
         }
       },
@@ -128,8 +128,8 @@
       },
       "OrchardCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "2.1.7",
-        "contentHash": "b4nlMWRzGzm2JrpYhrN7hnSv7Es0scQsg9aCKKN9dh7qy2cyIWQGT1cfW6GzFXOYjjWMOKtwaFFMEWpwezcg/Q==",
+        "resolved": "2.1.8",
+        "contentHash": "+TackszBWIWBNQqzfwTMYTwAQxxEieb9eaJn0jOJNM37zm3rILN6kiszbOgz9exJWtyE7990biq8F0mgzZ1RoA==",
         "dependencies": {
           "JsonPath.Net": "1.1.6",
           "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
@@ -164,13 +164,13 @@
     "net9.0": {
       "OrchardCore.Module.Targets": {
         "type": "Direct",
-        "requested": "[2.1.7, )",
-        "resolved": "2.1.7",
-        "contentHash": "/kggoTnOUms/YTG/dFQVOScAFXCbpWwlI4ndYI7T3OFvPGkUAVCrKes5ZsXPwDACp8XEeup6yk+xiyBL+B1uwA==",
+        "requested": "[2.1.8, )",
+        "resolved": "2.1.8",
+        "contentHash": "6XgfVUfONXPitgvZNRy6eHuw5MtDU8pUbqzkKQNRg5t+gi8sYKRnM4R5+bWe5+c69QBGkYJamJGnLCIn+J5f5Q==",
         "dependencies": {
           "JsonPath.Net": "1.1.6",
           "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
-          "OrchardCore.Abstractions": "2.1.7",
+          "OrchardCore.Abstractions": "2.1.8",
           "ZString": "2.6.0"
         }
       },
@@ -288,8 +288,8 @@
       },
       "OrchardCore.Abstractions": {
         "type": "Transitive",
-        "resolved": "2.1.7",
-        "contentHash": "b4nlMWRzGzm2JrpYhrN7hnSv7Es0scQsg9aCKKN9dh7qy2cyIWQGT1cfW6GzFXOYjjWMOKtwaFFMEWpwezcg/Q==",
+        "resolved": "2.1.8",
+        "contentHash": "+TackszBWIWBNQqzfwTMYTwAQxxEieb9eaJn0jOJNM37zm3rILN6kiszbOgz9exJWtyE7990biq8F0mgzZ1RoA==",
         "dependencies": {
           "JsonPath.Net": "1.1.6",
           "Microsoft.IO.RecyclableMemoryStream": "3.0.1",
