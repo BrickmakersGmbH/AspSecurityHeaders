@@ -21,7 +21,7 @@ jobs:
           persist-credentials: false
           ref: ${{ inputs.ref }}
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
             9.0.x
@@ -50,7 +50,7 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
             9.0.x
@@ -82,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
             9.0.x
@@ -168,7 +168,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && needs.release.outputs.publish == 'true'
     steps:
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: 9.0.x
       - name: Download NuGet package
