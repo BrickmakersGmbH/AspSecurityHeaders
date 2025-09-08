@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         if: matrix.language == 'csharp'
         with:
           dotnet-version: |
