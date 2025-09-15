@@ -26,7 +26,7 @@
     <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.1.0" />
     <PackageReference
       Include="System.Text.Encodings.Web"
-      Version="9.0.7"
+      Version="9.0.9"
       Label="https://github.com/advisories/GHSA-ghhp-997w-qr28"
     />
   </ItemGroup>
