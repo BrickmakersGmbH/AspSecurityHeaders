@@ -4,7 +4,7 @@ using OrchardCore.Modules.Manifest;
     Name = "Brickmakers.AspSecurityHeaders.OrchardModule",
     Author = "BRICKMAKERS AG",
     Website = "https://www.brickmakers.de",
-    Version = "2.7.0",
+    Version = "2.7.1",
     Description = "An Orchard Core MVC module to automatically configure secure HTTP-Headers.",
     Category = "BRICKS",
     Tags = new[] { "Security", "Headers", "CSP" }
