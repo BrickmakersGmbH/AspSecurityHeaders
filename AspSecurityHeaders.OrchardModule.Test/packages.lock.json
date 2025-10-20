@@ -16,11 +16,11 @@
       },
       "Microsoft.AspNetCore.Mvc.Testing": {
         "type": "Direct",
-        "requested": "[8.0.20, )",
-        "resolved": "8.0.20",
-        "contentHash": "SH7TJnAZNwhLqbtXlqphC2+e+FQLXfn44v3ack/4aG/Hh5fIRjnpOGpvX6MpTH5c+xSJFgLhhiUwv6icWsDevg==",
+        "requested": "[8.0.21, )",
+        "resolved": "8.0.21",
+        "contentHash": "Wo0TYJzgmfo6IX8+GFA6coL862dompgdZMUZOSdz7FJFd4THGN8UgC+N4GvdPiogIBhTIPr1Mn+fH6edOuFN8w==",
         "dependencies": {
-          "Microsoft.AspNetCore.TestHost": "8.0.20",
+          "Microsoft.AspNetCore.TestHost": "8.0.21",
           "Microsoft.Extensions.DependencyModel": "8.0.2",
           "Microsoft.Extensions.Hosting": "8.0.1"
         }
@@ -130,8 +130,8 @@
       },
       "Microsoft.AspNetCore.TestHost": {
         "type": "Transitive",
-        "resolved": "8.0.20",
-        "contentHash": "+yfrZbv+1JVoTYe72duRGf45Rv4jSPhFEVoLnwQGoYJ6TgdkrSkGouf/93CUf1wBZ2oIroVyAU/Yq21Pxjn34w==",
+        "resolved": "8.0.21",
+        "contentHash": "vKsidR0DYeYKpyAbeWq/03ieN03l8JJdYtBNiaVuVaUQGucipmaPEgCYhXBz3e45r2VlrTdn3KJZ1XkBqMq4jQ==",
         "dependencies": {
           "System.IO.Pipelines": "8.0.0"
         }
@@ -845,7 +845,7 @@
           "Brickmakers.AspSecurityHeaders": "[2.7.1, )",
           "Brickmakers.AspSecurityHeaders.Example": "[2.7.1, )",
           "FluentAssertions": "[8.7.1, )",
-          "Microsoft.AspNetCore.Mvc.Testing": "[8.0.20, )",
+          "Microsoft.AspNetCore.Mvc.Testing": "[8.0.21, )",
           "Microsoft.NET.Test.Sdk": "[18.0.0, )",
           "System.Net.Http.Json": "[9.0.9, )",
           "xunit": "[2.9.3, )"
@@ -867,11 +867,11 @@
       },
       "Microsoft.AspNetCore.Mvc.Testing": {
         "type": "Direct",
-        "requested": "[8.0.20, )",
-        "resolved": "8.0.20",
-        "contentHash": "SH7TJnAZNwhLqbtXlqphC2+e+FQLXfn44v3ack/4aG/Hh5fIRjnpOGpvX6MpTH5c+xSJFgLhhiUwv6icWsDevg==",
+        "requested": "[8.0.21, )",
+        "resolved": "8.0.21",
+        "contentHash": "Wo0TYJzgmfo6IX8+GFA6coL862dompgdZMUZOSdz7FJFd4THGN8UgC+N4GvdPiogIBhTIPr1Mn+fH6edOuFN8w==",
         "dependencies": {
-          "Microsoft.AspNetCore.TestHost": "8.0.20",
+          "Microsoft.AspNetCore.TestHost": "8.0.21",
           "Microsoft.Extensions.DependencyModel": "8.0.2",
           "Microsoft.Extensions.Hosting": "8.0.1"
         }
@@ -981,8 +981,8 @@
       },
       "Microsoft.AspNetCore.TestHost": {
         "type": "Transitive",
-        "resolved": "8.0.20",
-        "contentHash": "+yfrZbv+1JVoTYe72duRGf45Rv4jSPhFEVoLnwQGoYJ6TgdkrSkGouf/93CUf1wBZ2oIroVyAU/Yq21Pxjn34w==",
+        "resolved": "8.0.21",
+        "contentHash": "vKsidR0DYeYKpyAbeWq/03ieN03l8JJdYtBNiaVuVaUQGucipmaPEgCYhXBz3e45r2VlrTdn3KJZ1XkBqMq4jQ==",
         "dependencies": {
           "System.IO.Pipelines": "8.0.0"
         }
@@ -1689,7 +1689,7 @@
           "Brickmakers.AspSecurityHeaders": "[2.7.1, )",
           "Brickmakers.AspSecurityHeaders.Example": "[2.7.1, )",
           "FluentAssertions": "[8.7.1, )",
-          "Microsoft.AspNetCore.Mvc.Testing": "[8.0.20, )",
+          "Microsoft.AspNetCore.Mvc.Testing": "[8.0.21, )",
           "Microsoft.NET.Test.Sdk": "[18.0.0, )",
           "System.Net.Http.Json": "[9.0.9, )",
           "xunit": "[2.9.3, )"
