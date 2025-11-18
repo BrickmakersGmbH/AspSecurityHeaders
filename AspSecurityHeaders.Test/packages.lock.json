@@ -576,7 +576,7 @@
           "Microsoft.AspNetCore.CookiePolicy": "[2.3.0, )",
           "Microsoft.AspNetCore.Http.Abstractions": "[2.3.0, )",
           "NetEscapades.AspNetCore.SecurityHeaders": "[1.2.0, )",
-          "System.Text.Encodings.Web": "[9.0.9, )"
+          "System.Text.Encodings.Web": "[10.0.0, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Example": {
@@ -1162,7 +1162,7 @@
           "Microsoft.AspNetCore.CookiePolicy": "[2.3.0, )",
           "Microsoft.AspNetCore.Http.Abstractions": "[2.3.0, )",
           "NetEscapades.AspNetCore.SecurityHeaders": "[1.2.0, )",
-          "System.Text.Encodings.Web": "[9.0.9, )"
+          "System.Text.Encodings.Web": "[10.0.0, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Example": {
