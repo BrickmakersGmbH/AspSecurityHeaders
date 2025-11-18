@@ -836,7 +836,7 @@
         "dependencies": {
           "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.7.1, )",
           "OrchardCore.Application.Mvc.Targets": "[2.2.1, )",
-          "System.Text.Json": "[9.0.9, )"
+          "System.Text.Json": "[10.0.0, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Test": {
@@ -1687,7 +1687,7 @@
         "dependencies": {
           "Brickmakers.AspSecurityHeaders.OrchardModule": "[2.7.1, )",
           "OrchardCore.Application.Mvc.Targets": "[2.2.1, )",
-          "System.Text.Json": "[9.0.9, )"
+          "System.Text.Json": "[10.0.0, )"
         }
       },
       "Brickmakers.AspSecurityHeaders.Test": {
