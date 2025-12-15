@@ -102,7 +102,7 @@ jobs:
         run: dotnet pack --no-restore --no-build --configuration Release
         working-directory: ${{ matrix.project }}
       - name: Upload NuGet package as artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: Brickmakers.${{ matrix.project }}
           path: |
