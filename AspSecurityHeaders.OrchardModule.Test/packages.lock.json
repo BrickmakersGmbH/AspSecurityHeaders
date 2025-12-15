@@ -709,8 +709,8 @@
       },
       "System.IO.Pipelines": {
         "type": "Transitive",
-        "resolved": "10.0.0",
-        "contentHash": "M1eb3nfXntaRJPrrMVM9EFS8I1bDTnt0uvUS6QP/SicZf/ZZjydMD5NiXxfmwW/uQwaMDP/yX2P+zQN1NBHChg=="
+        "resolved": "10.0.1",
+        "contentHash": "26LbFXHKd7PmRnWlkjnYgmjd5B6HYVG+1MpTO25BdxTJnx6D0O16JPAC/S4YBqjtt4YpfGj1QO/Ss6SPMGEGQw=="
       },
       "System.Memory": {
         "type": "Transitive",
@@ -719,10 +719,10 @@
       },
       "System.Net.Http.Json": {
         "type": "Transitive",
-        "resolved": "10.0.0",
-        "contentHash": "aPu3f7W6+bSyAVoeNdhMRHEvaTRqJHDtwNY8svj7aEiveG1qzqXK4XHM6BvPsJDdfDmsH38QVfjuSxGmiglQaA==",
+        "resolved": "10.0.1",
+        "contentHash": "XGOWt78ccgO9esyNlCemlS2b8JZPrH85pk/MvdHJxp6KwwUY/GnDaw2fPpJa7lgotiTkWnXnhip+ULNKaP7a8A==",
         "dependencies": {
-          "System.Text.Json": "10.0.0"
+          "System.Text.Json": "10.0.1"
         }
       },
       "System.Reflection.Metadata": {
@@ -749,16 +749,16 @@
       },
       "System.Text.Encodings.Web": {
         "type": "Transitive",
-        "resolved": "10.0.0",
-        "contentHash": "257hh1ep1Gqm1Lm0ulxf7vVBVMJuGN6EL4xSWjpi46DffXzm1058IiWsfSC06zSm7SniN+Tb5160UnXsSa8rRg=="
+        "resolved": "10.0.1",
+        "contentHash": "cVAka0o1rJJ5/De0pjNs7jcaZk5hUGf1HGzUyVmE2MEB1Vf0h/8qsWxImk1zjitCbeD2Avaq2P2+usdvqgbeVQ=="
       },
       "System.Text.Json": {
         "type": "Transitive",
-        "resolved": "10.0.0",
-        "contentHash": "1Dpjwq9peG/Wt5BNbrzIhTpclfOSqBWZsUO28vVr59yQlkvL5jLBWfpfzRmJ1OY+6DciaY0DUcltyzs4fuZHjw==",
+        "resolved": "10.0.1",
+        "contentHash": "EsgwDgU1PFqhrFA9l5n+RBu76wFhNGCEwu8ITrBNhjPP3MxLyklroU5GIF8o6JYpYg6T4KD/VICfMdgPAvNp5g==",
         "dependencies": {
-          "System.IO.Pipelines": "10.0.0",
-          "System.Text.Encodings.Web": "10.0.0"
+          "System.IO.Pipelines": "10.0.1",
+          "System.Text.Encodings.Web": "10.0.1"
         }
       },
       "System.Threading.Tasks.Extensions": {
@@ -850,7 +850,7 @@
           "FluentAssertions": "[8.8.0, )",
           "Microsoft.AspNetCore.Mvc.Testing": "[8.0.22, )",
           "Microsoft.NET.Test.Sdk": "[18.0.1, )",
-          "System.Net.Http.Json": "[10.0.0, )",
+          "System.Net.Http.Json": "[10.0.1, )",
           "xunit": "[2.9.3, )"
         }
       }
@@ -1563,8 +1563,8 @@
       },
       "System.IO.Pipelines": {
         "type": "Transitive",
-        "resolved": "10.0.0",
-        "contentHash": "M1eb3nfXntaRJPrrMVM9EFS8I1bDTnt0uvUS6QP/SicZf/ZZjydMD5NiXxfmwW/uQwaMDP/yX2P+zQN1NBHChg=="
+        "resolved": "10.0.1",
+        "contentHash": "26LbFXHKd7PmRnWlkjnYgmjd5B6HYVG+1MpTO25BdxTJnx6D0O16JPAC/S4YBqjtt4YpfGj1QO/Ss6SPMGEGQw=="
       },
       "System.Memory": {
         "type": "Transitive",
@@ -1573,10 +1573,10 @@
       },
       "System.Net.Http.Json": {
         "type": "Transitive",
-        "resolved": "10.0.0",
-        "contentHash": "aPu3f7W6+bSyAVoeNdhMRHEvaTRqJHDtwNY8svj7aEiveG1qzqXK4XHM6BvPsJDdfDmsH38QVfjuSxGmiglQaA==",
+        "resolved": "10.0.1",
+        "contentHash": "XGOWt78ccgO9esyNlCemlS2b8JZPrH85pk/MvdHJxp6KwwUY/GnDaw2fPpJa7lgotiTkWnXnhip+ULNKaP7a8A==",
         "dependencies": {
-          "System.Text.Json": "10.0.0"
+          "System.Text.Json": "10.0.1"
         }
       },
       "System.Reflection.Metadata": {
@@ -1603,16 +1603,16 @@
       },
       "System.Text.Encodings.Web": {
         "type": "Transitive",
-        "resolved": "10.0.0",
-        "contentHash": "257hh1ep1Gqm1Lm0ulxf7vVBVMJuGN6EL4xSWjpi46DffXzm1058IiWsfSC06zSm7SniN+Tb5160UnXsSa8rRg=="
+        "resolved": "10.0.1",
+        "contentHash": "cVAka0o1rJJ5/De0pjNs7jcaZk5hUGf1HGzUyVmE2MEB1Vf0h/8qsWxImk1zjitCbeD2Avaq2P2+usdvqgbeVQ=="
       },
       "System.Text.Json": {
         "type": "Transitive",
-        "resolved": "10.0.0",
-        "contentHash": "1Dpjwq9peG/Wt5BNbrzIhTpclfOSqBWZsUO28vVr59yQlkvL5jLBWfpfzRmJ1OY+6DciaY0DUcltyzs4fuZHjw==",
+        "resolved": "10.0.1",
+        "contentHash": "EsgwDgU1PFqhrFA9l5n+RBu76wFhNGCEwu8ITrBNhjPP3MxLyklroU5GIF8o6JYpYg6T4KD/VICfMdgPAvNp5g==",
         "dependencies": {
-          "System.IO.Pipelines": "10.0.0",
-          "System.Text.Encodings.Web": "10.0.0"
+          "System.IO.Pipelines": "10.0.1",
+          "System.Text.Encodings.Web": "10.0.1"
         }
       },
       "System.Threading.Tasks.Extensions": {
@@ -1704,7 +1704,7 @@
           "FluentAssertions": "[8.8.0, )",
           "Microsoft.AspNetCore.Mvc.Testing": "[8.0.22, )",
           "Microsoft.NET.Test.Sdk": "[18.0.1, )",
-          "System.Net.Http.Json": "[10.0.0, )",
+          "System.Net.Http.Json": "[10.0.1, )",
           "xunit": "[2.9.3, )"
         }
       }
