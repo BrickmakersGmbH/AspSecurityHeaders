@@ -4,9 +4,9 @@
     "net8.0": {
       "Microsoft.AspNetCore.CookiePolicy": {
         "type": "Direct",
-        "requested": "[2.3.0, )",
-        "resolved": "2.3.0",
-        "contentHash": "qt9einpfocg8RNK0zA6jCZy03QOhdDmjDFDN0OrlgfqWd3DYtIXCIKyzYKwDZ8IH2Yzam+LKcRXikq9No4C2ag==",
+        "requested": "[2.3.9, )",
+        "resolved": "2.3.9",
+        "contentHash": "4OtTN9t6uwGN1gQ3KAn531HcMlOxlHTxcsUL2LYwKxQ5DdcVFHrqIpsF74tLPNL168bJTxEeDVXFSA31N3SEiw==",
         "dependencies": {
           "Microsoft.AspNetCore.Http": "2.3.0",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
@@ -114,9 +114,9 @@
     "net9.0": {
       "Microsoft.AspNetCore.CookiePolicy": {
         "type": "Direct",
-        "requested": "[2.3.0, )",
-        "resolved": "2.3.0",
-        "contentHash": "qt9einpfocg8RNK0zA6jCZy03QOhdDmjDFDN0OrlgfqWd3DYtIXCIKyzYKwDZ8IH2Yzam+LKcRXikq9No4C2ag==",
+        "requested": "[2.3.9, )",
+        "resolved": "2.3.9",
+        "contentHash": "4OtTN9t6uwGN1gQ3KAn531HcMlOxlHTxcsUL2LYwKxQ5DdcVFHrqIpsF74tLPNL168bJTxEeDVXFSA31N3SEiw==",
         "dependencies": {
           "Microsoft.AspNetCore.Http": "2.3.0",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.2",
