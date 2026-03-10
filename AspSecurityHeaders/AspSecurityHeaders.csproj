@@ -22,7 +22,7 @@
   </ItemGroup>
   <ItemGroup Label="Dependencies">
     <PackageReference Include="Microsoft.AspNetCore.CookiePolicy" Version="2.3.9" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.9" />
     <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.2.0" />
     <PackageReference
       Include="System.Text.Encodings.Web"
