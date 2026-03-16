@@ -11,6 +11,6 @@
     <ProjectReference Include="..\AspSecurityHeaders\AspSecurityHeaders.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.5" />
   </ItemGroup>
 </Project>
